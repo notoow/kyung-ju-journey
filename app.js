@@ -595,24 +595,33 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   loadMessages();
 
-  // 모바일 메뉴 토글
+  // 모바일 메뉴 토글 및 자동 닫힘 처리
   const mobileToggle = document.getElementById("mobile-menu-toggle");
   const navMenu = document.getElementById("nav-menu");
+  
   if (mobileToggle && navMenu) {
-    mobileToggle.addEventListener("click", () => {
-      if (navMenu.style.display === "flex") {
-        navMenu.style.display = "none";
-      } else {
-        navMenu.style.display = "flex";
-        navMenu.style.flexDirection = "column";
-        navMenu.style.position = "absolute";
-        navMenu.style.top = "68px";
-        navMenu.style.left = "0";
-        navMenu.style.right = "0";
-        navMenu.style.background = "#ffffff";
-        navMenu.style.padding = "20px";
-        navMenu.style.boxShadow = "0 10px 20px rgba(0,0,0,0.1)";
-        navMenu.style.borderBottom = "1px solid var(--border-color)";
+    mobileToggle.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const isOpen = navMenu.classList.toggle("open");
+      mobileToggle.innerHTML = isOpen ? '<i class="fa-solid fa-xmark"></i>' : '<i class="fa-solid fa-bars"></i>';
+    });
+
+    // 모바일 메뉴 내 링크 클릭 시 메뉴 닫기
+    const navLinks = navMenu.querySelectorAll(".nav-link");
+    navLinks.forEach(link => {
+      link.addEventListener("click", () => {
+        if (navMenu.classList.contains("open")) {
+          navMenu.classList.remove("open");
+          mobileToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
+        }
+      });
+    });
+
+    // 화면 바깥 클릭 시 메뉴 닫기
+    document.addEventListener("click", (e) => {
+      if (navMenu.classList.contains("open") && !navMenu.contains(e.target) && !mobileToggle.contains(e.target)) {
+        navMenu.classList.remove("open");
+        mobileToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
       }
     });
   }
