@@ -30,7 +30,7 @@
   --radius-lg: 24px;
   --radius-full: 9999px;
   
-  --font-serif: "Noto Serif KR", "Batang", serif;
+  --font-serif: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-sans: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Apple SD Gothic Neo", sans-serif;
 }
 
@@ -40,6 +40,7 @@
   margin: 0;
   padding: 0;
   -webkit-tap-highlight-color: transparent;
+  font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
 }
 
 html {
@@ -1038,17 +1039,24 @@ img {
 
 .place-actions {
   display: flex;
+  flex-direction: column;
   gap: 8px;
-  padding-top: 12px;
+  padding-top: 14px;
   border-top: 1px solid var(--border-light);
+}
+
+.place-map-links-row {
+  display: flex;
+  gap: 8px;
+  width: 100%;
 }
 
 .btn-place-action {
   flex: 1;
-  padding: 8px 10px;
+  padding: 9px 12px;
   border-radius: var(--radius-full);
-  font-size: 0.8rem;
-  font-weight: 600;
+  font-size: 0.82rem;
+  font-weight: 700;
   text-align: center;
   border: 1px solid var(--border-color);
   background: var(--bg-card);
@@ -1057,12 +1065,36 @@ img {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 5px;
+  gap: 6px;
+  cursor: pointer;
 }
 
 .btn-place-action:hover {
   background: var(--bg-card-subtle);
   border-color: var(--secondary-color);
+  transform: translateY(-1px);
+}
+
+.btn-place-action.kakao-direct {
+  background: #fee500;
+  color: #191919;
+  border-color: #fada0a;
+}
+
+.btn-place-action.kakao-direct:hover {
+  background: #fada0a;
+  box-shadow: 0 4px 10px rgba(254, 229, 0, 0.4);
+}
+
+.btn-place-action.naver-direct {
+  background: #03c75a;
+  color: #ffffff;
+  border-color: #02b150;
+}
+
+.btn-place-action.naver-direct:hover {
+  background: #02b150;
+  box-shadow: 0 4px 10px rgba(3, 199, 90, 0.35);
 }
 
 .btn-place-action.primary {
