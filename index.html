@@ -7,7 +7,7 @@
 
   <!-- Open Graph Meta Tags (카카오톡 및 SNS 공유용 - 석굴암 실루엣 텍스트 썸네일) -->
   <meta property="og:title" content="🌸 아빠 박재성 님의 환갑 기념 경주 가족 여행" />
-  <meta property="og:description" content="10월 24일~26일(2박 3일) 온 가족이 함께하는 천년고도 경주 힐링 여행! 숙소(스테이 시래), 첨성대·불국사 등 8대 관광지, 수리뫼·부부수산 맛집 총정리" />
+  <meta property="og:description" content="10월 24일~26일(2박 3일) 온 가족이 함께하는 천년고도 경주 힐링 여행! 숙소(스테이 시래), 첨성대·불국사 등 8대 관광지, 수리뫼·부부수산·프라메리 케이크 총정리" />
   <meta property="og:image" content="og-image.svg" />
   <meta property="og:image:type" content="image/svg+xml" />
   <meta property="og:type" content="website" />
@@ -194,7 +194,7 @@
       <div class="section-head">
         <span class="section-tag">Interactive Map</span>
         <h2 class="section-title">경주 여행 한눈에 보는 통합 지도</h2>
-        <p class="section-desc">숙소 '스테이 시래'와 8대 관광지, 수리뫼·부부수산 등 5곳의 맛집 위치와 추천 동선을 한 장의 지도에서 확인하세요.</p>
+        <p class="section-desc">숙소 '스테이 시래'와 8대 관광지, 수리뫼·부부수산·프라메리 케이크 등 모든 스팟을 한 장의 지도에서 확인하세요.</p>
       </div>
 
       <div class="map-wrapper-card">
@@ -206,11 +206,11 @@
           </div>
 
           <div class="filter-btn-group">
-            <button class="filter-btn active" data-filter="all">전체 보기 (14곳)</button>
+            <button class="filter-btn active" data-filter="all">전체 보기 (15곳)</button>
             <button class="filter-btn" data-filter="stay">🏡 숙소 (스테이 시래)</button>
             <button class="filter-btn" data-filter="tour">🏛️ 관광 명소 (8곳)</button>
-            <button class="filter-btn" data-filter="food">🍱 추천 맛집 (5곳)</button>
-            <button class="filter-btn" data-filter="day1">🚗 1일차 동선 (수리뫼·대게만찬·야경)</button>
+            <button class="filter-btn" data-filter="food">🍱 추천 맛집 & 케이크</button>
+            <button class="filter-btn" data-filter="day1">🚗 1일차 동선 (수리뫼·케이크·대게만찬·야경)</button>
             <button class="filter-btn" data-filter="day2">🚗 2일차 동선 (불국사·보문단지·황리단)</button>
           </div>
         </div>
@@ -219,9 +219,7 @@
         <div id="gyeongju-map"></div>
 
         <!-- Quick Location Selector Grid -->
-        <div class="map-quick-grid" id="map-quick-grid">
-          <!-- Dynamically populated by JS -->
-        </div>
+        <div class="map-quick-grid" id="map-quick-grid"></div>
       </div>
     </div>
   </section>
@@ -238,10 +236,9 @@
       <div class="stay-hero-card">
         <div class="stay-gallery">
           <img
-            src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1200&q=80"
-            alt="스테이 시래 외관 및 한옥 정원"
+            src="assets/images/stay_sirae.jpg"
+            alt="스테이 시래 외관 및 한옥 정원 실사"
             class="stay-main-img"
-            onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=1200&q=80';"
           />
           <div class="stay-badge-overlay">
             <i class="fa-solid fa-house-chimney-window"></i> 프라이빗 최고급 독채 한옥
@@ -254,7 +251,7 @@
             <h3 class="stay-title">스테이 시래</h3>
             <p class="stay-desc">
               신라의 옛 정취와 모던한 감성이 공존하는 프라이빗 독채 한옥 숙소입니다.
-              숙소 컨디션이 매우 훌륭하여, 첫날 저녁 감포 부부수산에서 포장해 온 싱싱한 대게와 모듬회 세트로
+              숙소 컨디션이 매우 훌륭하여, 첫날 15시 프라메리에서 픽업한 환갑 맞춤 케이크와 감포 부부수산에서 포장해 온 싱싱한 대게·모듬회 세트로
               우리 가족만의 프라이빗하고 럭셔리한 환갑 축하 만찬을 즐기기에 더할 나위 없이 완벽합니다.
             </p>
 
@@ -280,14 +277,14 @@
 
           <div class="stay-actions">
             <button class="btn-copy-address" onclick="copyToClipboard('경상북도 경주시 시동로 122', '스테이 시래 주소')">
-              <i class="fa-regular fa-copy"></i> 주소 복사하기
+              <i class="fa-regular fa-copy"></i> 주소 복사
             </button>
             <div class="place-map-links-row">
               <a href="https://map.kakao.com/link/search/경주시 시동로 122" target="_blank" rel="noopener noreferrer" class="btn-place-action kakao-direct">
-                🟡 카카오맵 바로 열기
+                <i class="fa-solid fa-location-arrow"></i> 카카오맵
               </a>
               <a href="https://map.naver.com/v5/search/경주시 시동로 122" target="_blank" rel="noopener noreferrer" class="btn-place-action naver-direct">
-                🟢 네이버 지도 바로 열기
+                <i class="fa-solid fa-map"></i> 네이버지도
               </a>
             </div>
             <button class="btn-place-action" onclick="focusOnMapItem('stay-sirae')">
@@ -299,13 +296,13 @@
     </div>
   </section>
 
-  <!-- Attractions Section (8대 관광 명소) -->
+  <!-- Attractions Section (8대 관광 명소 - 100% 실사 사진 연동) -->
   <section class="places-section" id="attractions">
     <div class="container">
       <div class="section-head">
         <span class="section-tag">Historical & Scenic Spots</span>
         <h2 class="section-title">경주 8대 핵심 관광 명소</h2>
-        <p class="section-desc">첨성대, 불국사부터 보문관광단지, 경주타워, 경주월드까지! 각 카드를 클릭하면 카카오맵/네이버 지도로 바로 길찾기가 연결됩니다.</p>
+        <p class="section-desc">모든 장소는 실제 경주 현장 사진으로 연결되어 있으며, 버튼을 누르면 카카오맵과 네이버 지도로 바로 길찾기가 연결됩니다.</p>
       </div>
 
       <div class="places-grid">
@@ -313,10 +310,9 @@
         <article class="place-card">
           <div class="place-img-wrap">
             <img
-              src="https://images.unsplash.com/photo-1548115184-bc6544d06a58?auto=format&fit=crop&w=800&q=80"
-              alt="첨성대 전경과 신라의 밤하늘"
+              src="assets/images/cheomseongdae.jpg"
+              alt="실제 경주 첨성대 전경"
               class="place-img"
-              onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1578637387939-43c525550085?auto=format&fit=crop&w=800&q=80';"
             />
             <div class="place-badge-rating">★ 4.7</div>
             <div class="place-badge-category">📍 국보 제31호 · 랜드마크</div>
@@ -330,18 +326,18 @@
             </div>
             <p class="place-desc">
               신라 선덕여왕 때 건립된 동양에서 가장 오래된 천문 관측대입니다.
-              주변으로 드넓게 조성된 잔디밭과 계절 야생화 꽃밭이 아름다워 부모님과 함께 평화롭게 거닐며 가족 기념사진을 남기기 좋습니다.
+              주변으로 드넓게 조성된 잔디밭과 계절 꽃밭이 어우러져 부모님과 함께 거닐며 가족 기념사진을 남기기 좋습니다.
             </p>
             <div class="place-tip-box">
-              💡 <strong>관람 팁:</strong> 대릉원 후문에서 도보 5분 거리! 낮의 푸른 잔디와 해 질 녘 은은한 조명이 켜지는 시간대 모두 매력적입니다.
+              💡 <strong>관람 팁:</strong> 대릉원 후문에서 도보 5분 거리! 낮의 푸른 잔디와 해 질 녘 조명이 켜지는 시간대 모두 매력적입니다.
             </div>
             <div class="place-actions">
               <div class="place-map-links-row">
                 <a href="https://map.kakao.com/link/search/경주 첨성대" target="_blank" rel="noopener noreferrer" class="btn-place-action kakao-direct">
-                  🟡 카카오맵 바로 열기
+                  <i class="fa-solid fa-location-arrow"></i> 카카오맵
                 </a>
                 <a href="https://map.naver.com/v5/search/경주 첨성대" target="_blank" rel="noopener noreferrer" class="btn-place-action naver-direct">
-                  🟢 네이버 지도 바로 열기
+                  <i class="fa-solid fa-map"></i> 네이버지도
                 </a>
               </div>
               <div style="display: flex; gap: 8px;">
@@ -360,10 +356,9 @@
         <article class="place-card">
           <div class="place-img-wrap">
             <img
-              src="https://images.unsplash.com/photo-1578637387939-43c525550085?auto=format&fit=crop&w=800&q=80"
-              alt="불국사 청운교 백운교 및 대웅전"
+              src="assets/images/bulguksa.jpg"
+              alt="실제 경주 불국사 대웅전 및 청운교 백운교"
               class="place-img"
-              onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80';"
             />
             <div class="place-badge-rating">★ 4.6</div>
             <div class="place-badge-category">📍 유네스코 세계유산 · 사찰</div>
@@ -380,15 +375,15 @@
               국보 다보탑과 석가탑, 청운교·백운교를 둘러보며 고즈넉한 고도의 운치와 장엄함을 느낄 수 있습니다.
             </p>
             <div class="place-tip-box">
-              💡 <strong>관람 팁:</strong> 숙소인 스테이 시래에서 차로 단 5분 거리! 아침 9시경 방문하시면 맑은 공기와 고요한 사찰 분위기를 온전히 누릴 수 있습니다.
+              💡 <strong>관람 팁:</strong> 숙소 스테이 시래에서 차로 단 5분 거리! 아침 9시경 방문하시면 맑은 공기와 고요한 사찰 분위기를 만끽할 수 있습니다.
             </div>
             <div class="place-actions">
               <div class="place-map-links-row">
                 <a href="https://map.kakao.com/link/search/불국사" target="_blank" rel="noopener noreferrer" class="btn-place-action kakao-direct">
-                  🟡 카카오맵 바로 열기
+                  <i class="fa-solid fa-location-arrow"></i> 카카오맵
                 </a>
                 <a href="https://map.naver.com/v5/search/불국사" target="_blank" rel="noopener noreferrer" class="btn-place-action naver-direct">
-                  🟢 네이버 지도 바로 열기
+                  <i class="fa-solid fa-map"></i> 네이버지도
                 </a>
               </div>
               <div style="display: flex; gap: 8px;">
@@ -407,10 +402,9 @@
         <article class="place-card">
           <div class="place-img-wrap">
             <img
-              src="https://images.unsplash.com/photo-1548115184-bc6544d06a58?auto=format&fit=crop&w=800&q=80"
-              alt="동궁과 월지 연못 물결에 비친 화려한 야경"
+              src="assets/images/donggung.jpg"
+              alt="실제 경주 동궁과 월지 환상적인 연못 야경"
               class="place-img"
-              onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1578637387939-43c525550085?auto=format&fit=crop&w=800&q=80';"
             />
             <div class="place-badge-rating">★ 4.5</div>
             <div class="place-badge-category">🏛️ 경주 최고의 야경 명소</div>
@@ -427,15 +421,15 @@
               밤이 되면 조명이 연못 물결에 반사되어 물속에 궁궐이 잠긴 듯 몽환적인 풍경을 연출합니다.
             </p>
             <div class="place-tip-box">
-              💡 <strong>관람 팁:</strong> 1일차 저녁 식사 후 일몰 직후 방문하시면 황금빛 조명과 하늘빛이 어우러지는 최고의 가족사진을 남기실 수 있습니다.
+              💡 <strong>관람 팁:</strong> 1일차 대게 파티 후 저녁 7~8시경 방문하시면 황금빛 조명과 하늘빛이 어우러지는 최고의 가족사진을 남기실 수 있습니다.
             </div>
             <div class="place-actions">
               <div class="place-map-links-row">
                 <a href="https://map.kakao.com/link/search/동궁과월지" target="_blank" rel="noopener noreferrer" class="btn-place-action kakao-direct">
-                  🟡 카카오맵 바로 열기
+                  <i class="fa-solid fa-location-arrow"></i> 카카오맵
                 </a>
                 <a href="https://map.naver.com/v5/search/동궁과월지" target="_blank" rel="noopener noreferrer" class="btn-place-action naver-direct">
-                  🟢 네이버 지도 바로 열기
+                  <i class="fa-solid fa-map"></i> 네이버지도
                 </a>
               </div>
               <div style="display: flex; gap: 8px;">
@@ -450,14 +444,13 @@
           </div>
         </article>
 
-        <!-- 4. 대릉원 & 천마총 -->
+        <!-- 4. 대릉원 & 천마총 (실제 대릉원 고분 실사 연동 완료) -->
         <article class="place-card">
           <div class="place-img-wrap">
             <img
-              src="https://images.unsplash.com/photo-1583083527882-4bee9aba2eea?auto=format&fit=crop&w=800&q=80"
-              alt="대릉원 푸른 잔디 고분 능선"
+              src="assets/images/daereungwon.jpg"
+              alt="실제 경주 대릉원 거대 신라 고분 능선 실사"
               class="place-img"
-              onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1548115184-bc6544d06a58?auto=format&fit=crop&w=800&q=80';"
             />
             <div class="place-badge-rating">★ 4.5</div>
             <div class="place-badge-category">🌿 신라 고분군 & 산책 정원</div>
@@ -470,19 +463,19 @@
               </div>
             </div>
             <p class="place-desc">
-              신라 시대 왕과 귀족들의 거대한 고분 23기가 모여 있는 정원입니다.
+              신라 시대 왕과 귀족들의 거대한 고분 23기가 모여 있는 역사 정원입니다.
               내부 관람이 가능한 천마총과 푸른 잔디 능선 사이로 이어진 평탄한 산책로, 유명한 목련 포토존이 자리하고 있습니다.
             </p>
             <div class="place-tip-box">
-              💡 <strong>관람 팁:</strong> 계단이 없어 부모님과 산책하기 최적입니다. 후문으로 나가면 바로 황리단길 카페거리와 이어집니다.
+              💡 <strong>관람 팁:</strong> 계단이 없어 부모님과 산책하기 최적입니다. 후문으로 나가면 바로 황리단길 카페거리와 프라메리 케이크 픽업지로 이어집니다.
             </div>
             <div class="place-actions">
               <div class="place-map-links-row">
                 <a href="https://map.kakao.com/link/search/경주 대릉원" target="_blank" rel="noopener noreferrer" class="btn-place-action kakao-direct">
-                  🟡 카카오맵 바로 열기
+                  <i class="fa-solid fa-location-arrow"></i> 카카오맵
                 </a>
                 <a href="https://map.naver.com/v5/search/경주 대릉원" target="_blank" rel="noopener noreferrer" class="btn-place-action naver-direct">
-                  🟢 네이버 지도 바로 열기
+                  <i class="fa-solid fa-map"></i> 네이버지도
                 </a>
               </div>
               <div style="display: flex; gap: 8px;">
@@ -501,10 +494,9 @@
         <article class="place-card">
           <div class="place-img-wrap">
             <img
-              src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80"
-              alt="보문관광단지 보문호수와 힐링 산책로"
+              src="assets/images/bomun.jpg"
+              alt="실제 경주 보문관광단지 보문호수 풍경"
               class="place-img"
-              onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80';"
             />
             <div class="place-badge-rating">★ 4.5</div>
             <div class="place-badge-category">🌊 호반 산책로 & 힐링 드라이브</div>
@@ -517,8 +509,8 @@
               </div>
             </div>
             <p class="place-desc">
-              약 50만 평에 이르는 거대한 인공호수 보문호를 중심으로 조성된 종합 관광 휴양지구입니다.
-              호숫가를 따라 이어지는 산책로와 드라이브 코스, 감성 카페들이 즐비하여 여유로운 힐링을 선사합니다.
+              거대한 보문호를 중심으로 조성된 종합 관광 휴양지구입니다.
+              호숫가를 따라 이어지는 산책로와 드라이브 코스, 오리배 선착장과 감성 카페들이 즐비하여 여유로운 힐링을 선사합니다.
             </p>
             <div class="place-tip-box">
               💡 <strong>관람 팁:</strong> 2일차 함양집에서 점심 식사 후 보문호수 둘레길을 가볍게 산책하거나 오리배를 타며 낭만을 즐기기 좋습니다.
@@ -526,10 +518,10 @@
             <div class="place-actions">
               <div class="place-map-links-row">
                 <a href="https://map.kakao.com/link/search/보문관광단지" target="_blank" rel="noopener noreferrer" class="btn-place-action kakao-direct">
-                  🟡 카카오맵 바로 열기
+                  <i class="fa-solid fa-location-arrow"></i> 카카오맵
                 </a>
                 <a href="https://map.naver.com/v5/search/보문관광단지" target="_blank" rel="noopener noreferrer" class="btn-place-action naver-direct">
-                  🟢 네이버 지도 바로 열기
+                  <i class="fa-solid fa-map"></i> 네이버지도
                 </a>
               </div>
               <div style="display: flex; gap: 8px;">
@@ -548,10 +540,9 @@
         <article class="place-card">
           <div class="place-img-wrap">
             <img
-              src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80"
-              alt="경주타워 82m 황룡사 목탑 음각화 외관"
+              src="assets/images/gyeongjutower.jpg"
+              alt="실제 경주타워 82m 황룡사 목탑 음각 외관"
               class="place-img"
-              onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1578637387939-43c525550085?auto=format&fit=crop&w=800&q=80';"
             />
             <div class="place-badge-rating">★ 4.5</div>
             <div class="place-badge-category">🗼 82m 신라 목탑 랜드마크</div>
@@ -565,7 +556,7 @@
             </div>
             <p class="place-desc">
               신라 황룡사 9층 목탑 실루엣을 유리 타워 중앙에 음각으로 투각한 높이 82m의 현대 건축 걸작입니다.
-              엘리베이터를 타고 최고층 전망대에 오르면 보문관광단지와 보문호가 360도로 한눈에 펼쳐집니다.
+              최고층 전망대에 오르면 보문관광단지와 보문호가 360도로 한눈에 펼쳐집니다.
             </p>
             <div class="place-tip-box">
               💡 <strong>관람 팁:</strong> 타워 내부 스카이워크 유리바닥 포토존과 솔거미술관 산책로가 연결되어 부모님 만족도가 매우 높습니다.
@@ -573,10 +564,10 @@
             <div class="place-actions">
               <div class="place-map-links-row">
                 <a href="https://map.kakao.com/link/search/경주타워" target="_blank" rel="noopener noreferrer" class="btn-place-action kakao-direct">
-                  🟡 카카오맵 바로 열기
+                  <i class="fa-solid fa-location-arrow"></i> 카카오맵
                 </a>
                 <a href="https://map.naver.com/v5/search/경주타워" target="_blank" rel="noopener noreferrer" class="btn-place-action naver-direct">
-                  🟢 네이버 지도 바로 열기
+                  <i class="fa-solid fa-map"></i> 네이버지도
                 </a>
               </div>
               <div style="display: flex; gap: 8px;">
@@ -595,10 +586,9 @@
         <article class="place-card">
           <div class="place-img-wrap">
             <img
-              src="https://images.unsplash.com/photo-1513889961551-628c1e5e2ee9?auto=format&fit=crop&w=800&q=80"
-              alt="경주월드 다이내믹 롤러코스터와 놀이공원"
+              src="assets/images/gyeongjuworld.jpg"
+              alt="실제 경주월드 드라켄 롤러코스터 테마파크"
               class="place-img"
-              onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80';"
             />
             <div class="place-badge-rating">★ 4.5</div>
             <div class="place-badge-category">🎡 스릴 & 패밀리 테마파크</div>
@@ -620,10 +610,10 @@
             <div class="place-actions">
               <div class="place-map-links-row">
                 <a href="https://map.kakao.com/link/search/경주월드" target="_blank" rel="noopener noreferrer" class="btn-place-action kakao-direct">
-                  🟡 카카오맵 바로 열기
+                  <i class="fa-solid fa-location-arrow"></i> 카카오맵
                 </a>
                 <a href="https://map.naver.com/v5/search/경주월드" target="_blank" rel="noopener noreferrer" class="btn-place-action naver-direct">
-                  🟢 네이버 지도 바로 열기
+                  <i class="fa-solid fa-map"></i> 네이버지도
                 </a>
               </div>
               <div style="display: flex; gap: 8px;">
@@ -642,10 +632,9 @@
         <article class="place-card">
           <div class="place-img-wrap">
             <img
-              src="https://images.unsplash.com/photo-1538669715315-155098f0fb1d?auto=format&fit=crop&w=800&q=80"
-              alt="황리단길 전통 한옥 카페 골목"
+              src="assets/images/hwangridan.jpg"
+              alt="실제 경주 황리단길 전통 한옥 거리 골목"
               class="place-img"
-              onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80';"
             />
             <div class="place-badge-rating">★ 4.2</div>
             <div class="place-badge-category">☕ 감성 거리 & 한옥 카페</div>
@@ -667,10 +656,10 @@
             <div class="place-actions">
               <div class="place-map-links-row">
                 <a href="https://map.kakao.com/link/search/황리단길" target="_blank" rel="noopener noreferrer" class="btn-place-action kakao-direct">
-                  🟡 카카오맵 바로 열기
+                  <i class="fa-solid fa-location-arrow"></i> 카카오맵
                 </a>
                 <a href="https://map.naver.com/v5/search/황리단길" target="_blank" rel="noopener noreferrer" class="btn-place-action naver-direct">
-                  🟢 네이버 지도 바로 열기
+                  <i class="fa-solid fa-map"></i> 네이버지도
                 </a>
               </div>
               <div style="display: flex; gap: 8px;">
@@ -688,13 +677,13 @@
     </div>
   </section>
 
-  <!-- Dining Section (수리뫼, 부부수산 포함 5대 맛집) -->
+  <!-- Dining Section (수리뫼, 프라메리 케이크, 부부수산 등 실제 사진 100% 연동) -->
   <section class="places-section" id="dining" style="background: var(--bg-cream);">
     <div class="container">
       <div class="section-head">
         <span class="section-tag">Taste of Kyungju</span>
-        <h2 class="section-title">가족 모두가 감탄할 경주 엄선 맛집</h2>
-        <p class="section-desc">첫날 수리뫼 궁중 한정식 점심과 부부수산 대게·모듬회 숙소 파티부터 전통 맛집까지 완벽하게 준비했습니다.</p>
+        <h2 class="section-title">가족 모두가 감탄할 경주 엄선 맛집 & 케이크</h2>
+        <p class="section-desc">첫날 수리뫼 궁중 한정식 점심과 15시 프라메리 맞춤 케이크 픽업, 부부수산 대게 파티까지 실제 메뉴 사진으로 확인하세요.</p>
       </div>
 
       <div class="places-grid">
@@ -702,10 +691,9 @@
         <article class="place-card" style="border: 2px solid var(--primary-color);">
           <div class="place-img-wrap">
             <img
-              src="https://images.unsplash.com/photo-1590301157890-4810ed352733?auto=format&fit=crop&w=800&q=80"
-              alt="수리뫼 정갈한 전통 궁중 한정식 상차림"
+              src="assets/images/surimoe_main.jpg"
+              alt="실제 경주 수리뫼 명인 전통 한정식 상차림"
               class="place-img"
-              onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1553163147-622ab57be1c7?auto=format&fit=crop&w=800&q=80';"
             />
             <div class="place-badge-rating">★ 4.8 · 명인 궁중요리</div>
             <div class="place-badge-category" style="background: #9d3a2e; color: #fff;">👑 1일차 환갑 첫 점심 코스</div>
@@ -720,12 +708,12 @@
 
             <div class="food-preview-gallery">
               <div class="food-preview-item">
-                <img src="https://images.unsplash.com/photo-1590301157890-4810ed352733?auto=format&fit=crop&w=400&q=80" alt="품격 있는 수라 한정식 코스" />
-                <div class="food-preview-label">수라 한정식 코스</div>
+                <img src="assets/images/surimoe_main.jpg" alt="실제 수리뫼 정갈한 한정식 한상차림" />
+                <div class="food-preview-label">수리뫼 한정식 상차림</div>
               </div>
               <div class="food-preview-item">
-                <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=400&q=80" alt="명인 홍게순두부 정식" />
-                <div class="food-preview-label">명인 홍게순두부 정식</div>
+                <img src="assets/images/surimoe_sub.jpg" alt="실제 수리뫼 홍게순두부 요리" />
+                <div class="food-preview-label">명인 홍게순두부</div>
               </div>
             </div>
 
@@ -736,7 +724,7 @@
             </div>
 
             <p class="place-desc">
-              조선왕조 궁중음식 기능이수자(조리기능장) 명인이 운영하는 기품 있는 전통 한정식 명가입니다.
+              조선왕조 궁중음식 기능이수자 명인이 운영하는 기품 있는 전통 한정식 명가입니다.
               고즈넉한 한옥 정원 속에서 정갈한 궁중 찬과 깊은 손맛의 요리를 맛볼 수 있어 아버님의 환갑 첫날 점심 식사로 가장 품격 있는 선택입니다.
             </p>
 
@@ -747,10 +735,10 @@
             <div class="place-actions">
               <div class="place-map-links-row">
                 <a href="https://map.kakao.com/link/search/경주 수리뫼" target="_blank" rel="noopener noreferrer" class="btn-place-action kakao-direct">
-                  🟡 카카오맵 바로 열기
+                  <i class="fa-solid fa-location-arrow"></i> 카카오맵
                 </a>
                 <a href="https://map.naver.com/v5/search/경주 수리뫼" target="_blank" rel="noopener noreferrer" class="btn-place-action naver-direct">
-                  🟢 네이버 지도 바로 열기
+                  <i class="fa-solid fa-map"></i> 네이버지도
                 </a>
               </div>
               <div style="display: flex; gap: 8px;">
@@ -765,14 +753,68 @@
           </div>
         </article>
 
-        <!-- 2. 부부수산 (감포 회센터) -->
+        <!-- 2. 프라메리 (환갑 맞춤 디자인 케이크) -->
+        <article class="place-card" style="border: 2px solid #d4af37;">
+          <div class="place-img-wrap">
+            <img
+              src="assets/images/frameri.jpg"
+              alt="실제 경주 프라메리 맞춤 수제 디자인 케이크"
+              class="place-img"
+            />
+            <div class="place-badge-rating">★ 4.9 · 맞춤 케이크</div>
+            <div class="place-badge-category" style="background: #d4af37; color: #191919;">🎂 10/24 15:00 픽업 예약</div>
+          </div>
+          <div class="place-body">
+            <div class="place-header">
+              <h3 class="place-title">프라메리 (프라메리 경주)</h3>
+              <div class="place-address">
+                <i class="fa-solid fa-location-dot"></i> 경북 경주시 금성로233번길 20 (사정동 65-81)
+              </div>
+            </div>
+
+            <div class="food-menu-tags">
+              <span class="menu-tag" style="background: #fef3c7; color: #b45309;">🎂 환갑 기념 맞춤 디자인 케이크</span>
+              <span class="menu-tag">010-9597-6987</span>
+              <span class="menu-tag">15:00 픽업 예정</span>
+            </div>
+
+            <p class="place-desc">
+              아빠의 60번째 생신(환갑)을 기념하여 정성껏 사전 예약해 둔 맞춤형 스페셜 디자인 케이크 전문 베이커리입니다.
+              첫날 오후 3시에 픽업하여 숙소 '스테이 시래'에서 펼쳐질 환갑 파티의 가장 빛나는 순간을 장식합니다.
+            </p>
+
+            <div class="place-tip-box">
+              💡 <strong>픽업 안내:</strong> 10월 24일 오후 3시 예약 완료! 황리단길 인근에 위치해 있어 점심 후 자연스럽게 들러 픽업하기 좋습니다.
+            </div>
+
+            <div class="place-actions">
+              <div class="place-map-links-row">
+                <a href="https://place.map.kakao.com/780633253" target="_blank" rel="noopener noreferrer" class="btn-place-action kakao-direct">
+                  <i class="fa-solid fa-location-arrow"></i> 카카오맵
+                </a>
+                <a href="https://map.naver.com/v5/search/경주 프라메리" target="_blank" rel="noopener noreferrer" class="btn-place-action naver-direct">
+                  <i class="fa-solid fa-map"></i> 네이버지도
+                </a>
+              </div>
+              <div style="display: flex; gap: 8px;">
+                <button class="btn-place-action" onclick="copyToClipboard('경북 경주시 금성로233번길 20', '프라메리 주소')">
+                  <i class="fa-regular fa-copy"></i> 주소 복사
+                </button>
+                <button class="btn-place-action" onclick="focusOnMapItem('frameri')">
+                  <i class="fa-solid fa-map-pin"></i> 지도 위치
+                </button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 3. 부부수산 (감포 회센터) -->
         <article class="place-card" style="border: 2px solid #b45309;">
           <div class="place-img-wrap">
             <img
-              src="https://images.unsplash.com/photo-1559847844-5315695dadae?auto=format&fit=crop&w=800&q=80"
-              alt="부부수산 싱싱한 활어 모듬회와 살이 꽉 찬 대게"
+              src="assets/images/bubususan_main.jpg"
+              alt="실제 감포 부부수산 붉은 대게찜 실사"
               class="place-img"
-              onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1553163147-622ab57be1c7?auto=format&fit=crop&w=800&q=80';"
             />
             <div class="place-badge-rating">★ 4.7 · 활어/대게 포장 전문</div>
             <div class="place-badge-category" style="background: #b45309; color: #fff;">🦀 1일차 저녁 숙소 만찬 포장</div>
@@ -787,11 +829,11 @@
 
             <div class="food-preview-gallery">
               <div class="food-preview-item">
-                <img src="https://images.unsplash.com/photo-1559847844-5315695dadae?auto=format&fit=crop&w=400&q=80" alt="살이 꽉 찬 제철 대게찜" />
+                <img src="assets/images/bubususan_main.jpg" alt="실제 살이 꽉 찬 붉은 대게찜 실사" />
                 <div class="food-preview-label">살이 꽉 찬 대게찜</div>
               </div>
               <div class="food-preview-item">
-                <img src="https://images.unsplash.com/photo-1553163147-622ab57be1c7?auto=format&fit=crop&w=400&q=80" alt="자연산 싱싱 모듬회 세트" />
+                <img src="assets/images/bubususan_sub.jpg" alt="실제 감포항 싱싱 모듬회 실사" />
                 <div class="food-preview-label">자연산 싱싱 모듬회</div>
               </div>
             </div>
@@ -804,7 +846,7 @@
 
             <p class="place-desc">
               감포항 수협활어직판장 내 위치한 회·대게 전문점입니다. 살이 꽉 찬 붉은 대게와 싱싱한 활어 모듬회를 정성껏 쪄서 깔끔하게 포장해 줍니다.
-              컨디션 최상인 숙소 '스테이 시래'로 가져와 우리 가족만의 아늑하고 럭셔리한 환갑 축하 파티를 만끽하세요!
+              컨디션 최상인 숙소 '스테이 시래'로 가져와 프라메리 케이크와 함께 우리 가족만의 아늑하고 럭셔리한 환갑 만찬을 만끽하세요!
             </p>
 
             <div class="place-tip-box">
@@ -814,10 +856,10 @@
             <div class="place-actions">
               <div class="place-map-links-row">
                 <a href="https://map.kakao.com/link/search/감포항 부부수산" target="_blank" rel="noopener noreferrer" class="btn-place-action kakao-direct">
-                  🟡 카카오맵 바로 열기
+                  <i class="fa-solid fa-location-arrow"></i> 카카오맵
                 </a>
                 <a href="https://map.naver.com/v5/search/감포항 부부수산" target="_blank" rel="noopener noreferrer" class="btn-place-action naver-direct">
-                  🟢 네이버 지도 바로 열기
+                  <i class="fa-solid fa-map"></i> 네이버지도
                 </a>
               </div>
               <div style="display: flex; gap: 8px;">
@@ -832,14 +874,13 @@
           </div>
         </article>
 
-        <!-- 3. 향화정 -->
+        <!-- 4. 향화정 -->
         <article class="place-card">
           <div class="place-img-wrap">
             <img
-              src="https://images.unsplash.com/photo-1590301157890-4810ed352733?auto=format&fit=crop&w=800&q=80"
-              alt="향화정 한옥 외관과 꼬막무침비빔밥"
+              src="assets/images/hyanghwajeong_main.jpg"
+              alt="실제 경주 향화정 꼬막무침비빔밥 실사"
               class="place-img"
-              onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80';"
             />
             <div class="place-badge-rating">★ 4.2 · ₩10,000~20,000</div>
             <div class="place-badge-category">🍽️ 황리단길 한옥 한식당</div>
@@ -854,11 +895,11 @@
 
             <div class="food-preview-gallery">
               <div class="food-preview-item">
-                <img src="https://images.unsplash.com/photo-1590301157890-4810ed352733?auto=format&fit=crop&w=400&q=80" alt="정갈한 비빔밥 상차림" />
+                <img src="assets/images/hyanghwajeong_main.jpg" alt="실제 향화정 꼬막무침비빔밥" />
                 <div class="food-preview-label">꼬막무침비빔밥</div>
               </div>
               <div class="food-preview-item">
-                <img src="https://images.unsplash.com/photo-1553163147-622ab57be1c7?auto=format&fit=crop&w=400&q=80" alt="신선한 한우 육회물회" />
+                <img src="assets/images/hyanghwajeong_sub.jpg" alt="실제 향화정 육회물회" />
                 <div class="food-preview-label">한우 육회물회</div>
               </div>
             </div>
@@ -880,10 +921,10 @@
             <div class="place-actions">
               <div class="place-map-links-row">
                 <a href="https://map.kakao.com/link/search/황남동 향화정" target="_blank" rel="noopener noreferrer" class="btn-place-action kakao-direct">
-                  🟡 카카오맵 바로 열기
+                  <i class="fa-solid fa-location-arrow"></i> 카카오맵
                 </a>
                 <a href="https://map.naver.com/v5/search/황남동 향화정" target="_blank" rel="noopener noreferrer" class="btn-place-action naver-direct">
-                  🟢 네이버 지도 바로 열기
+                  <i class="fa-solid fa-map"></i> 네이버지도
                 </a>
               </div>
               <div style="display: flex; gap: 8px;">
@@ -898,14 +939,13 @@
           </div>
         </article>
 
-        <!-- 4. 함양집 -->
+        <!-- 5. 함양집 -->
         <article class="place-card">
           <div class="place-img-wrap">
             <img
-              src="https://images.unsplash.com/photo-1553163147-622ab57be1c7?auto=format&fit=crop&w=800&q=80"
-              alt="함양집 대표 살얼음 한우물회"
+              src="assets/images/hamyangjip_main.jpg"
+              alt="실제 경주 함양집 살얼음 한우물회 실사"
               class="place-img"
-              onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1590301157890-4810ed352733?auto=format&fit=crop&w=800&q=80';"
             />
             <div class="place-badge-rating">★ 4.0 · 4대 전통 명가</div>
             <div class="place-badge-category">🍽️ 2일차 보문단지 점심 추천</div>
@@ -920,12 +960,12 @@
 
             <div class="food-preview-gallery">
               <div class="food-preview-item">
-                <img src="https://images.unsplash.com/photo-1553163147-622ab57be1c7?auto=format&fit=crop&w=400&q=80" alt="매콤달콤 살얼음 한우물회" />
+                <img src="assets/images/hamyangjip_main.jpg" alt="실제 함양집 살얼음 한우물회" />
                 <div class="food-preview-label">살얼음 한우물회</div>
               </div>
               <div class="food-preview-item">
-                <img src="https://images.unsplash.com/photo-1590301157890-4810ed352733?auto=format&fit=crop&w=400&q=80" alt="전통 육회비빔밥" />
-                <div class="food-preview-label">전통비빔밥 & 치즈불고기</div>
+                <img src="assets/images/hamyangjip_sub.jpg" alt="실제 함양집 치즈불고기" />
+                <div class="food-preview-label">치즈불고기 & 비빔밥</div>
               </div>
             </div>
 
@@ -946,10 +986,10 @@
             <div class="place-actions">
               <div class="place-map-links-row">
                 <a href="https://map.kakao.com/link/search/경주 함양집" target="_blank" rel="noopener noreferrer" class="btn-place-action kakao-direct">
-                  🟡 카카오맵 바로 열기
+                  <i class="fa-solid fa-location-arrow"></i> 카카오맵
                 </a>
                 <a href="https://map.naver.com/v5/search/경주 함양집" target="_blank" rel="noopener noreferrer" class="btn-place-action naver-direct">
-                  🟢 네이버 지도 바로 열기
+                  <i class="fa-solid fa-map"></i> 네이버지도
                 </a>
               </div>
               <div style="display: flex; gap: 8px;">
@@ -964,14 +1004,13 @@
           </div>
         </article>
 
-        <!-- 5. 경주원조콩국 -->
+        <!-- 6. 경주원조콩국 -->
         <article class="place-card">
           <div class="place-img-wrap">
             <img
-              src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80"
-              alt="경주원조콩국 고소한 콩국과 찹쌀도너츠"
+              src="assets/images/kongguk_main.jpg"
+              alt="실제 경주원조콩국 찹쌀도너츠 콩국 실사"
               class="place-img"
-              onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1590301157890-4810ed352733?auto=format&fit=crop&w=800&q=80';"
             />
             <div class="place-badge-rating">★ 4.3 · ₩10,000~20,000</div>
             <div class="place-badge-category">🥣 3일차 아침 브런치 해장</div>
@@ -986,11 +1025,11 @@
 
             <div class="food-preview-gallery">
               <div class="food-preview-item">
-                <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=400&q=80" alt="따뜻한 콩국과 찹쌀도너츠" />
+                <img src="assets/images/kongguk_main.jpg" alt="실제 경주원조콩국 따뜻한 콩국" />
                 <div class="food-preview-label">따뜻한 콩국 1~3호</div>
               </div>
               <div class="food-preview-item">
-                <img src="https://images.unsplash.com/photo-1590301157890-4810ed352733?auto=format&fit=crop&w=400&q=80" alt="정갈한 순두부찌개" />
+                <img src="assets/images/kongguk_sub.jpg" alt="실제 경주원조콩국 순두부찌개" />
                 <div class="food-preview-label">순두부찌개 & 생콩우거지탕</div>
               </div>
             </div>
@@ -1012,10 +1051,10 @@
             <div class="place-actions">
               <div class="place-map-links-row">
                 <a href="https://map.kakao.com/link/search/경주원조콩국" target="_blank" rel="noopener noreferrer" class="btn-place-action kakao-direct">
-                  🟡 카카오맵 바로 열기
+                  <i class="fa-solid fa-location-arrow"></i> 카카오맵
                 </a>
                 <a href="https://map.naver.com/v5/search/경주원조콩국" target="_blank" rel="noopener noreferrer" class="btn-place-action naver-direct">
-                  🟢 네이버 지도 바로 열기
+                  <i class="fa-solid fa-map"></i> 네이버지도
                 </a>
               </div>
               <div style="display: flex; gap: 8px;">
@@ -1033,19 +1072,19 @@
     </div>
   </section>
 
-  <!-- 2박 3일 추천 일정표 (수리뫼 & 부부수산 일정 완벽 반영) -->
+  <!-- 2박 3일 추천 일정표 (수리뫼 + 프라메리 15시 케이크 픽업 + 부부수산 대게 파티 완벽 반영) -->
   <section class="itinerary-section" id="itinerary">
     <div class="container">
       <div class="section-head">
         <span class="section-tag">Travel Schedule</span>
         <h2 class="section-title">2박 3일 맞춤형 여행 코스</h2>
-        <p class="section-desc">첫날 점심 수리뫼 정식부터 저녁 숙소 대게 파티, 2일차 보문단지 투어까지 아버님을 위한 최상의 동선입니다.</p>
+        <p class="section-desc">첫날 수리뫼 점심부터 15시 프라메리 케이크 픽업, 저녁 대게 파티까지 아버님을 위한 최고의 동선입니다.</p>
       </div>
 
       <!-- Timeline Tabs -->
       <div class="timeline-nav">
         <button class="timeline-tab-btn active" data-day="1">
-          <i class="fa-solid fa-cake-candles"></i> 1일차 (10/24, 토) · 아빠 생신 당일 & 대게 파티 🦀
+          <i class="fa-solid fa-cake-candles"></i> 1일차 (10/24, 토) · 아빠 생신 당일 & 케이크·대게 파티 🎂
         </button>
         <button class="timeline-tab-btn" data-day="2">
           <i class="fa-solid fa-compass"></i> 2일차 (10/25, 일) · 불국사 & 보문단지 힐링 🌿
@@ -1077,10 +1116,20 @@
 
             <div class="timeline-item">
               <div class="timeline-dot"></div>
-              <span class="timeline-time-badge">02:30 PM</span>
+              <span class="timeline-time-badge">02:00 PM</span>
               <h4 class="timeline-event-title">대릉원 고분 산책 & 첨성대 잔디 정원</h4>
               <p class="timeline-event-desc">
                 푸른 잔디 능선 사이를 거닐며 천마총을 관람하고, 첨성대 앞에서 온 가족 5명 첫 단체 기념사진 촬영.
+              </p>
+            </div>
+
+            <!-- 프라메리 케이크 15시 픽업 일정 반영 -->
+            <div class="timeline-item highlight-event">
+              <div class="timeline-dot" style="background: #d4af37; border-color: #b45309;"></div>
+              <span class="timeline-time-badge" style="color: #b45309;">03:00 PM · 예약 완료 필수 미션 🎂</span>
+              <h4 class="timeline-event-title" style="color: #b45309;">프라메리 (경주 사정동) 맞춤 디자인 환갑 케이크 픽업</h4>
+              <p class="timeline-event-desc">
+                사전 예약 완료! <span style="font-weight: 700; color: #b45309;">프라메리</span> (금성로233번길 20 / 010-9597-6987)에서 아버님의 환갑을 축하하는 스페셜 맞춤 제작 레터링 케이크를 픽업합니다.
               </p>
             </div>
 
@@ -1098,7 +1147,7 @@
               <span class="timeline-time-badge" style="color: #b45309;">06:00 PM · 메인 이벤트 🎉</span>
               <h4 class="timeline-event-title" style="color: var(--primary-color);">숙소 프라이빗 환갑 파티 & 럭셔리 대게 만찬</h4>
               <p class="timeline-event-desc">
-                아늑한 독채 한옥 거실에서 펼쳐지는 아빠 환갑 축하 파티! 대게와 싱싱한 회, 생신 케이크 촛불 점화, 가족 롤링페이퍼 증정식.
+                아늑한 독채 한옥 거실에서 펼쳐지는 아빠 환갑 축하 파티! 프라메리 맞춤 케이크 촛불 점화, 대게와 싱싱한 회 만찬, 가족 롤링페이퍼 증정식.
               </p>
             </div>
 
@@ -1250,9 +1299,7 @@
       </div>
 
       <!-- Messages Grid -->
-      <div class="message-cards-grid" id="messages-grid">
-        <!-- Rendered by JS -->
-      </div>
+      <div class="message-cards-grid" id="messages-grid"></div>
     </div>
   </section>
 

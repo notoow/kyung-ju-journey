@@ -1,9 +1,9 @@
 /* ==========================================================================
    경주 환갑 여행 (Kyungju Journey) - JavaScript Logic
-   Pretendard 폰트 및 확장된 8개 관광지 / 5개 맛집 연동
+   실제 로컬 사진 파일(assets/images) 연동, 프라메리 케이크 픽업 및 단정 1줄 버튼
    ========================================================================== */
 
-// 1. 전체 여행 명소 & 맛집 풀 데이터셋 (관광지 8곳 + 맛집 5곳 + 숙소)
+// 1. 전체 여행 명소 & 맛집 실제 데이터셋
 const travelData = [
   {
     id: "stay-sirae",
@@ -15,8 +15,8 @@ const travelData = [
     badge: "가족 감성 독채 한옥",
     rating: "5.0",
     address: "경상북도 경주시 시동로 122",
-    shortDesc: "불국사 인근의 고즈넉한 감성 독채 한옥. 환갑 축하 파티와 첫날 부부수산 대게·모듬회 만찬을 즐길 최고의 베이스캠프.",
-    image: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80",
+    shortDesc: "불국사 인근의 최고 컨디션 감성 독채 한옥. 환갑 축하 파티와 첫날 프라메리 케이크 점화 & 부부수산 대게·모듬회 만찬을 즐길 최고의 베이스캠프.",
+    image: "assets/images/stay_sirae.jpg",
     kakaoUrl: "https://map.kakao.com/link/search/경주시 시동로 122",
     naverUrl: "https://map.naver.com/v5/search/경주시 시동로 122"
   },
@@ -33,9 +33,26 @@ const travelData = [
     price: "궁중 코스 / 홍게순두부 정식",
     address: "경상북도 경주시 내남면 포석로 110-32",
     shortDesc: "조선왕조 궁중음식 기능이수자 명인이 선보이는 기품 있는 전통 한정식. 정갈한 찬과 깊은 맛으로 아버님 환갑 첫 식사로 제격.",
-    image: "https://images.unsplash.com/photo-1590301157890-4810ed352733?auto=format&fit=crop&w=800&q=80",
+    image: "assets/images/surimoe_main.jpg",
     kakaoUrl: "https://map.kakao.com/link/search/경주 수리뫼",
     naverUrl: "https://map.naver.com/v5/search/경주 수리뫼"
+  },
+  // --- [스페셜: 1일차 15:00 환갑 디자인 케이크 픽업 프라메리] ---
+  {
+    id: "frameri",
+    name: "프라메리 (환갑 케이크 픽업)",
+    category: "food",
+    day: [1],
+    lat: 35.8360,
+    lng: 129.2085,
+    badge: "🎂 10/24 15:00 예약 픽업",
+    rating: "4.9",
+    price: "맞춤 디자인 레터링 케이크",
+    address: "경북 경주시 금성로233번길 20 (사정동 65-81)",
+    shortDesc: "첫날 10월 24일 오후 3시 예약 완료! 아버님의 60번째 생신을 축하하는 세상에 하나뿐인 스페셜 맞춤 디자인 케이크 전문 베이커리. (문의: 010-9597-6987)",
+    image: "assets/images/frameri.jpg",
+    kakaoUrl: "https://place.map.kakao.com/780633253",
+    naverUrl: "https://map.naver.com/v5/search/경주 프라메리"
   },
   // --- [식당 2: 첫날 저녁 부부수산 대게·모듬회 포장] ---
   {
@@ -50,7 +67,7 @@ const travelData = [
     price: "대게 찜 & 모듬회 세트 시가",
     address: "경상북도 경주시 감포읍 감포항구길 91 (수협활어직판장 1층 11번)",
     shortDesc: "감포항 직판장의 싱싱한 활어 모듬회와 살이 꽉 찬 대게 찜 포장 전문. 최고 컨디션의 숙소 '스테이 시래'에서 프라이빗 환갑 파티 만찬!",
-    image: "https://images.unsplash.com/photo-1559847844-5315695dadae?auto=format&fit=crop&w=800&q=80",
+    image: "assets/images/bubususan_main.jpg",
     kakaoUrl: "https://map.kakao.com/link/search/감포항 부부수산",
     naverUrl: "https://map.naver.com/v5/search/감포항 부부수산"
   },
@@ -66,7 +83,7 @@ const travelData = [
     rating: "4.7",
     address: "경상북도 경주시 인왕동 839-1",
     shortDesc: "동양에서 가장 오래된 신라의 천문 관측대. 주변의 드넓은 잔디 정원과 꽃밭이 어우러진 경주의 상징적 힐링 산책 명소.",
-    image: "https://images.unsplash.com/photo-1548115184-bc6544d06a58?auto=format&fit=crop&w=800&q=80",
+    image: "assets/images/cheomseongdae.jpg",
     kakaoUrl: "https://map.kakao.com/link/search/경주 첨성대",
     naverUrl: "https://map.naver.com/v5/search/경주 첨성대"
   },
@@ -82,7 +99,7 @@ const travelData = [
     rating: "4.6",
     address: "경상북도 경주시 불국로 385",
     shortDesc: "다보탑, 석가탑, 청운교·백운교 등 찬란한 신라 불교 예술의 최고봉. 숙소 스테이 시래에서 차로 5분 거리의 필수 명소.",
-    image: "https://images.unsplash.com/photo-1578637387939-43c525550085?auto=format&fit=crop&w=800&q=80",
+    image: "assets/images/bulguksa.jpg",
     kakaoUrl: "https://map.kakao.com/link/search/불국사",
     naverUrl: "https://map.naver.com/v5/search/불국사"
   },
@@ -98,7 +115,7 @@ const travelData = [
     rating: "4.5",
     address: "경상북도 경주시 원화로 102",
     shortDesc: "신라 왕궁의 별궁 터. 밤이 되면 은은한 조명과 연못 물결에 비치는 누각 반영이 환상적인 절경을 연출합니다.",
-    image: "https://images.unsplash.com/photo-1548115184-bc6544d06a58?auto=format&fit=crop&w=800&q=80",
+    image: "assets/images/donggung.jpg",
     kakaoUrl: "https://map.kakao.com/link/search/동궁과월지",
     naverUrl: "https://map.naver.com/v5/search/동궁과월지"
   },
@@ -114,7 +131,7 @@ const travelData = [
     rating: "4.5",
     address: "경상북도 경주시 황남동 31-1",
     shortDesc: "푸른 잔디 능선 사이로 이어진 고즈넉한 산책로와 목련 포토존, 내부 관람이 가능한 천마총이 자리한 역사 정원.",
-    image: "https://images.unsplash.com/photo-1583083527882-4bee9aba2eea?auto=format&fit=crop&w=800&q=80",
+    image: "assets/images/daereungwon.jpg",
     kakaoUrl: "https://map.kakao.com/link/search/경주 대릉원",
     naverUrl: "https://map.naver.com/v5/search/경주 대릉원"
   },
@@ -130,7 +147,7 @@ const travelData = [
     rating: "4.5",
     address: "경상북도 경주시 보문로 424-33 일원",
     shortDesc: "넓게 펼쳐진 잔잔한 보문호수를 따라 걷는 호반 산책로와 드라이브 코스, 오리배 선착장과 감성 카페들이 밀집한 대표 관광지구.",
-    image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80",
+    image: "assets/images/bomun.jpg",
     kakaoUrl: "https://map.kakao.com/link/search/보문관광단지",
     naverUrl: "https://map.naver.com/v5/search/보문관광단지"
   },
@@ -146,7 +163,7 @@ const travelData = [
     rating: "4.5",
     address: "경상북도 경주시 경감로 614",
     shortDesc: "황룡사 9층 목탑 실루엣을 음각으로 투각한 높이 82m의 현대적 랜드마크. 보문단지 전경을 한눈에 내려다보는 전망대.",
-    image: "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80",
+    image: "assets/images/gyeongjutower.jpg",
     kakaoUrl: "https://map.kakao.com/link/search/경주타워",
     naverUrl: "https://map.naver.com/v5/search/경주타워"
   },
@@ -162,7 +179,7 @@ const travelData = [
     rating: "4.5",
     address: "경상북도 경주시 보문로 544",
     shortDesc: "국내 최고 롤러코스터 드라켄과 파에톤, 가족 모두가 즐길 수 있는 이국적인 어트랙션과 포토존이 가득한 테마파크.",
-    image: "https://images.unsplash.com/photo-1513889961551-628c1e5e2ee9?auto=format&fit=crop&w=800&q=80",
+    image: "assets/images/gyeongjuworld.jpg",
     kakaoUrl: "https://map.kakao.com/link/search/경주월드",
     naverUrl: "https://map.naver.com/v5/search/경주월드"
   },
@@ -178,7 +195,7 @@ const travelData = [
     rating: "4.2",
     address: "경상북도 경주시 황남동 포석로 일대",
     shortDesc: "전통 한옥을 개조한 감성 카페, 아기자기한 소품샵, 길거리 주전부리와 가족 인생네컷을 즐길 수 있는 거리.",
-    image: "https://images.unsplash.com/photo-1538669715315-155098f0fb1d?auto=format&fit=crop&w=800&q=80",
+    image: "assets/images/hwangridan.jpg",
     kakaoUrl: "https://map.kakao.com/link/search/황리단길",
     naverUrl: "https://map.naver.com/v5/search/황리단길"
   },
@@ -195,7 +212,7 @@ const travelData = [
     price: "1~2만원대",
     address: "경상북도 경주시 사정로57번길 17",
     shortDesc: "고소한 꼬막무침비빔밥과 새콤한 한우 육회물회, 두툼한 해물파전으로 소문난 정갈한 한옥 식당.",
-    image: "https://images.unsplash.com/photo-1590301157890-4810ed352733?auto=format&fit=crop&w=800&q=80",
+    image: "assets/images/hyanghwajeong_main.jpg",
     kakaoUrl: "https://map.kakao.com/link/search/황남동 향화정",
     naverUrl: "https://map.naver.com/v5/search/황남동 향화정"
   },
@@ -212,7 +229,7 @@ const travelData = [
     price: "1~2만원대",
     address: "경상북도 경주시 북군1길 10-1",
     shortDesc: "살얼음 동동 뜬 시원한 한우물회와 전통 육회비빔밥, 부드러운 치즈불고기가 일품인 보문단지 명소.",
-    image: "https://images.unsplash.com/photo-1553163147-622ab57be1c7?auto=format&fit=crop&w=800&q=80",
+    image: "assets/images/hamyangjip_main.jpg",
     kakaoUrl: "https://map.kakao.com/link/search/경주 함양집",
     naverUrl: "https://map.naver.com/v5/search/경주 함양집"
   },
@@ -229,7 +246,7 @@ const travelData = [
     price: "1만원대",
     address: "경상북도 경주시 첨성로 113",
     shortDesc: "따끈하고 고소한 콩국에 찹쌀도너츠, 들깨를 띄워 속을 편안하게 풀어주는 3일차 아침 브런치 명소.",
-    image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80",
+    image: "assets/images/kongguk_main.jpg",
     kakaoUrl: "https://map.kakao.com/link/search/경주원조콩국",
     naverUrl: "https://map.naver.com/v5/search/경주원조콩국"
   }
@@ -246,7 +263,7 @@ const defaultMessages = [
   {
     id: "msg-2",
     author: "딸 정은 (예비신부) 👰",
-    content: "아빠, 언제나 세상에서 가장 든든한 내 편이 되어줘서 고마워요.\n결혼을 앞두고 이렇게 온 가족이 아빠의 환갑을 기념하며 경주에 오니 가슴이 뭉클해요. 오늘 저녁 숙소에서 대게 파티 신나게 해요! 사랑하는 아빠 축하드려요 ❤️",
+    content: "아빠, 언제나 세상에서 가장 든든한 내 편이 되어줘서 고마워요.\n결혼을 앞두고 이렇게 온 가족이 아빠의 환갑을 기념하며 경주에 오니 가슴이 뭉클해요. 프라메리 케이크와 대게 파티 신나게 해요! 사랑하는 아빠 축하드려요 ❤️",
     date: "2026.10.24"
   },
   {
@@ -263,17 +280,14 @@ const defaultMessages = [
   }
 ];
 
-// 2. 지도 관련 전역 변수
 let map = null;
 let markers = [];
 let routeLines = [];
 
-// 3. 지도 초기화 함수
 function initMap() {
   const mapElement = document.getElementById("gyeongju-map");
   if (!mapElement) return;
 
-  // 경주 중심 좌표 (대릉원과 보문단지, 불국사 전체를 조망)
   map = L.map("gyeongju-map", {
     center: [35.825, 129.27],
     zoom: 12,
@@ -281,29 +295,24 @@ function initMap() {
     scrollWheelZoom: false
   });
 
-  // OpenStreetMap 타일 레이어
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
     maxZoom: 18
   }).addTo(map);
 
-  // 퀵 리스트 렌더링
   renderQuickList();
-
-  // 모든 마커 렌더링
   updateMapMarkers("all");
 }
 
-// 4. 커스텀 마커 아이콘 생성
 function createCustomMarkerIcon(item) {
-  let bgColor = "#0284c7"; // tour (청록 파랑)
+  let bgColor = "#0284c7"; // tour
   let iconHtml = "🏛️";
 
   if (item.category === "stay") {
-    bgColor = "#d97706"; // 숙소 (골드 오렌지)
+    bgColor = "#d97706";
     iconHtml = "🏡";
   } else if (item.category === "food") {
-    bgColor = "#dc2626"; // 맛집 (레드)
+    bgColor = "#dc2626";
     iconHtml = "🍱";
   }
 
@@ -335,13 +344,12 @@ function createCustomMarkerIcon(item) {
   });
 }
 
-// 5. 팝업 HTML 생성 (클릭 시 카카오맵/네이버 지도 원클릭 열기)
 function createPopupContent(item) {
   const badgeClass = item.category === "stay" ? "icon-stay" : item.category === "tour" ? "icon-tour" : "icon-food";
   
   return `
     <div class="map-popup-card">
-      <img src="${item.image}" alt="${item.name}" class="map-popup-img" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=400&q=80';" />
+      <img src="${item.image}" alt="${item.name}" class="map-popup-img" />
       <div class="map-popup-body">
         <span class="map-popup-badge ${badgeClass}">${item.badge}</span>
         <h4 class="map-popup-title">${item.name}</h4>
@@ -349,10 +357,10 @@ function createPopupContent(item) {
         <p style="font-size: 0.82rem; color: #555; margin-bottom: 10px; line-height: 1.4;">${item.shortDesc}</p>
         <div class="map-popup-actions">
           <a href="${item.kakaoUrl}" target="_blank" rel="noopener noreferrer" class="btn-popup-link btn-kakao">
-            🟡 카카오맵 바로 열기
+            <i class="fa-solid fa-location-arrow"></i> 카카오맵
           </a>
           <a href="${item.naverUrl}" target="_blank" rel="noopener noreferrer" class="btn-popup-link btn-naver">
-            🟢 네이버 지도 열기
+            <i class="fa-solid fa-map"></i> 네이버지도
           </a>
         </div>
       </div>
@@ -360,11 +368,9 @@ function createPopupContent(item) {
   `;
 }
 
-// 6. 마커 필터 업데이트
 function updateMapMarkers(filterType) {
   if (!map) return;
 
-  // 기존 마커 및 경로 라인 제거
   markers.forEach(m => map.removeLayer(m));
   markers = [];
   routeLines.forEach(l => map.removeLayer(l));
@@ -377,8 +383,8 @@ function updateMapMarkers(filterType) {
   } else if (filterType === "stay" || filterType === "tour" || filterType === "food") {
     filteredPlaces = travelData.filter(p => p.category === filterType);
   } else if (filterType === "day1") {
-    // 1일차 동선: 수리뫼(점심) -> 대릉원/첨성대 -> 부부수산(대게포장) -> 스테이 시래(파티) -> 동궁과 월지(야경)
-    const order = ["surimoe", "daereungwon", "cheomseongdae", "bubususan", "stay-sirae", "donggung"];
+    // 1일차 동선: 수리뫼(점심) -> 대릉원/첨성대 -> 프라메리(15:00 케이크 픽업) -> 부부수산(대게포장) -> 스테이 시래(체크인/파티) -> 동궁과 월지(야경)
+    const order = ["surimoe", "daereungwon", "cheomseongdae", "frameri", "bubususan", "stay-sirae", "donggung"];
     filteredPlaces = order.map(id => travelData.find(p => p.id === id)).filter(Boolean);
   } else if (filterType === "day2") {
     // 2일차 동선: 스테이 시래 -> 불국사 -> 함양집 -> 보문단지/경주타워 -> 황리단길
@@ -386,7 +392,6 @@ function updateMapMarkers(filterType) {
     filteredPlaces = order.map(id => travelData.find(p => p.id === id)).filter(Boolean);
   }
 
-  // 마커 추가
   const latLngs = [];
   filteredPlaces.forEach(item => {
     const icon = createCustomMarkerIcon(item);
@@ -397,7 +402,6 @@ function updateMapMarkers(filterType) {
     latLngs.push([item.lat, item.lng]);
   });
 
-  // 동선인 경우 폴리라인 그리기
   if ((filterType === "day1" || filterType === "day2") && latLngs.length > 1) {
     const polyline = L.polyline(latLngs, {
       color: filterType === "day1" ? "#dc2626" : "#0284c7",
@@ -408,14 +412,12 @@ function updateMapMarkers(filterType) {
     routeLines.push(polyline);
   }
 
-  // 지도 영역 자동 맞춤
   if (latLngs.length > 0) {
     const bounds = L.latLngBounds(latLngs);
     map.fitBounds(bounds, { padding: [50, 50], maxZoom: 14 });
   }
 }
 
-// 7. 지도 하단 퀵 링크 목록 렌더링
 function renderQuickList() {
   const container = document.getElementById("map-quick-grid");
   if (!container) return;
@@ -435,18 +437,15 @@ function renderQuickList() {
   }).join("");
 }
 
-// 특정 장소로 지도 포커스 이동 & 팝업 열기
 window.focusOnMapItem = function(placeId) {
   const target = travelData.find(p => p.id === placeId);
   if (!target || !map) return;
 
-  // 지도 섹션으로 스크롤 이동
   const mapSection = document.getElementById("map");
   if (mapSection) {
     mapSection.scrollIntoView({ behavior: "smooth" });
   }
 
-  // 필터가 'all'이 아니면 해당 카테고리가 보이도록 초기화
   updateMapMarkers("all");
   document.querySelectorAll(".filter-btn").forEach(btn => {
     btn.classList.toggle("active", btn.dataset.filter === "all");
@@ -461,7 +460,6 @@ window.focusOnMapItem = function(placeId) {
   }, 400);
 };
 
-// 8. D-Day 카운트다운 타이머 (2026-10-24 00:00:00 KST)
 function updateCountdown() {
   const targetDate = new Date("2026-10-24T00:00:00+09:00").getTime();
   const now = new Date().getTime();
@@ -476,7 +474,6 @@ function updateCountdown() {
   if (!daysEl) return;
 
   if (distance < 0) {
-    // 여행 시작 후 또는 진행 중
     const pastDays = Math.floor(Math.abs(distance) / (1000 * 60 * 60 * 24));
     if (pastDays <= 2) {
       if (cdTitle) cdTitle.innerText = "🎂 오늘은 아빠 환갑 축하 여행 중입니다! 🎉";
@@ -497,7 +494,7 @@ function updateCountdown() {
   const days = Math.floor(distance / (1000 * 60 * 60 * 24));
   const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
   const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+  const seconds = Math.floor((distance % 1000);
 
   daysEl.innerText = String(days).padStart(2, "0");
   hoursEl.innerText = String(hours).padStart(2, "0");
@@ -505,7 +502,6 @@ function updateCountdown() {
   secondsEl.innerText = String(seconds).padStart(2, "0");
 }
 
-// 9. 환갑 축하 Confetti 폭죽 효과
 window.triggerCelebration = function() {
   if (typeof confetti === "function") {
     confetti({
@@ -535,7 +531,6 @@ window.triggerCelebration = function() {
   showToast("🎊 아버님의 60번째 환갑을 온 가족이 축하드립니다! 🎂");
 };
 
-// 10. 롤링페이퍼 (축하 메시지) 관리
 function loadMessages() {
   const container = document.getElementById("messages-grid");
   if (!container) return;
@@ -599,7 +594,6 @@ function handleAddMessage(e) {
   triggerCelebration();
 }
 
-// 11. 클립보드 주소 복사
 window.copyToClipboard = function(text, label = "주소") {
   if (navigator.clipboard && navigator.clipboard.writeText) {
     navigator.clipboard.writeText(text).then(() => {
@@ -622,7 +616,6 @@ function fallbackCopy(text, label) {
   showToast(`📋 ${label}가 복사되었습니다!`);
 }
 
-// 12. 웹사이트 링크 공유
 window.shareWebsite = function() {
   const shareData = {
     title: "아빠 박재성 님의 환갑 경주 여행 웹사이트",
@@ -637,7 +630,6 @@ window.shareWebsite = function() {
   }
 };
 
-// 13. 토스트 알림창
 function showToast(msg) {
   let toast = document.getElementById("toast-notice");
   if (!toast) {
@@ -654,7 +646,6 @@ function showToast(msg) {
   }, 2600);
 }
 
-// 14. HTML 이스케이프 유틸
 function escapeHtml(string) {
   return String(string)
     .replace(/&/g, "&amp;")
@@ -664,12 +655,9 @@ function escapeHtml(string) {
     .replace(/'/g, "&#039;");
 }
 
-// 15. DOMContentLoaded 이벤트 바인딩
 document.addEventListener("DOMContentLoaded", () => {
-  // 지도 초기화
   initMap();
 
-  // 지도 필터 버튼 이벤트
   const filterBtns = document.querySelectorAll(".filter-btn");
   filterBtns.forEach(btn => {
     btn.addEventListener("click", () => {
@@ -679,7 +667,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // 일정 타임라인 탭 전환
   const tabBtns = document.querySelectorAll(".timeline-tab-btn");
   const tabPanes = document.querySelectorAll(".timeline-content-pane");
   tabBtns.forEach(btn => {
@@ -693,14 +680,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // 메시지 폼 이벤트
   const msgForm = document.getElementById("message-form");
   if (msgForm) {
     msgForm.addEventListener("submit", handleAddMessage);
   }
   loadMessages();
 
-  // 모바일 메뉴 토글 및 자동 닫힘 처리
   const mobileToggle = document.getElementById("mobile-menu-toggle");
   const navMenu = document.getElementById("nav-menu");
   
@@ -711,7 +696,6 @@ document.addEventListener("DOMContentLoaded", () => {
       mobileToggle.innerHTML = isOpen ? '<i class="fa-solid fa-xmark"></i>' : '<i class="fa-solid fa-bars"></i>';
     });
 
-    // 모바일 메뉴 내 링크 클릭 시 메뉴 닫기
     const navLinks = navMenu.querySelectorAll(".nav-link");
     navLinks.forEach(link => {
       link.addEventListener("click", () => {
@@ -722,7 +706,6 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
 
-    // 화면 바깥 클릭 시 메뉴 닫기
     document.addEventListener("click", (e) => {
       if (navMenu.classList.contains("open") && !navMenu.contains(e.target) && !mobileToggle.contains(e.target)) {
         navMenu.classList.remove("open");
@@ -731,7 +714,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // D-Day 타이머 갱신
   updateCountdown();
   setInterval(updateCountdown, 1000);
 });

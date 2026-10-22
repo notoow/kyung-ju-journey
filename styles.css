@@ -1053,7 +1053,10 @@ img {
 
 .btn-place-action {
   flex: 1;
-  padding: 9px 12px;
+  padding: 8px 10px;
+  white-space: nowrap !important;
+  word-break: keep-all !important;
+  line-height: 1.2;
   border-radius: var(--radius-full);
   font-size: 0.82rem;
   font-weight: 700;
@@ -1079,6 +1082,7 @@ img {
   background: #fee500;
   color: #191919;
   border-color: #fada0a;
+  white-space: nowrap !important;
 }
 
 .btn-place-action.kakao-direct:hover {
@@ -1090,6 +1094,7 @@ img {
   background: #03c75a;
   color: #ffffff;
   border-color: #02b150;
+  white-space: nowrap !important;
 }
 
 .btn-place-action.naver-direct:hover {
@@ -1618,4 +1623,158 @@ img {
   .place-actions .btn-place-action {
     width: 100%;
   }
+}
+
+
+/* ==========================================================================
+   Travel Prep: Checklist & Weather Section
+   ========================================================================== */
+.prep-section {
+  padding: 70px 0;
+  background: #ffffff;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.prep-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 28px;
+}
+
+@media (max-width: 900px) {
+  .prep-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.prep-card {
+  background: var(--bg-card-subtle);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 30px 26px;
+  box-shadow: var(--shadow-sm);
+}
+
+.prep-card-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.prep-card-desc {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+/* Checklist Items */
+.checklist-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.checklist-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #ffffff;
+  padding: 12px 16px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-light);
+  cursor: pointer;
+  transition: all 0.2s;
+  user-select: none;
+}
+
+.checklist-item:hover {
+  border-color: var(--secondary-color);
+  transform: translateX(3px);
+}
+
+.checklist-item input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--primary-color);
+  cursor: pointer;
+}
+
+.checklist-label {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  flex-grow: 1;
+}
+
+.checklist-item.checked {
+  background: #f7f5f0;
+  opacity: 0.75;
+}
+
+.checklist-item.checked .checklist-label {
+  text-decoration: line-through;
+  color: var(--text-muted);
+}
+
+.checklist-tag {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  background: rgba(157, 58, 46, 0.08);
+  color: var(--primary-color);
+}
+
+/* Weather & Outfit Card */
+.weather-status-box {
+  background: linear-gradient(135deg, #fce9e7 0%, #faede3 100%);
+  border: 1px solid #f2cfca;
+  border-radius: var(--radius-md);
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.weather-temp {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--primary-color);
+  line-height: 1;
+}
+
+.weather-subtext {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-top: 4px;
+}
+
+.weather-tips-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.weather-tip-item {
+  display: flex;
+  gap: 12px;
+  background: #ffffff;
+  padding: 14px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-light);
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.weather-tip-icon {
+  font-size: 1.3rem;
+  color: var(--secondary-color);
+  flex-shrink: 0;
 }
