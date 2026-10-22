@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🌸 아빠 박재성 님의 환갑 기념 경주 여행 (10.24 ~ 10.26)</title>
+
+  <!-- Open Graph Meta Tags (카카오톡 및 SNS 공유용) -->
+  <meta property="og:title" content="🌸 아빠 박재성 님의 환갑 기념 경주 가족 여행" />
+  <meta property="og:description" content="10월 24일~26일(2박 3일) 온 가족이 함께하는 천년고도 경주 힐링 여행! 숙소, 관광지, 맛집, 지도 총정리" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1578637387939-43c525550085?auto=format&fit=crop&w=1200&q=80" />
+  <meta property="og:type" content="website" />
+
+  <!-- Google Fonts (Noto Serif KR & Noto Sans KR) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&family=Noto+Serif+KR:wght@400;600;700;900&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <!-- Leaflet CSS for Map -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Top Sticky Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="#" class="nav-logo">
+        <span class="nav-logo-icon">🏯</span>
+        <span>경주 환갑 여행</span>
+      </a>
+
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="#family" class="nav-link">가족단</a></li>
+        <li><a href="#map" class="nav-link">통합 지도</a></li>
+        <li><a href="#stay" class="nav-link">숙소 (스테이 시래)</a></li>
+        <li><a href="#attractions" class="nav-link">관광 명소</a></li>
+        <li><a href="#dining" class="nav-link">소문난 맛집</a></li>
+        <li><a href="#itinerary" class="nav-link">2박 3일 일정</a></li>
+        <li><a href="#messages" class="nav-link">축하 롤링페이퍼</a></li>
+      </ul>
+
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <button class="nav-action-btn" onclick="triggerCelebration()">
+          <i class="fa-solid fa-cake-candles"></i>
+          <span>환갑 축하하기</span>
+        </button>
+        <button class="mobile-nav-toggle" id="mobile-menu-toggle" aria-label="메뉴 열기">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero-section">
+    <div class="container">
+      <div class="hero-badge-wrap">
+        <i class="fa-solid fa-crown" style="color: #d4af37;"></i>
+        <span>인생은 60부터! 뜻깊은 환갑 축하 여행</span>
+      </div>
+
+      <h1 class="hero-title">
+        아빠 <span class="highlight">박재성 님</span>의<br />
+        환갑 기념 경주 힐링 여행
+      </h1>
+
+      <p class="hero-subtitle">
+        천년의 향기가 머무는 경주에서, 사랑하는 온 가족 5명이 모여<br />
+        아버님의 빛나는 인생 2막을 뜨겁게 축복합니다.
+      </p>
+
+      <div class="hero-cta-group">
+        <button class="btn-celebrate" onclick="triggerCelebration()">
+          <i class="fa-solid fa-wand-magic-sparkles"></i>
+          <span>환갑 축하 폭죽 터뜨리기! 🎉</span>
+        </button>
+        <a href="#map" class="btn-secondary">
+          <i class="fa-solid fa-map-location-dot"></i>
+          <span>경주 한눈에 보기 (지도)</span>
+        </a>
+        <button class="btn-secondary" onclick="shareWebsite()">
+          <i class="fa-solid fa-arrow-up-from-bracket"></i>
+          <span>가족 단톡방 공유</span>
+        </button>
+      </div>
+
+      <!-- D-Day Countdown Card -->
+      <div class="countdown-box">
+        <div class="countdown-header">
+          <div class="countdown-title" id="countdown-status-title">
+            <i class="fa-regular fa-clock"></i>
+            <span>경주 여행 & 아빠 생신 D-DAY</span>
+          </div>
+          <div class="countdown-date">
+            <i class="fa-regular fa-calendar-check"></i>
+            <span>2026. 10. 24 (생신 당일) ~ 10. 26 (2박 3일)</span>
+          </div>
+        </div>
+
+        <div class="countdown-grid">
+          <div class="countdown-item">
+            <div class="countdown-number" id="cd-days">--</div>
+            <div class="countdown-label">Days</div>
+          </div>
+          <div class="countdown-item">
+            <div class="countdown-number" id="cd-hours">--</div>
+            <div class="countdown-label">Hours</div>
+          </div>
+          <div class="countdown-item">
+            <div class="countdown-number" id="cd-minutes">--</div>
+            <div class="countdown-label">Minutes</div>
+          </div>
+          <div class="countdown-item">
+            <div class="countdown-number" id="cd-seconds">--</div>
+            <div class="countdown-label">Seconds</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Family Members Section -->
+  <section class="family-section" id="family">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-tag">Family Members</span>
+        <h2 class="section-title">경주를 빛낼 5인의 특별한 여행단</h2>
+        <p class="section-desc">사랑과 웃음이 가득한 우리 가족, 평생 간직할 아름다운 추억을 함께 만듭니다.</p>
+      </div>
+
+      <div class="family-grid">
+        <!-- 아빠 (주인공) -->
+        <div class="family-card vip">
+          <div class="family-vip-crown">👑</div>
+          <div class="family-avatar">👨🏻</div>
+          <span class="family-role">환갑의 주인공 · 아빠</span>
+          <h3 class="family-name">박재성</h3>
+          <p class="family-bio">
+            우리 가족의 든든한 큰 나무이자 영원한 캡틴! 60번째 생신을 진심으로 축하드립니다 ❤️
+          </p>
+        </div>
+
+        <!-- 엄마 -->
+        <div class="family-card">
+          <div class="family-avatar">👩🏻</div>
+          <span class="family-role">사랑의 지킴이 · 엄마</span>
+          <h3 class="family-name">정화영</h3>
+          <p class="family-bio">
+            따뜻한 손길과 온화한 미소로 언제나 우리 가족의 든든한 행복을 가꿔주시는 수호천사 🌸
+          </p>
+        </div>
+
+        <!-- 딸 (예비신부) -->
+        <div class="family-card">
+          <div class="family-avatar">👰🏻</div>
+          <span class="family-role">아빠의 보물 · 예비신부</span>
+          <h3 class="family-name">박정은</h3>
+          <p class="family-bio">
+            아빠의 자랑스러운 맏딸! 인생의 새로운 출발을 앞두고 아빠의 환갑을 가장 기쁘게 축하합니다.
+          </p>
+        </div>
+
+        <!-- 예비신랑 (우탄) -->
+        <div class="family-card">
+          <div class="family-avatar">🤵🏻</div>
+          <span class="family-role">예비사위 · 예비신랑</span>
+          <h3 class="family-name">우탄</h3>
+          <p class="family-bio">
+            아버님 어머님의 든든한 새로운 가족! 정은이와 함께 평생 효도하며 행복한 가정을 이루겠습니다.
+          </p>
+        </div>
+
+        <!-- 아들 (박정훈) -->
+        <div class="family-card">
+          <div class="family-avatar">🧑🏻</div>
+          <span class="family-role">듬직한 아들 · 가족</span>
+          <h3 class="family-name">박정훈</h3>
+          <p class="family-bio">
+            유쾌한 에너지로 여행 분위기를 책임지는 든든한 아들! 아버지 인생 60부터 파이팅입니다!
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Map Section (지도 한 장에 각 위치 포함) -->
+  <section class="map-section" id="map">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-tag">Interactive Map</span>
+        <h2 class="section-title">경주 여행 한눈에 보는 통합 지도</h2>
+        <p class="section-desc">숙소 '스테이 시래'와 대표 관광지 4곳, 소문난 맛집 3곳의 위치와 이동 동선을 한 장의 지도에서 확인하세요.</p>
+      </div>
+
+      <div class="map-wrapper-card">
+        <!-- Filter Controls -->
+        <div class="map-filter-bar">
+          <div class="map-filter-title">
+            <i class="fa-solid fa-layer-group" style="color: var(--primary-color);"></i>
+            <span>카테고리 & 동선 필터</span>
+          </div>
+
+          <div class="filter-btn-group">
+            <button class="filter-btn active" data-filter="all">전체 보기 (8곳)</button>
+            <button class="filter-btn" data-filter="stay">🏡 숙소만 (스테이 시래)</button>
+            <button class="filter-btn" data-filter="tour">🏛️ 관광 명소 (4곳)</button>
+            <button class="filter-btn" data-filter="food">🍱 소문난 맛집 (3곳)</button>
+            <button class="filter-btn" data-filter="day1">🚗 1일차 동선 (생신 & 야경)</button>
+            <button class="filter-btn" data-filter="day2">🚗 2일차 동선 (불국사 & 힐링)</button>
+          </div>
+        </div>
+
+        <!-- The Map -->
+        <div id="gyeongju-map"></div>
+
+        <!-- Quick Location Selector Grid -->
+        <div class="map-quick-grid" id="map-quick-grid">
+          <!-- Dynamically populated by JS -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Accommodation Section (스테이 시래) -->
+  <section class="stay-section" id="stay">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-tag">Our Stay</span>
+        <h2 class="section-title">우리의 2박 3일 힐링 베이스캠프</h2>
+        <p class="section-desc">불국사 인근 조용한 마을의 감성 독채 한옥 '스테이 시래'에서 오붓한 환갑 축하 파티를 즐깁니다.</p>
+      </div>
+
+      <div class="stay-hero-card">
+        <div class="stay-gallery">
+          <img
+            src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1200&q=80"
+            alt="스테이 시래 외관 및 한옥 정원"
+            class="stay-main-img"
+            onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=1200&q=80';"
+          />
+          <div class="stay-badge-overlay">
+            <i class="fa-solid fa-house-chimney-window"></i> 프라이빗 독채 스테이
+          </div>
+        </div>
+
+        <div class="stay-content">
+          <div>
+            <div class="stay-subtitle">Gyeongju Stay Sirae</div>
+            <h3 class="stay-title">스테이 시래</h3>
+            <p class="stay-desc">
+              신라의 옛 정취와 모던한 감성이 공존하는 프라이빗 독채 한옥 숙소입니다.
+              넓고 따뜻한 거실에서 아버님의 환갑 축하 케이크와 가족 파티를 열고,
+              고즈넉한 툇마루와 차(Tea) 공간에서 도란도란 정담을 나누며 진정한 쉼을 만끽할 수 있습니다.
+            </p>
+
+            <div class="stay-specs-grid">
+              <div class="stay-spec-item">
+                <div class="stay-spec-label"><i class="fa-solid fa-location-dot"></i> 주소</div>
+                <div class="stay-spec-value">경주시 시동로 122 (시래동)</div>
+              </div>
+              <div class="stay-spec-item">
+                <div class="stay-spec-label"><i class="fa-solid fa-calendar-days"></i> 숙박 일정</div>
+                <div class="stay-spec-value">10.24(토) ~ 10.26(월) · 2박</div>
+              </div>
+              <div class="stay-spec-item">
+                <div class="stay-spec-label"><i class="fa-solid fa-clock"></i> 체크인 / 아웃</div>
+                <div class="stay-spec-value">입실 15:00 / 퇴실 11:00</div>
+              </div>
+              <div class="stay-spec-item">
+                <div class="stay-spec-label"><i class="fa-solid fa-car"></i> 주변 접근성</div>
+                <div class="stay-spec-value">불국사 5분 · 황리단길 15분</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="stay-actions">
+            <button class="btn-copy-address" onclick="copyToClipboard('경상북도 경주시 시동로 122', '스테이 시래 주소')">
+              <i class="fa-regular fa-copy"></i> 주소 복사하기
+            </button>
+            <a href="https://map.kakao.com/link/search/경주시 시동로 122" target="_blank" rel="noopener noreferrer" class="btn-place-action">
+              <i class="fa-solid fa-route"></i> 카카오맵 길찾기
+            </a>
+            <a href="https://map.naver.com/v5/search/경주시 시동로 122" target="_blank" rel="noopener noreferrer" class="btn-place-action primary">
+              <i class="fa-solid fa-location-arrow"></i> 네이버 지도
+            </a>
+            <button class="btn-place-action" onclick="focusOnMapItem('stay-sirae')">
+              <i class="fa-solid fa-map-pin"></i> 지도에서 위치 보기
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Attractions Section -->
+  <section class="places-section" id="attractions">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-tag">Historical & Scenic Spots</span>
+        <h2 class="section-title">경주 추천 관광 명소</h2>
+        <p class="section-desc">천년 신라의 찬란한 문화유산과 감성 가득한 산책로를 아버님과 함께 천천히 걷습니다.</p>
+      </div>
+
+      <div class="places-grid">
+        <!-- 불국사 -->
+        <article class="place-card">
+          <div class="place-img-wrap">
+            <img
+              src="https://images.unsplash.com/photo-1578637387939-43c525550085?auto=format&fit=crop&w=800&q=80"
+              alt="불국사 대웅전 및 다보탑 전경"
+              class="place-img"
+              onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1548115184-bc6544d06a58?auto=format&fit=crop&w=800&q=80';"
+            />
+            <div class="place-badge-rating">★ 4.6</div>
+            <div class="place-badge-category">📍 유네스코 세계유산 · 사찰</div>
+          </div>
+          <div class="place-body">
+            <div class="place-header">
+              <h3 class="place-title">대한불교조계종 불국사</h3>
+              <div class="place-address">
+                <i class="fa-solid fa-location-dot"></i> 경상북도 경주시 불국로 385
+              </div>
+            </div>
+            <p class="place-desc">
+              신라 유교·불교 문화의 정수를 보여주는 대표 사찰로, 유네스코 세계문화유산에 등재되어 있습니다.
+              다보탑과 석가탑, 청운교·백운교 등 주요 국보를 둘러보며 고즈넉한 고도의 운치를 느끼기 좋습니다.
+            </p>
+            <div class="place-tip-box">
+              💡 <strong>관람 팁:</strong> 숙소인 스테이 시래에서 차로 5분 거리! 아침 식사 후 여유롭고 맑은 공기 속에서 산책하기 가장 좋습니다.
+            </div>
+            <div class="place-actions">
+              <button class="btn-place-action" onclick="copyToClipboard('경상북도 경주시 불국로 385', '불국사 주소')">
+                <i class="fa-regular fa-copy"></i> 주소 복사
+              </button>
+              <button class="btn-place-action" onclick="focusOnMapItem('bulguksa')">
+                <i class="fa-solid fa-map-pin"></i> 지도 위치
+              </button>
+              <a href="https://map.kakao.com/link/search/불국사" target="_blank" rel="noopener noreferrer" class="btn-place-action primary">
+                <i class="fa-solid fa-route"></i> 길찾기
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 동궁과 월지 -->
+        <article class="place-card">
+          <div class="place-img-wrap">
+            <img
+              src="https://images.unsplash.com/photo-1548115184-bc6544d06a58?auto=format&fit=crop&w=800&q=80"
+              alt="동궁과 월지 환상적인 야경"
+              class="place-img"
+              onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1578637387939-43c525550085?auto=format&fit=crop&w=800&q=80';"
+            />
+            <div class="place-badge-rating">★ 4.5</div>
+            <div class="place-badge-category">🏛️ 경주 최고의 야경 명소</div>
+          </div>
+          <div class="place-body">
+            <div class="place-header">
+              <h3 class="place-title">동궁과 월지 (안압지)</h3>
+              <div class="place-address">
+                <i class="fa-solid fa-location-dot"></i> 경상북도 경주시 원화로 102
+              </div>
+            </div>
+            <p class="place-desc">
+              신라 왕궁의 별궁 터로, 연못과 어우러진 건물 터가 보존된 경주 최고의 야경 명소입니다.
+              밤이 되면 은은한 조명이 연못 물결에 반사되어 환상적인 풍경을 연출하며 가족 사진 명당입니다.
+            </p>
+            <div class="place-tip-box">
+              💡 <strong>관람 팁:</strong> 해 질 녘(일몰 직후 매직 아워)에 입장하시면 노을빛 하늘과 연못에 비친 황금빛 누각 조명을 동시에 감상할 수 있습니다.
+            </div>
+            <div class="place-actions">
+              <button class="btn-place-action" onclick="copyToClipboard('경상북도 경주시 원화로 102', '동궁과 월지 주소')">
+                <i class="fa-regular fa-copy"></i> 주소 복사
+              </button>
+              <button class="btn-place-action" onclick="focusOnMapItem('donggung')">
+                <i class="fa-solid fa-map-pin"></i> 지도 위치
+              </button>
+              <a href="https://map.kakao.com/link/search/동궁과월지" target="_blank" rel="noopener noreferrer" class="btn-place-action primary">
+                <i class="fa-solid fa-route"></i> 길찾기
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 대릉원 -->
+        <article class="place-card">
+          <div class="place-img-wrap">
+            <img
+              src="https://images.unsplash.com/photo-1583083527882-4bee9aba2eea?auto=format&fit=crop&w=800&q=80"
+              alt="대릉원 푸른 능선과 고분"
+              class="place-img"
+              onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1578637387939-43c525550085?auto=format&fit=crop&w=800&q=80';"
+            />
+            <div class="place-badge-rating">★ 4.5</div>
+            <div class="place-badge-category">🌿 고분 유적지 & 힐링 산책로</div>
+          </div>
+          <div class="place-body">
+            <div class="place-header">
+              <h3 class="place-title">대릉원 & 천마총</h3>
+              <div class="place-address">
+                <i class="fa-solid fa-location-dot"></i> 경상북도 경주시 황남동 31-1
+              </div>
+            </div>
+            <p class="place-desc">
+              신라 시대 왕과 귀족들의 거대한 고분 23기가 모여 있는 정원입니다.
+              내부 관람이 가능한 천마총과 푸른 잔디 능선 사이로 이어진 산책로 및 목련 포토존이 인기를 끕니다.
+            </p>
+            <div class="place-tip-box">
+              💡 <strong>관람 팁:</strong> 경사가 없어 부모님과 평화롭게 걷기 좋습니다. 후문으로 나가면 바로 황리단길과 연결되어 동선이 완벽합니다.
+            </div>
+            <div class="place-actions">
+              <button class="btn-place-action" onclick="copyToClipboard('경상북도 경주시 황남동 31-1', '대릉원 주소')">
+                <i class="fa-regular fa-copy"></i> 주소 복사
+              </button>
+              <button class="btn-place-action" onclick="focusOnMapItem('daereungwon')">
+                <i class="fa-solid fa-map-pin"></i> 지도 위치
+              </button>
+              <a href="https://map.kakao.com/link/search/경주 대릉원" target="_blank" rel="noopener noreferrer" class="btn-place-action primary">
+                <i class="fa-solid fa-route"></i> 길찾기
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 황리단길 -->
+        <article class="place-card">
+          <div class="place-img-wrap">
+            <img
+              src="https://images.unsplash.com/photo-1538669715315-155098f0fb1d?auto=format&fit=crop&w=800&q=80"
+              alt="황리단길 전통 한옥 거리 풍경"
+              class="place-img"
+              onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80';"
+            />
+            <div class="place-badge-rating">★ 4.2</div>
+            <div class="place-badge-category">☕ 감성 거리 & 한옥 카페</div>
+          </div>
+          <div class="place-body">
+            <div class="place-header">
+              <h3 class="place-title">황리단길</h3>
+              <div class="place-address">
+                <i class="fa-solid fa-location-dot"></i> 경상북도 경주시 황남동 포석로 일대
+              </div>
+            </div>
+            <p class="place-desc">
+              전통 한옥을 개조한 감성 카페, 트렌디한 식당, 소품샵이 즐비한 경주의 핫플레이스입니다.
+              대릉원 후문과 바로 연결되어 있어 식사와 카페, 가족 기념사진 촬영을 한 번에 즐기기에 좋습니다.
+            </p>
+            <div class="place-tip-box">
+              💡 <strong>관람 팁:</strong> 황남빵, 십원빵 등 이색 간식을 즐기고 한옥 카페에서 아버님 환갑 기념 가족사진을 남겨보세요!
+            </div>
+            <div class="place-actions">
+              <button class="btn-place-action" onclick="copyToClipboard('경상북도 경주시 황남동 포석로 일대', '황리단길 주소')">
+                <i class="fa-regular fa-copy"></i> 주소 복사
+              </button>
+              <button class="btn-place-action" onclick="focusOnMapItem('hwangridan')">
+                <i class="fa-solid fa-map-pin"></i> 지도 위치
+              </button>
+              <a href="https://map.kakao.com/link/search/황리단길" target="_blank" rel="noopener noreferrer" class="btn-place-action primary">
+                <i class="fa-solid fa-route"></i> 길찾기
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dining Section (외관 및 대표메뉴 사진/설명) -->
+  <section class="places-section" id="dining" style="background: var(--bg-cream);">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-tag">Taste of Kyungju</span>
+        <h2 class="section-title">가족 모두가 감탄할 경주 소문난 맛집</h2>
+        <p class="section-desc">식당 외관과 대표 메뉴, 정갈한 손맛으로 부모님의 입맛을 완벽하게 사로잡을 미식 명가 3곳입니다.</p>
+      </div>
+
+      <div class="places-grid">
+        <!-- 1. 향화정 -->
+        <article class="place-card">
+          <div class="place-img-wrap">
+            <img
+              src="https://images.unsplash.com/photo-1590301157890-4810ed352733?auto=format&fit=crop&w=800&q=80"
+              alt="향화정 한옥 외관"
+              class="place-img"
+              onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80';"
+            />
+            <div class="place-badge-rating">★ 4.2 · ₩10,000~20,000</div>
+            <div class="place-badge-category">🍽️ 황리단길 한옥 한식당</div>
+          </div>
+          <div class="place-body">
+            <div class="place-header">
+              <h3 class="place-title">향화정</h3>
+              <div class="place-address">
+                <i class="fa-solid fa-location-dot"></i> 경상북도 경주시 황남동 사정로57번길 17
+              </div>
+            </div>
+
+            <!-- 외관 및 대표메뉴 미리보기 갤러리 -->
+            <div class="food-preview-gallery">
+              <div class="food-preview-item">
+                <img src="https://images.unsplash.com/photo-1590301157890-4810ed352733?auto=format&fit=crop&w=400&q=80" alt="정갈한 비빔밥 상차림" />
+                <div class="food-preview-label">꼬막무침비빔밥</div>
+              </div>
+              <div class="food-preview-item">
+                <img src="https://images.unsplash.com/photo-1553163147-622ab57be1c7?auto=format&fit=crop&w=400&q=80" alt="신선한 한우 육회물회" />
+                <div class="food-preview-label">한우 육회물회</div>
+              </div>
+            </div>
+
+            <div class="food-menu-tags">
+              <span class="menu-tag">꼬막무침비빔밥 (28,500원/2인)</span>
+              <span class="menu-tag">경주육회물회 (13,500원)</span>
+              <span class="menu-tag">해물파전 (15,000원)</span>
+            </div>
+
+            <p class="place-desc">
+              황리단길 내 자리한 고풍스러운 한옥 식당으로, 고소한 참기름 향이 가득한 꼬막무침 비빔밥과 감칠맛 나는 육회물회, 두툼하고 바삭한 해물파전이 대표 메뉴입니다. 남녀노소 만족스러운 정갈한 한식 차림을 즐길 수 있습니다.
+            </p>
+
+            <div class="place-tip-box">
+              💡 <strong>방문 팁:</strong> 테이블링 원격 줄서기가 가능합니다. 도착 30분 전 미리 앱으로 대기 등록을 걸어두시면 부모님 모시고 편하게 입장하실 수 있습니다.
+            </div>
+
+            <div class="place-actions">
+              <button class="btn-place-action" onclick="copyToClipboard('경상북도 경주시 황남동 사정로57번길 17', '향화정 주소')">
+                <i class="fa-regular fa-copy"></i> 주소 복사
+              </button>
+              <button class="btn-place-action" onclick="focusOnMapItem('hyanghwajeong')">
+                <i class="fa-solid fa-map-pin"></i> 지도 위치
+              </button>
+              <a href="https://map.kakao.com/link/search/황남동 향화정" target="_blank" rel="noopener noreferrer" class="btn-place-action primary">
+                <i class="fa-solid fa-route"></i> 길찾기
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 2. 함양집 -->
+        <article class="place-card">
+          <div class="place-img-wrap">
+            <img
+              src="https://images.unsplash.com/photo-1553163147-622ab57be1c7?auto=format&fit=crop&w=800&q=80"
+              alt="함양집 대표 한우물회"
+              class="place-img"
+              onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1590301157890-4810ed352733?auto=format&fit=crop&w=800&q=80';"
+            />
+            <div class="place-badge-rating">★ 4.0 · ₩10,000~20,000</div>
+            <div class="place-badge-category">🍽️ 4대째 전통 보문 맛집</div>
+          </div>
+          <div class="place-body">
+            <div class="place-header">
+              <h3 class="place-title">함양집 (보문점)</h3>
+              <div class="place-address">
+                <i class="fa-solid fa-location-dot"></i> 경상북도 경주시 북군1길 10-1
+              </div>
+            </div>
+
+            <!-- 외관 및 대표메뉴 미리보기 갤러리 -->
+            <div class="food-preview-gallery">
+              <div class="food-preview-item">
+                <img src="https://images.unsplash.com/photo-1553163147-622ab57be1c7?auto=format&fit=crop&w=400&q=80" alt="매콤달콤 한우물회" />
+                <div class="food-preview-label">살얼음 한우물회</div>
+              </div>
+              <div class="food-preview-item">
+                <img src="https://images.unsplash.com/photo-1590301157890-4810ed352733?auto=format&fit=crop&w=400&q=80" alt="전통 육회비빔밥" />
+                <div class="food-preview-label">전통비빔밥 & 치즈불고기</div>
+              </div>
+            </div>
+
+            <div class="food-menu-tags">
+              <span class="menu-tag">한우물회 (14,000원)</span>
+              <span class="menu-tag">전통비빔밥 (13,000원)</span>
+              <span class="menu-tag">치즈불고기 (17,000원)</span>
+            </div>
+
+            <p class="place-desc">
+              보문단지 인근 북군동 음식거리에 위치한 90년 역사의 유서 깊은 전통 맛집입니다. 살얼음 동동 뜬 시원하고 새콤달콤한 한우물회와 부드러운 육회비빔밥, 고소한 치즈가 듬뿍 올라간 떡갈비 불고기가 일품입니다.
+            </p>
+
+            <div class="place-tip-box">
+              💡 <strong>방문 팁:</strong> 2일차 불국사 관광 후 보문호수를 거쳐 점심식사로 방문하기 완벽한 위치입니다. 회를 안 드시는 분은 곰탕이나 익힌 비빔밥도 주문 가능합니다.
+            </div>
+
+            <div class="place-actions">
+              <button class="btn-place-action" onclick="copyToClipboard('경상북도 경주시 북군1길 10-1', '함양집 주소')">
+                <i class="fa-regular fa-copy"></i> 주소 복사
+              </button>
+              <button class="btn-place-action" onclick="focusOnMapItem('hamyangjip')">
+                <i class="fa-solid fa-map-pin"></i> 지도 위치
+              </button>
+              <a href="https://map.kakao.com/link/search/경주 함양집" target="_blank" rel="noopener noreferrer" class="btn-place-action primary">
+                <i class="fa-solid fa-route"></i> 길찾기
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 3. 경주원조콩국 -->
+        <article class="place-card">
+          <div class="place-img-wrap">
+            <img
+              src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80"
+              alt="경주원조콩국 고소한 콩국과 도너츠"
+              class="place-img"
+              onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1590301157890-4810ed352733?auto=format&fit=crop&w=800&q=80';"
+            />
+            <div class="place-badge-rating">★ 4.3 · ₩10,000~20,000</div>
+            <div class="place-badge-category">🥣 경주 고유의 향토 미식</div>
+          </div>
+          <div class="place-body">
+            <div class="place-header">
+              <h3 class="place-title">경주원조콩국</h3>
+              <div class="place-address">
+                <i class="fa-solid fa-location-dot"></i> 경상북도 경주시 황남동 첨성로 113
+              </div>
+            </div>
+
+            <!-- 외관 및 대표메뉴 미리보기 갤러리 -->
+            <div class="food-preview-gallery">
+              <div class="food-preview-item">
+                <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=400&q=80" alt="따뜻한 콩국과 찹쌀도너츠" />
+                <div class="food-preview-label">따뜻한 콩국 1~3호</div>
+              </div>
+              <div class="food-preview-item">
+                <img src="https://images.unsplash.com/photo-1590301157890-4810ed352733?auto=format&fit=crop&w=400&q=80" alt="정갈한 순두부찌개" />
+                <div class="food-preview-label">순두부찌개 & 생콩우거지탕</div>
+              </div>
+            </div>
+
+            <div class="food-menu-tags">
+              <span class="menu-tag">따뜻한 콩국 1호 (검은깨/검은콩/도너츠)</span>
+              <span class="menu-tag">순두부찌개 (10,000원)</span>
+              <span class="menu-tag">생콩우거지탕 (10,000원)</span>
+            </div>
+
+            <p class="place-desc">
+              따뜻하고 진한 전통 콩국에 쫀득한 찹쌀 도너츠와 들깨, 계란 노른자 등을 넣어 먹는 경주 고유의 이색 향토 음식점입니다. 자극적이지 않고 속을 편안하고 든든하게 풀어주어 아침이나 브런치 식사로 인기가 높습니다.
+            </p>
+
+            <div class="place-tip-box">
+              💡 <strong>방문 팁:</strong> 3일차 아침 9시 오픈 시간에 맞춰 체크아웃 후 방문하시면 여유롭고 따뜻한 아침 해장 식사로 최고입니다!
+            </div>
+
+            <div class="place-actions">
+              <button class="btn-place-action" onclick="copyToClipboard('경상북도 경주시 황남동 첨성로 113', '경주원조콩국 주소')">
+                <i class="fa-regular fa-copy"></i> 주소 복사
+              </button>
+              <button class="btn-place-action" onclick="focusOnMapItem('kongguk')">
+                <i class="fa-solid fa-map-pin"></i> 지도 위치
+              </button>
+              <a href="https://map.kakao.com/link/search/경주원조콩국" target="_blank" rel="noopener noreferrer" class="btn-place-action primary">
+                <i class="fa-solid fa-route"></i> 길찾기
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2박 3일 추천 일정표 (Timeline) -->
+  <section class="itinerary-section" id="itinerary">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-tag">Travel Schedule</span>
+        <h2 class="section-title">2박 3일 추천 여행 코스</h2>
+        <p class="section-desc">무리한 일정 대신 여유와 낭만, 맛있는 음식과 가족 파티가 조화를 이루는 맞춤형 동선입니다.</p>
+      </div>
+
+      <!-- Timeline Tabs -->
+      <div class="timeline-nav">
+        <button class="timeline-tab-btn active" data-day="1">
+          <i class="fa-solid fa-cake-candles"></i> 1일차 (10/24, 토) · 아빠 생신 당일
+        </button>
+        <button class="timeline-tab-btn" data-day="2">
+          <i class="fa-solid fa-compass"></i> 2일차 (10/25, 일) · 힐링 & 역사 투어
+        </button>
+        <button class="timeline-tab-btn" data-day="3">
+          <i class="fa-solid fa-heart"></i> 3일차 (10/26, 월) · 여유로운 귀가
+        </button>
+      </div>
+
+      <!-- Timeline Content: Day 1 -->
+      <div class="timeline-content-pane active" id="timeline-1">
+        <div class="timeline-card-wrapper">
+          <div class="timeline-header-info">
+            <h3 class="timeline-day-title">
+              <span>Day 1 · 경주 도착 & 환갑 축하의 밤 🎂</span>
+            </h3>
+            <span class="timeline-day-date">2026. 10. 24 (토)</span>
+          </div>
+
+          <div class="timeline-flow">
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <span class="timeline-time-badge">12:30 PM</span>
+              <h4 class="timeline-event-title">경주 집결 및 첫 미식 점심 (향화정)</h4>
+              <p class="timeline-event-desc">
+                황리단길 대표 맛집 <span style="font-weight: 700; color: var(--primary-color);">향화정</span>에서 꼬막무침비빔밥과 육회물회, 해물파전으로 든든한 환영 점심 식사.
+              </p>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <span class="timeline-time-badge">02:00 PM</span>
+              <h4 class="timeline-event-title">대릉원 고분 산책 & 천마총 관람</h4>
+              <p class="timeline-event-desc">
+                푸른 잔디 능선 사이를 거닐며 첫 가족 단체사진 촬영. 천마총 고분 내부 국보 유물 둘러보기.
+              </p>
+            </div>
+
+            <div class="timeline-item highlight-event">
+              <div class="timeline-dot"></div>
+              <span class="timeline-time-badge" style="color: #b45309;">03:30 PM · 메인 이벤트 🎉</span>
+              <h4 class="timeline-event-title" style="color: var(--primary-color);">숙소 '스테이 시래' 체크인 & 아빠 환갑 축하 파티</h4>
+              <p class="timeline-event-desc">
+                아늑한 독채 한옥에 짐을 풀고, 준비한 환갑 케이크와 꽃다발, 축하 영상/선물 증정식 거행! 가족 롤링페이퍼 낭독.
+              </p>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <span class="timeline-time-badge">07:00 PM</span>
+              <h4 class="timeline-event-title">동궁과 월지 (안압지) 몽환적인 야경 투어</h4>
+              <p class="timeline-event-desc">
+                달빛과 은은한 조명이 연못 물결에 비치는 경주 최고의 야경 명소 감상. 밤공기 마시며 숙소 복귀 후 오붓한 와인/티타임.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Timeline Content: Day 2 -->
+      <div class="timeline-content-pane" id="timeline-2">
+        <div class="timeline-card-wrapper">
+          <div class="timeline-header-info">
+            <h3 class="timeline-day-title">
+              <span>Day 2 · 불국사의 정취와 황리단길 카페 🌿</span>
+            </h3>
+            <span class="timeline-day-date">2026. 10. 25 (일)</span>
+          </div>
+
+          <div class="timeline-flow">
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <span class="timeline-time-badge">09:30 AM</span>
+              <h4 class="timeline-event-title">스테이 시래 한옥 아침 & 불국사 산책</h4>
+              <p class="timeline-event-desc">
+                숙소 마당에서 상쾌한 모닝 차 한 잔 후, 차로 5분 거리의 <span style="font-weight: 700; color: var(--primary-color);">불국사</span>로 이동하여 다보탑과 석가탑, 청운교·백운교 탐방.
+              </p>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <span class="timeline-time-badge">12:30 PM</span>
+              <h4 class="timeline-event-title">보문호수 드라이브 & 함양집 명품 한우물회</h4>
+              <p class="timeline-event-desc">
+                보문호수 단지 명소 <span style="font-weight: 700; color: var(--primary-color);">함양집</span>에서 살얼음 동동 뜬 시원한 한우물회와 전통 육회비빔밥, 고소한 치즈불고기 점심.
+              </p>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <span class="timeline-time-badge">03:00 PM</span>
+              <h4 class="timeline-event-title">황리단길 한옥 카페 & 가족 기념품 쇼핑</h4>
+              <p class="timeline-event-desc">
+                감성 넘치는 한옥 베이커리 카페에서 휴식, 황남샌드와 경주 기념품 구경, 인생네컷 가족사진 촬영.
+              </p>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <span class="timeline-time-badge">06:30 PM</span>
+              <h4 class="timeline-event-title">숙소 복귀 및 편안한 바비큐/저녁 만찬</h4>
+              <p class="timeline-event-desc">
+                경주의 신선한 먹거리와 함께 숙소에서 느긋하게 즐기는 힐링의 시간. 툇마루에서 쏟아지는 밤하늘 별 보기.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Timeline Content: Day 3 -->
+      <div class="timeline-content-pane" id="timeline-3">
+        <div class="timeline-card-wrapper">
+          <div class="timeline-header-info">
+            <h3 class="timeline-day-title">
+              <span>Day 3 · 따뜻한 아침 콩국 & 여유로운 마무리 ☕</span>
+            </h3>
+            <span class="timeline-day-date">2026. 10. 26 (월)</span>
+          </div>
+
+          <div class="timeline-flow">
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <span class="timeline-time-badge">10:30 AM</span>
+              <h4 class="timeline-event-title">스테이 시래 체크아웃 및 작별</h4>
+              <p class="timeline-event-desc">
+                2박 동안 정들었던 독채 한옥을 정리하고 마당에서 마지막 단체 기념사진 촬영.
+              </p>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <span class="timeline-time-badge">11:15 AM</span>
+              <h4 class="timeline-event-title">경주원조콩국 따뜻하고 고소한 해장 아침</h4>
+              <p class="timeline-event-desc">
+                경주 고유의 별미 <span style="font-weight: 700; color: var(--primary-color);">경주원조콩국</span>에서 찹쌀도너츠를 띄운 따뜻한 콩국과 든든한 순두부찌개로 속 편안한 브런치 식사.
+              </p>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <span class="timeline-time-badge">01:00 PM</span>
+              <h4 class="timeline-event-title">첨성대 주변 잔디밭 가벼운 산책 & 귀가</h4>
+              <p class="timeline-event-desc">
+                첨성대 주변을 가볍게 거닐며 아쉬움을 달래고, 가족 모두 건강과 행복을 가득 안고 따뜻하게 집으로 귀가.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Rolling Paper (축하 메시지 남기기) -->
+  <section class="messages-section" id="messages">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-tag">Rolling Paper</span>
+        <h2 class="section-title">아빠 박재성 님을 위한 축하 한마디</h2>
+        <p class="section-desc">가족 누구나 현장에서 아버님을 향한 따뜻한 사랑과 응원의 메시지를 남길 수 있습니다.</p>
+      </div>
+
+      <!-- Message Input Form -->
+      <div class="message-input-card">
+        <form id="message-form" class="message-form-grid">
+          <input
+            type="text"
+            id="msg-author"
+            class="form-input"
+            placeholder="작성자 (예: 딸 정은)"
+            required
+          />
+          <input
+            type="text"
+            id="msg-content"
+            class="form-input"
+            placeholder="아버님 환갑 축하 메시지를 남겨주세요 ❤️"
+            required
+          />
+          <button type="submit" class="btn-submit-message">
+            <i class="fa-solid fa-paper-plane"></i>
+            <span>축하 남기기</span>
+          </button>
+        </form>
+      </div>
+
+      <!-- Messages Grid -->
+      <div class="message-cards-grid" id="messages-grid">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-title">인생은 60부터! 아빠 환갑 축하 경주 여행 🌸</div>
+      <p class="footer-sub">
+        박재성 · 정화영 · 박정은 · 우탄 · 박정훈 온 가족이 영원히 기억할 행복한 순간
+      </p>
+
+      <div class="footer-links">
+        <a href="#navbar" class="footer-link">맨 위로 가기</a>
+        <a href="#map" class="footer-link">지도 보기</a>
+        <a href="#stay" class="footer-link">숙소 정보</a>
+        <a href="#itinerary" class="footer-link">2박 3일 일정</a>
+        <button class="footer-link" onclick="shareWebsite()" style="color: #d1c7bc; font-size: inherit;">
+          <i class="fa-solid fa-share-nodes"></i> 웹사이트 공유
+        </button>
+      </div>
+
+      <div class="footer-copy">
+        Made with ❤️ for Dad's 60th Birthday | 2026 Kyungju Journey
+      </div>
+    </div>
+  </footer>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <!-- Canvas Confetti for Celebration Effects -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <!-- Main Application Script -->
+  <script src="app.js"></script>
+</body>
+</html>
