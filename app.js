@@ -10,47 +10,43 @@ const travelData = [
     name: "스테이 시래 (우리의 숙소)",
     category: "stay",
     day: [1, 2, 3],
-    lat: 35.7808,
-    lng: 129.3082,
-    badge: "가족 감성 독채 한옥",
-    rating: "5.0",
+    lat: 35.770702150544,
+    lng: 129.288356243301,
+    badge: "경주 시래동 독채 숙소",
     address: "경상북도 경주시 시동로 122",
-    shortDesc: "불국사 인근의 최고 컨디션 감성 독채 한옥. 환갑 축하 파티와 첫날 프라메리 케이크 점화 & 부부수산 대게·모듬회 만찬을 즐길 최고의 베이스캠프.",
-    image: "assets/images/stay_sirae.jpg",
+    shortDesc: "경주시 시동로 122에 위치한 독채 숙소. 실내 수영장과 자쿠지, 사우나를 갖추고 있습니다.",
+    image: "assets/images/stay_sirae.jpg?v=20261022",
     kakaoUrl: "https://map.kakao.com/link/search/경주시 시동로 122",
     naverUrl: "https://map.naver.com/v5/search/경주시 시동로 122"
   },
   // --- [식당 1: 첫날 점심 수리뫼] ---
   {
     id: "surimoe",
-    name: "수리뫼 (수뢰뫼)",
+    name: "수리뫼",
     category: "food",
     day: [1],
-    lat: 35.7895,
-    lng: 129.1985,
+    lat: 35.752233800363,
+    lng: 129.208015533727,
     badge: "👑 1일차 환갑 첫 점심",
-    rating: "4.8",
     price: "궁중 코스 / 홍게순두부 정식",
     address: "경상북도 경주시 내남면 포석로 110-32",
-    shortDesc: "조선왕조 궁중음식 기능이수자 명인이 선보이는 기품 있는 전통 한정식. 정갈한 찬과 깊은 맛으로 아버님 환갑 첫 식사로 제격.",
-    image: "assets/images/surimoe_main.jpg",
+    shortDesc: "경주시 내남면의 한정식 식당입니다. 코스요리와 정식 메뉴를 운영하며, 사진은 이 식당에서 제공한 코스 음식입니다.",
+    image: "assets/images/surimoe_main.jpg?v=20261022",
     kakaoUrl: "https://map.kakao.com/link/search/경주 수리뫼",
     naverUrl: "https://map.naver.com/v5/search/경주 수리뫼"
   },
-  // --- [스페셜: 1일차 15:00 환갑 디자인 케이크 픽업 프라메리] ---
+  // --- [스페셜: 1일차 15:00 픽업 프라메리] ---
   {
     id: "frameri",
     name: "프라메리 (환갑 케이크 픽업)",
     category: "food",
     day: [1],
-    lat: 35.8360,
-    lng: 129.2085,
-    badge: "🎂 10/24 15:00 예약 픽업",
-    rating: "4.9",
-    price: "맞춤 디자인 레터링 케이크",
+    lat: 35.837864370941,
+    lng: 129.205167363028,
+    badge: "10/24 15:00 픽업 예정",
     address: "경북 경주시 금성로233번길 20 (사정동 65-81)",
-    shortDesc: "첫날 10월 24일 오후 3시 예약 완료! 아버님의 60번째 생신을 축하하는 세상에 하나뿐인 스페셜 맞춤 디자인 케이크 전문 베이커리. (문의: 010-9597-6987)",
-    image: "assets/images/frameri.jpg",
+    shortDesc: "10월 24일 오후 3시 픽업 예정입니다. 주소는 경주시 금성로233번길 20입니다.",
+    image: null,
     kakaoUrl: "https://place.map.kakao.com/780633253",
     naverUrl: "https://map.naver.com/v5/search/경주 프라메리"
   },
@@ -60,14 +56,13 @@ const travelData = [
     name: "부부수산 (감포 회센터)",
     category: "food",
     day: [1],
-    lat: 35.8015,
-    lng: 129.5050,
+    lat: 35.808282622978,
+    lng: 129.507623142334,
     badge: "🦀 1일차 숙소 만찬 포장",
-    rating: "4.7",
     price: "대게 찜 & 모듬회 세트 시가",
     address: "경상북도 경주시 감포읍 감포항구길 91 (수협활어직판장 1층 11번)",
-    shortDesc: "감포항 직판장의 싱싱한 활어 모듬회와 살이 꽉 찬 대게 찜 포장 전문. 최고 컨디션의 숙소 '스테이 시래'에서 프라이빗 환갑 파티 만찬!",
-    image: "assets/images/bubususan_main.jpg",
+    shortDesc: "감포 수협활어직판장 1층 11번 매장입니다. 모둠회, 해산물, 대게를 취급하며 포장할 수 있습니다.",
+    image: "assets/images/bubususan_main.jpg?v=20261022",
     kakaoUrl: "https://map.kakao.com/link/search/감포항 부부수산",
     naverUrl: "https://map.naver.com/v5/search/감포항 부부수산"
   },
@@ -80,10 +75,9 @@ const travelData = [
     lat: 35.8347,
     lng: 129.2190,
     badge: "국보 제31호 · 랜드마크",
-    rating: "4.7",
     address: "경상북도 경주시 인왕동 839-1",
-    shortDesc: "동양에서 가장 오래된 신라의 천문 관측대. 주변의 드넓은 잔디 정원과 꽃밭이 어우러진 경주의 상징적 힐링 산책 명소.",
-    image: "assets/images/cheomseongdae.jpg",
+    shortDesc: "신라 시대에 세워진 천문 관측 시설입니다. 경주 동부사적지 일대에서 함께 둘러볼 수 있습니다.",
+    image: "assets/images/cheomseongdae.jpg?v=20261022",
     kakaoUrl: "https://map.kakao.com/link/search/경주 첨성대",
     naverUrl: "https://map.naver.com/v5/search/경주 첨성대"
   },
@@ -96,10 +90,9 @@ const travelData = [
     lat: 35.7901,
     lng: 129.3320,
     badge: "유네스코 세계유산",
-    rating: "4.6",
     address: "경상북도 경주시 불국로 385",
-    shortDesc: "다보탑, 석가탑, 청운교·백운교 등 찬란한 신라 불교 예술의 최고봉. 숙소 스테이 시래에서 차로 5분 거리의 필수 명소.",
-    image: "assets/images/bulguksa.jpg",
+    shortDesc: "토함산 기슭의 신라 사찰로, 석굴암과 함께 유네스코 세계유산에 등재되어 있습니다. 다보탑과 석가탑, 청운교·백운교가 있습니다.",
+    image: "assets/images/bulguksa.jpg?v=20261022",
     kakaoUrl: "https://map.kakao.com/link/search/불국사",
     naverUrl: "https://map.naver.com/v5/search/불국사"
   },
@@ -112,10 +105,9 @@ const travelData = [
     lat: 35.8341,
     lng: 129.2266,
     badge: "경주 최고의 야경",
-    rating: "4.5",
     address: "경상북도 경주시 원화로 102",
-    shortDesc: "신라 왕궁의 별궁 터. 밤이 되면 은은한 조명과 연못 물결에 비치는 누각 반영이 환상적인 절경을 연출합니다.",
-    image: "assets/images/donggung.jpg",
+    shortDesc: "신라 왕궁의 별궁 터와 연못입니다. 월지 주변의 복원 건물과 야간 경관을 볼 수 있습니다.",
+    image: "assets/images/donggung.jpg?v=20261022",
     kakaoUrl: "https://map.kakao.com/link/search/동궁과월지",
     naverUrl: "https://map.naver.com/v5/search/동궁과월지"
   },
@@ -128,10 +120,9 @@ const travelData = [
     lat: 35.8385,
     lng: 129.2144,
     badge: "신라 거대 고분군",
-    rating: "4.5",
     address: "경상북도 경주시 황남동 31-1",
-    shortDesc: "푸른 잔디 능선 사이로 이어진 고즈넉한 산책로와 목련 포토존, 내부 관람이 가능한 천마총이 자리한 역사 정원.",
-    image: "assets/images/daereungwon.jpg",
+    shortDesc: "신라 시대 고분이 모여 있는 유적입니다. 고분 사이 산책로와 천마총을 둘러볼 수 있습니다.",
+    image: "assets/images/daereungwon.jpg?v=20261022",
     kakaoUrl: "https://map.kakao.com/link/search/경주 대릉원",
     naverUrl: "https://map.naver.com/v5/search/경주 대릉원"
   },
@@ -144,10 +135,9 @@ const travelData = [
     lat: 35.8450,
     lng: 129.2880,
     badge: "호반 드라이브 & 산책",
-    rating: "4.5",
     address: "경상북도 경주시 보문로 424-33 일원",
-    shortDesc: "넓게 펼쳐진 잔잔한 보문호수를 따라 걷는 호반 산책로와 드라이브 코스, 오리배 선착장과 감성 카페들이 밀집한 대표 관광지구.",
-    image: "assets/images/bomun.jpg",
+    shortDesc: "보문호를 중심으로 조성된 관광단지입니다. 호반 산책로를 따라 호수 풍경을 즐길 수 있습니다.",
+    image: "assets/images/bomun.jpg?v=20261022",
     kakaoUrl: "https://map.kakao.com/link/search/보문관광단지",
     naverUrl: "https://map.naver.com/v5/search/보문관광단지"
   },
@@ -160,10 +150,9 @@ const travelData = [
     lat: 35.8345,
     lng: 129.2905,
     badge: "82m 황룡사 목탑 음각화",
-    rating: "4.5",
     address: "경상북도 경주시 경감로 614",
-    shortDesc: "황룡사 9층 목탑 실루엣을 음각으로 투각한 높이 82m의 현대적 랜드마크. 보문단지 전경을 한눈에 내려다보는 전망대.",
-    image: "assets/images/gyeongjutower.jpg",
+    shortDesc: "경주엑스포대공원 안에 있는 높이 82m 전망 타워입니다. 황룡사 구층목탑의 형태를 비워낸 건축물입니다.",
+    image: "assets/images/gyeongjutower.jpg?v=20261022",
     kakaoUrl: "https://map.kakao.com/link/search/경주타워",
     naverUrl: "https://map.naver.com/v5/search/경주타워"
   },
@@ -176,10 +165,9 @@ const travelData = [
     lat: 35.8398,
     lng: 129.2828,
     badge: "스릴 & 패밀리 테마파크",
-    rating: "4.5",
     address: "경상북도 경주시 보문로 544",
-    shortDesc: "국내 최고 롤러코스터 드라켄과 파에톤, 가족 모두가 즐길 수 있는 이국적인 어트랙션과 포토존이 가득한 테마파크.",
-    image: "assets/images/gyeongjuworld.jpg",
+    shortDesc: "보문관광단지에 있는 테마파크입니다. 드라켄과 파에톤 등 놀이시설을 운영합니다.",
+    image: "assets/images/gyeongjuworld.jpg?v=20261022",
     kakaoUrl: "https://map.kakao.com/link/search/경주월드",
     naverUrl: "https://map.naver.com/v5/search/경주월드"
   },
@@ -192,10 +180,9 @@ const travelData = [
     lat: 35.8373,
     lng: 129.2096,
     badge: "트렌디 감성 한옥거리",
-    rating: "4.2",
     address: "경상북도 경주시 황남동 포석로 일대",
-    shortDesc: "전통 한옥을 개조한 감성 카페, 아기자기한 소품샵, 길거리 주전부리와 가족 인생네컷을 즐길 수 있는 거리.",
-    image: "assets/images/hwangridan.jpg",
+    shortDesc: "황남동과 사정동의 포석로 일대 거리입니다. 한옥을 활용한 카페, 식당, 상점들이 모여 있습니다.",
+    image: "assets/images/hwangridan.jpg?v=20261022",
     kakaoUrl: "https://map.kakao.com/link/search/황리단길",
     naverUrl: "https://map.naver.com/v5/search/황리단길"
   },
@@ -208,11 +195,9 @@ const travelData = [
     lat: 35.8368,
     lng: 129.2090,
     badge: "황리단길 한옥 한식당",
-    rating: "4.2",
-    price: "1~2만원대",
     address: "경상북도 경주시 사정로57번길 17",
-    shortDesc: "고소한 꼬막무침비빔밥과 새콤한 한우 육회물회, 두툼한 해물파전으로 소문난 정갈한 한옥 식당.",
-    image: "assets/images/hyanghwajeong_main.jpg",
+    shortDesc: "황리단길 인근 한식당입니다. 꼬막무침비빔밥, 육회물회, 육회비빔밥, 해물파전 등을 판매합니다.",
+    image: "assets/images/hyanghwajeong_main.jpg?v=20261022",
     kakaoUrl: "https://map.kakao.com/link/search/황남동 향화정",
     naverUrl: "https://map.naver.com/v5/search/황남동 향화정"
   },
@@ -225,11 +210,9 @@ const travelData = [
     lat: 35.8576,
     lng: 129.2731,
     badge: "4대 90년 전통 명가",
-    rating: "4.0",
-    price: "1~2만원대",
     address: "경상북도 경주시 북군1길 10-1",
-    shortDesc: "살얼음 동동 뜬 시원한 한우물회와 전통 육회비빔밥, 부드러운 치즈불고기가 일품인 보문단지 명소.",
-    image: "assets/images/hamyangjip_main.jpg",
+    shortDesc: "경주시 북군1길에 있는 한식당입니다. 한우물회와 비빔밥을 맛볼 수 있습니다.",
+    image: "assets/images/hamyangjip_main.jpg?v=20261022",
     kakaoUrl: "https://map.kakao.com/link/search/경주 함양집",
     naverUrl: "https://map.naver.com/v5/search/경주 함양집"
   },
@@ -242,43 +225,20 @@ const travelData = [
     lat: 35.8335,
     lng: 129.2155,
     badge: "경주 고유 향토 미식",
-    rating: "4.3",
-    price: "1만원대",
     address: "경상북도 경주시 첨성로 113",
-    shortDesc: "따끈하고 고소한 콩국에 찹쌀도너츠, 들깨를 띄워 속을 편안하게 풀어주는 3일차 아침 브런치 명소.",
-    image: "assets/images/kongguk_main.jpg",
+    shortDesc: "경주시 첨성로의 콩국 전문점입니다. 따뜻한 콩국과 해물파전 등을 판매합니다.",
+    image: "assets/images/kongguk_main.jpg?v=20261022",
     kakaoUrl: "https://map.kakao.com/link/search/경주원조콩국",
     naverUrl: "https://map.naver.com/v5/search/경주원조콩국"
   }
 ];
 
-// 초기 축하 롤링페이퍼 메시지
-const defaultMessages = [
-  {
-    id: "msg-1",
-    author: "사랑하는 아내 화영 🌸",
-    content: "여보, 60번째 생신이자 환갑을 온 마음으로 축하해요.\n언제나 가족들을 위해 헌신해줘서 고맙고, 앞으로의 새로운 인생 2막도 지금처럼 건강하고 행복하게 우리 함께 걸어가요. 사랑합니다!",
-    date: "2026.10.24"
-  },
-  {
-    id: "msg-2",
-    author: "딸 정은 (예비신부) 👰",
-    content: "아빠, 언제나 세상에서 가장 든든한 내 편이 되어줘서 고마워요.\n결혼을 앞두고 이렇게 온 가족이 아빠의 환갑을 기념하며 경주에 오니 가슴이 뭉클해요. 프라메리 케이크와 대게 파티 신나게 해요! 사랑하는 아빠 축하드려요 ❤️",
-    date: "2026.10.24"
-  },
-  {
-    id: "msg-3",
-    author: "예비사위 우탄 🤵",
-    content: "아버님, 뜻깊은 환갑을 진심으로 축하드립니다!\n항상 따뜻하게 품어주시고 맞아주셔서 감사드립니다. 정은이와 함께 평생 효도하며 행복하게 잘 살겠습니다. 오늘 경주에서 최고로 멋진 하루 보내세요!",
-    date: "2026.10.24"
-  },
-  {
-    id: "msg-4",
-    author: "아들 정훈 🌟",
-    content: "아버지, 인생 60부터입니다! 환갑 축하드려요.\n아버지께서 보여주신 성실함과 깊은 사랑을 마음에 새기며 멋지게 자라겠습니다. 이번 2박 3일 경주 여행 맛있는 거 많이 드시고 푹 쉬세요!",
-    date: "2026.10.24"
-  }
-];
+// 사용자 작성 메시지만 저장합니다. 이전 버전의 예시 저장소는 사용하지 않습니다.
+const MESSAGE_KEY = "kyungju_journey_messages_v2";
+let sessionMessages = [];
+
+if (typeof extraPlaces !== "undefined") travelData.push(...extraPlaces);
+travelData.find(p => p.id === "hamyangjip").day = [];
 
 let map = null;
 let markers = [];
@@ -286,7 +246,7 @@ let routeLines = [];
 
 function initMap() {
   const mapElement = document.getElementById("gyeongju-map");
-  if (!mapElement) return;
+  if (!mapElement || typeof L === "undefined") return;
 
   map = L.map("gyeongju-map", {
     center: [35.825, 129.27],
@@ -349,7 +309,7 @@ function createPopupContent(item) {
   
   return `
     <div class="map-popup-card">
-      <img src="${item.image}" alt="${item.name}" class="map-popup-img" />
+      ${item.image ? `<img src="${item.image}" alt="${item.name}" class="map-popup-img" />` : ""}
       <div class="map-popup-body">
         <span class="map-popup-badge ${badgeClass}">${item.badge}</span>
         <h4 class="map-popup-title">${item.name}</h4>
@@ -357,10 +317,10 @@ function createPopupContent(item) {
         <p style="font-size: 0.82rem; color: #555; margin-bottom: 10px; line-height: 1.4;">${item.shortDesc}</p>
         <div class="map-popup-actions">
           <a href="${item.kakaoUrl}" target="_blank" rel="noopener noreferrer" class="btn-popup-link btn-kakao">
-            <i class="fa-solid fa-location-arrow"></i> 카카오맵
+            카카오맵
           </a>
           <a href="${item.naverUrl}" target="_blank" rel="noopener noreferrer" class="btn-popup-link btn-naver">
-            <i class="fa-solid fa-map"></i> 네이버지도
+            네이버지도
           </a>
         </div>
       </div>
@@ -384,19 +344,20 @@ function updateMapMarkers(filterType) {
     filteredPlaces = travelData.filter(p => p.category === filterType);
   } else if (filterType === "day1") {
     // 1일차 동선: 수리뫼(점심) -> 대릉원/첨성대 -> 프라메리(15:00 케이크 픽업) -> 부부수산(대게포장) -> 스테이 시래(체크인/파티) -> 동궁과 월지(야경)
-    const order = ["surimoe", "daereungwon", "cheomseongdae", "frameri", "bubususan", "stay-sirae", "donggung"];
+    const order = ["surimoe", "daereungwon", "cheomseongdae", "frameri", "stay-sirae", "songdaemal", "bubususan", "stay-sirae", "woljeonggyo"];
     filteredPlaces = order.map(id => travelData.find(p => p.id === id)).filter(Boolean);
   } else if (filterType === "day2") {
     // 2일차 동선: 스테이 시래 -> 불국사 -> 함양집 -> 보문단지/경주타워 -> 황리단길
-    const order = ["stay-sirae", "bulguksa", "hamyangjip", "bomun", "gyeongjutower", "hwangridan"];
+    const order = ["stay-sirae", "bulguksa", "bokgil", "bomun", "gyeongjutower", "hwangridan"];
     filteredPlaces = order.map(id => travelData.find(p => p.id === id)).filter(Boolean);
   }
 
   const latLngs = [];
-  filteredPlaces.forEach(item => {
+  filteredPlaces.filter(item => Number.isFinite(item.lat) && Number.isFinite(item.lng)).forEach(item => {
     const icon = createCustomMarkerIcon(item);
-    const marker = L.marker([item.lat, item.lng], { icon: icon }).addTo(map);
+    const marker = L.marker([item.lat, item.lng], { icon: icon, title: item.name, alt: item.name }).addTo(map);
     marker.bindPopup(createPopupContent(item));
+    marker.bindTooltip(item.name);
     marker.placeId = item.id;
     markers.push(marker);
     latLngs.push([item.lat, item.lng]);
@@ -426,13 +387,13 @@ function renderQuickList() {
     const iconClass = item.category === "stay" ? "icon-stay" : item.category === "tour" ? "icon-tour" : "icon-food";
     const iconChar = item.category === "stay" ? "🏡" : item.category === "tour" ? "🏛️" : "🍱";
     return `
-      <div class="map-quick-item" onclick="focusOnMapItem('${item.id}')">
+      <button type="button" class="map-quick-item" onclick="focusOnMapItem('${item.id}')">
         <div class="map-quick-icon ${iconClass}">${iconChar}</div>
         <div class="map-quick-info">
           <div class="map-quick-name">${item.name}</div>
           <div class="map-quick-sub">${item.badge}</div>
         </div>
-      </div>
+      </button>
     `;
   }).join("");
 }
@@ -440,6 +401,7 @@ function renderQuickList() {
 window.focusOnMapItem = function(placeId) {
   const target = travelData.find(p => p.id === placeId);
   if (!target || !map) return;
+  if (!Number.isFinite(target.lat) || !Number.isFinite(target.lng)) { window.open(target.kakaoUrl, "_blank", "noopener"); return; }
 
   const mapSection = document.getElementById("map");
   if (mapSection) {
@@ -494,7 +456,7 @@ function updateCountdown() {
   const days = Math.floor(distance / (1000 * 60 * 60 * 24));
   const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
   const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  const seconds = Math.floor((distance % 1000);
+  const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
   daysEl.innerText = String(days).padStart(2, "0");
   hoursEl.innerText = String(hours).padStart(2, "0");
@@ -531,23 +493,23 @@ window.triggerCelebration = function() {
   showToast("🎊 아버님의 60번째 환갑을 온 가족이 축하드립니다! 🎂");
 };
 
+function readMessages() {
+  try {
+    // 사용자가 실제 작성 메시지가 없음을 확인했으므로 이전 예시 저장소 전체 제거.
+    localStorage.removeItem("kyungju_journey_messages");
+    const stored = JSON.parse(localStorage.getItem(MESSAGE_KEY) || "[]");
+    sessionMessages = Array.isArray(stored) ? stored.filter(msg =>
+      msg && typeof msg.author === "string" && typeof msg.content === "string" && typeof msg.date === "string"
+    ) : [];
+  } catch { /* 저장소 차단 시 메모리 내 작성 메시지를 유지합니다. */ }
+  return [...sessionMessages];
+}
+
 function loadMessages() {
   const container = document.getElementById("messages-grid");
   if (!container) return;
 
-  let saved = localStorage.getItem("kyungju_journey_messages");
-  let messages = [];
-
-  if (saved) {
-    try {
-      messages = JSON.parse(saved);
-    } catch (e) {
-      messages = defaultMessages;
-    }
-  } else {
-    messages = defaultMessages;
-    localStorage.setItem("kyungju_journey_messages", JSON.stringify(defaultMessages));
-  }
+  const messages = readMessages();
 
   container.innerHTML = messages.map(msg => `
     <div class="rolling-card">
@@ -555,10 +517,10 @@ function loadMessages() {
       <div class="rolling-card-text">${escapeHtml(msg.content)}</div>
       <div class="rolling-card-footer">
         <span class="rolling-card-author">${escapeHtml(msg.author)}</span>
-        <span>${msg.date}</span>
+        <span>${escapeHtml(msg.date)}</span>
       </div>
     </div>
-  `).join("");
+  `).join("") || '<p class="messages-empty">아직 작성된 메시지가 없습니다. 첫 축하 메시지를 남겨주세요.</p>';
 }
 
 function handleAddMessage(e) {
@@ -583,10 +545,16 @@ function handleAddMessage(e) {
     date: new Date().toLocaleDateString("ko-KR", { year: "numeric", month: "2-digit", day: "2-digit" }).replace(/\./g, ".").replace(/\s/g, "")
   };
 
-  let saved = localStorage.getItem("kyungju_journey_messages");
-  let messages = saved ? JSON.parse(saved) : defaultMessages;
+  const messages = readMessages();
   messages.unshift(newMsg);
-  localStorage.setItem("kyungju_journey_messages", JSON.stringify(messages));
+  sessionMessages = messages;
+  try {
+    localStorage.setItem(MESSAGE_KEY, JSON.stringify(messages));
+  } catch {
+    showToast("브라우저 저장이 차단되어 이번 화면에서만 메시지가 유지됩니다.");
+    loadMessages();
+    return;
+  }
 
   loadMessages();
   contentInput.value = "";
@@ -656,7 +624,8 @@ function escapeHtml(string) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  initMap();
+  // Keep basic controls usable even when the external map library fails.
+  setTimeout(() => { try { initMap(); } catch (error) { console.error("지도 초기화 실패", error); } }, 0);
 
   const filterBtns = document.querySelectorAll(".filter-btn");
   filterBtns.forEach(btn => {
@@ -677,6 +646,7 @@ document.addEventListener("DOMContentLoaded", () => {
       btn.classList.add("active");
       const targetPane = document.getElementById(`timeline-${targetDay}`);
       if (targetPane) targetPane.classList.add("active");
+      tabBtns.forEach(b => b.setAttribute("aria-selected", String(b === btn)));
     });
   });
 
@@ -693,7 +663,7 @@ document.addEventListener("DOMContentLoaded", () => {
     mobileToggle.addEventListener("click", (e) => {
       e.stopPropagation();
       const isOpen = navMenu.classList.toggle("open");
-      mobileToggle.innerHTML = isOpen ? '<i class="fa-solid fa-xmark"></i>' : '<i class="fa-solid fa-bars"></i>';
+      mobileToggle.innerHTML = isOpen ? "<svg class=\"ui-icon\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"m6 6 12 12M18 6 6 18\"/></svg>" : "<svg class=\"ui-icon\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M4 6h16M4 12h16M4 18h16\"/></svg>";
     });
 
     const navLinks = navMenu.querySelectorAll(".nav-link");
@@ -701,7 +671,7 @@ document.addEventListener("DOMContentLoaded", () => {
       link.addEventListener("click", () => {
         if (navMenu.classList.contains("open")) {
           navMenu.classList.remove("open");
-          mobileToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
+          mobileToggle.innerHTML = "<svg class=\"ui-icon\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M4 6h16M4 12h16M4 18h16\"/></svg>";
         }
       });
     });
@@ -709,7 +679,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.addEventListener("click", (e) => {
       if (navMenu.classList.contains("open") && !navMenu.contains(e.target) && !mobileToggle.contains(e.target)) {
         navMenu.classList.remove("open");
-        mobileToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
+        mobileToggle.innerHTML = "<svg class=\"ui-icon\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M4 6h16M4 12h16M4 18h16\"/></svg>";
       }
     });
   }

@@ -1,0 +1,138 @@
+{
+  "yongsan": {
+    "lat": 35.751601427678,
+    "lng": 129.205934055711,
+    "matchedAddress": "경북 경주시 내남면 이조리 포석로 112",
+    "type": "PointAddress",
+    "source": "Esri World Geocoding Service",
+    "checkedAt": "2026-10-23"
+  },
+  "obok": {
+    "lat": 35.843960487211,
+    "lng": 129.2067452563,
+    "matchedAddress": "경북 경주시 성건동 금성로 295",
+    "type": "PointAddress",
+    "source": "Esri World Geocoding Service",
+    "checkedAt": "2026-10-23"
+  },
+  "gamasot": {
+    "lat": 35.843227950783,
+    "lng": 129.209906491083,
+    "matchedAddress": "경북 경주시 노서동 봉황로 41-1",
+    "type": "PointAddress",
+    "source": "Esri World Geocoding Service",
+    "checkedAt": "2026-10-23"
+  },
+  "bobul": {
+    "lat": 35.800436071959,
+    "lng": 129.314489843936,
+    "matchedAddress": "경북 경주시 하동 보불로 174-17",
+    "type": "PointAddress",
+    "source": "Esri World Geocoding Service",
+    "checkedAt": "2026-10-23"
+  },
+  "leejaewon": {
+    "lat": 35.847470451075,
+    "lng": 129.209936665934,
+    "matchedAddress": "경북 경주시 서부동 봉황로 89",
+    "type": "PointAddress",
+    "source": "Esri World Geocoding Service",
+    "checkedAt": "2026-10-23"
+  },
+  "sambu": {
+    "lat": 35.844388886282,
+    "lng": 129.2086619461,
+    "matchedAddress": "경북 경주시 서부동 봉황로51번길 14",
+    "type": "PointAddress",
+    "source": "Esri World Geocoding Service",
+    "checkedAt": "2026-10-23"
+  },
+  "choiyounghwa": {
+    "lat": 35.841572315358,
+    "lng": 129.215349447548,
+    "matchedAddress": "경북 경주시 황오동 북정로 6-1",
+    "type": "PointAddress",
+    "source": "Esri World Geocoding Service",
+    "checkedAt": "2026-10-23"
+  },
+  "ppaedollin": {
+    "lat": 35.844177410865,
+    "lng": 129.182616020172,
+    "matchedAddress": "경북 경주시 충효동 충효중앙길 78",
+    "type": "PointAddress",
+    "source": "Esri World Geocoding Service",
+    "checkedAt": "2026-10-23"
+  },
+  "bokgil": {
+    "lat": 35.833184838217,
+    "lng": 129.210002966789,
+    "matchedAddress": "경북 경주시 황남동 첨성로 71",
+    "type": "PointAddress",
+    "source": "Esri World Geocoding Service",
+    "checkedAt": "2026-10-23"
+  },
+  "yubin": {
+    "lat": 35.861641483317,
+    "lng": 129.22577376907,
+    "matchedAddress": "경북 경주시 용강동 소금강로57번길 22",
+    "type": "PointAddress",
+    "source": "Esri World Geocoding Service",
+    "checkedAt": "2026-10-23"
+  },
+  "gungsang": {
+    "lat": 35.872644784801,
+    "lng": 129.236727156321,
+    "matchedAddress": "경북 경주시 용강동 다불로 105",
+    "type": "PointAddress",
+    "source": "Esri World Geocoding Service",
+    "checkedAt": "2026-10-23"
+  },
+  "myeongdong": {
+    "lat": 35.84256770827,
+    "lng": 129.213236872672,
+    "matchedAddress": "경북 경주시 노동동 계림로93번길 3",
+    "type": "PointAddress",
+    "source": "Esri World Geocoding Service",
+    "checkedAt": "2026-10-23"
+  },
+  "hongdu": {
+    "lat": 35.842127197349,
+    "lng": 129.205454694669,
+    "matchedAddress": "경북 경주시 노서동 원효로 42",
+    "type": "PointAddress",
+    "source": "Esri World Geocoding Service",
+    "checkedAt": "2026-10-23"
+  },
+  "surimoe": {
+    "lat": 35.752233800363,
+    "lng": 129.208015533727,
+    "matchedAddress": "경상북도 경주시 내남면 이조리 포석로 110-32",
+    "type": "PointAddress",
+    "source": "Esri World Geocoding Service",
+    "checkedAt": "2026-10-23"
+  },
+  "stay-sirae": {
+    "lat": 35.770702150544,
+    "lng": 129.288356243301,
+    "matchedAddress": "경상북도 경주시 시래동 시동로 122",
+    "type": "PointAddress",
+    "source": "Esri World Geocoding Service",
+    "checkedAt": "2026-10-23"
+  },
+  "bubususan": {
+    "lat": 35.808282622978,
+    "lng": 129.507623142334,
+    "matchedAddress": "경상북도 경주시 감포읍 오류리 감포항구길 91",
+    "type": "PointAddress",
+    "source": "Esri World Geocoding Service",
+    "checkedAt": "2026-10-23"
+  },
+  "frameri": {
+    "lat": 35.837864370941,
+    "lng": 129.205167363028,
+    "matchedAddress": "경상북도 경주시 사정동 금성로233번길 20",
+    "type": "PointAddress",
+    "source": "Esri World Geocoding Service",
+    "checkedAt": "2026-10-23"
+  }
+}
