@@ -359,7 +359,7 @@ function updateMapMarkers(filterType) {
   filteredPlaces.filter(item => Number.isFinite(item.lat) && Number.isFinite(item.lng)).forEach(item => {
     const icon = createCustomMarkerIcon(item);
     const marker = L.marker([item.lat, item.lng], { icon: icon, title: item.name, alt: item.name }).addTo(map);
-    marker.bindPopup(createPopupContent(item));
+    marker.bindPopup(createPopupContent(item), { maxHeight: 250 });
     marker.bindTooltip(item.name);
     marker.placeId = item.id;
     markers.push(marker);
