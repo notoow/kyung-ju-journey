@@ -54,6 +54,55 @@ function initExplorer() {
   document.querySelector('[data-filter="tour"]').textContent = `관광 ${travelData.filter(p => p.category === 'tour').length}곳`;
 }
 
+// Mobile disclosures keep long lists compact without removing any places.
+function initMobileDisclosures() {
+  function disclosure(host, nodes, label, id, card = false) {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'mobile-disclosure-toggle';
+    button.setAttribute('aria-expanded', 'false');
+    button.setAttribute('aria-controls', id);
+    const title = document.createElement('span');
+    title.textContent = label;
+    const state = document.createElement('span');
+    state.className = 'disclosure-state';
+    state.textContent = '펼치기 +';
+    button.append(title, state);
+    const panel = document.createElement('div');
+    panel.id = id;
+    panel.className = 'mobile-disclosure-panel';
+    nodes.forEach(node => panel.append(node));
+    host.classList.add('mobile-disclosure');
+    if (card) host.classList.add('mobile-place-disclosure');
+    host.append(button, panel);
+    button.addEventListener('click', () => {
+      const open = button.getAttribute('aria-expanded') !== 'true';
+      button.setAttribute('aria-expanded', String(open));
+      host.classList.toggle('disclosure-open', open);
+      state.textContent = open ? '접기 −' : '펼치기 +';
+    });
+  }
+  for (const [id, label] of [['attractions','관광지 25곳'],['dining','맛집 20곳'],['stay','숙소 상세'],['family','가족 소개']]) {
+    const container = document.querySelector(`#${id} > .container`);
+    const head = container.querySelector('.section-head');
+    const nodes = [...container.children].filter(node => node !== head);
+    // Filters and descriptions belong to the same collapsible section.
+    const title = head.querySelector('.section-title');
+    const extra = [];
+    for (let node = title.nextElementSibling; node; node = node.nextElementSibling) extra.push(node);
+    disclosure(container, [...extra, ...nodes], label, `${id}-mobile-panel`);
+  }
+  document.querySelectorAll('#attractions .place-card, #dining .place-card').forEach(card => {
+    const shortNames = {hwangnyongsa: '황룡사지·역사문화관', frameri: '프라메리', bubususan: '부부수산', gyeongjutower: '경주타워', seokgatap: '석가탑'};
+    disclosure(card, [...card.children], shortNames[card.dataset.placeId] || card.querySelector('.place-title').textContent.trim(),
+      `place-${card.dataset.placeId}-panel`, true);
+  });
+  const quick = document.getElementById('map-quick-grid');
+  const host = document.createElement('div');
+  quick.before(host);
+  disclosure(host, [quick], '장소 빠른 이동', 'map-quick-panel');
+}
+
 let weatherData = weatherSnapshot;
 let weatherDay = 0;
 let weatherLive = false;
@@ -97,6 +146,7 @@ async function refreshWeather() {
 }
 document.addEventListener('DOMContentLoaded', () => {
   initExplorer();
+  initMobileDisclosures();
   renderWeather();
   document.getElementById('weather-days').addEventListener('click', e => {
     const b = e.target.closest('[data-day]'); if (!b) return;

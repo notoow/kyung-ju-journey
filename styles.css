@@ -1921,3 +1921,24 @@ button:focus-visible,a:focus-visible { outline:3px solid #337b9a; outline-offset
 
 /* Keep tap-to-call labels readable and easy to tap on narrow screens. */
 .phone-link { display: flex; align-items: center; min-height: 44px; white-space: nowrap; }
+
+/* Disclosures are mobile-only; desktop keeps the full original layout. */
+.mobile-disclosure-toggle { display: none; }
+.mobile-disclosure-panel { display: contents; }
+@media (max-width: 768px) {
+  .mobile-disclosure > .mobile-disclosure-toggle {
+    display: flex; width: 100%; align-items: center; justify-content: space-between;
+    gap: 12px; min-height: 52px; padding: 14px 16px; border: 1px solid var(--border-color);
+    border-radius: 12px; background: #fff; color: var(--text-primary); font: inherit;
+    font-weight: 600; text-align: left; cursor: pointer;
+  }
+  .mobile-disclosure-toggle > span:first-child { min-width: 0; word-break: keep-all; }
+  .disclosure-state { flex: 0 0 auto; white-space: nowrap; font-size: .78rem; color: var(--primary-color); }
+  .mobile-disclosure > .mobile-disclosure-panel { display: none; }
+  .mobile-disclosure.disclosure-open > .mobile-disclosure-panel { display: block; padding-top: 16px; }
+  .mobile-place-disclosure > .mobile-disclosure-toggle { border: 0; border-radius: 0; font-size: .9rem; }
+  .mobile-place-disclosure.disclosure-open > .mobile-disclosure-panel { padding-top: 0; }
+  #attractions .places-grid, #dining .places-grid { gap: 10px; }
+  #attractions, #dining, #stay, #family { padding-top: 32px; padding-bottom: 32px; }
+  #attractions .section-head, #dining .section-head, #stay .section-head, #family .section-head { margin-bottom: 16px; }
+}
