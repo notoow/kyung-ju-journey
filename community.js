@@ -4,14 +4,13 @@ import { initializeAuth, browserLocalPersistence, inMemoryPersistence, signInAno
   createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, deleteUser } from 'https://www.gstatic.com/firebasejs/13.1.0/firebase-auth.js';
 import { getFirestore, doc, collection, getDoc, getDocs, getCountFromServer, query, orderBy,
   limit, startAfter, runTransaction, serverTimestamp, setDoc, deleteDoc } from 'https://www.gstatic.com/firebasejs/13.1.0/firebase-firestore.js';
-import { initializeAppCheck, getAppCheck, getToken, ReCaptchaEnterpriseProvider } from 'https://www.gstatic.com/firebasejs/13.1.0/firebase-app-check.js';
+import { initializeAppCheck, getToken, ReCaptchaEnterpriseProvider } from 'https://www.gstatic.com/firebasejs/13.1.0/firebase-app-check.js';
 
 const app = initializeApp(config.firebase);
 const writerApp = initializeApp(config.firebase, 'message-writer');
 if (!config.appCheckSiteKey) throw new Error('Community verification is not configured.');
-for (const instance of [app, writerApp]) {
-  initializeAppCheck(instance, {provider:new ReCaptchaEnterpriseProvider(config.appCheckSiteKey), isTokenAutoRefreshEnabled:true});
-}
+const appChecks = [app, writerApp].map(instance =>
+  initializeAppCheck(instance, {provider:new ReCaptchaEnterpriseProvider(config.appCheckSiteKey), isTokenAutoRefreshEnabled:true}));
 const auth = initializeAuth(app, {persistence:[browserLocalPersistence, inMemoryPersistence]});
 const writerAuth = initializeAuth(writerApp, {persistence:inMemoryPersistence});
 const db = getFirestore(app);
@@ -144,7 +143,7 @@ el('messages-refresh').addEventListener('click',async event=>{
   try{await initialize();}catch(e){say(readableError(e),true);}finally{button.disabled=false;}
 });
 async function initialize() {
-  await getToken(getAppCheck(app));
+  await getToken(appChecks[0]);
   console.info('Community verification ready');
   const site=await getDoc(doc(db,root));
   console.info('Community site ready');
