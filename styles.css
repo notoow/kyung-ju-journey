@@ -1322,7 +1322,7 @@ button:disabled { opacity: .55; cursor: wait; }
 .message-dialog-actions { display: flex; justify-content: flex-end; gap: 10px; }
 @media (max-width: 900px) {
   #message-form { grid-template-columns: 1fr; }
-  #message-form > * { grid-column: 1; grid-row: auto; }
+  #message-form > .form-input, #message-form > .btn-submit-message { grid-column: 1; grid-row: auto; }
 }
 
 .form-input {
