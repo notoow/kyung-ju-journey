@@ -1918,3 +1918,6 @@ button:focus-visible,a:focus-visible { outline:3px solid #337b9a; outline-offset
   }
 
 }
+
+/* Keep tap-to-call labels readable and easy to tap on narrow screens. */
+.phone-link { display: flex; align-items: center; min-height: 44px; white-space: nowrap; }

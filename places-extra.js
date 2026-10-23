@@ -260,6 +260,7 @@ const extraPlaces = [
   },
   {
     "id": "yongsan",
+    phone: "054-748-2119",
     "name": "용산회식당",
     "category": "food",
     "day": [],
@@ -299,6 +300,7 @@ const extraPlaces = [
   },
   {
     "id": "gamasot",
+    phone: "054-771-4733",
     "name": "가마솥족발",
     "category": "food",
     "day": [],
@@ -338,6 +340,7 @@ const extraPlaces = [
   },
   {
     "id": "leejaewon",
+    phone: "0507-1410-4124",
     "name": "이재원 과자공방",
     "category": "food",
     "day": [],
@@ -377,6 +380,7 @@ const extraPlaces = [
   },
   {
     "id": "choiyounghwa",
+    phone: "054-749-5599",
     "name": "최영화빵 본점",
     "category": "food",
     "day": [],
@@ -396,6 +400,7 @@ const extraPlaces = [
   },
   {
     "id": "ppaedollin",
+    phone: "054-775-9282",
     "name": "빼돌린 뒷고기",
     "category": "food",
     "day": [],
@@ -478,6 +483,7 @@ const extraPlaces = [
   },
   {
     "id": "myeongdong",
+    phone: "054-743-5310",
     "name": "명동쫄면",
     "category": "food",
     "day": [],
@@ -497,6 +503,7 @@ const extraPlaces = [
   },
   {
     "id": "hongdu",
+    phone: "0507-1431-6712",
     "name": "홍두깨국시",
     "category": "food",
     "day": [],

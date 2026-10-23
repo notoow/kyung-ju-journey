@@ -11,7 +11,7 @@ function extraCard(p) {
     ${credit ? `<p class="photo-credit">사진: <a href="${credit.sourcePage}" target="_blank" rel="noopener noreferrer">${credit.sourceLabel}</a></p>` : ''}
     ${p.sourceUrl ? `<a class="source-link" href="${p.sourceUrl}" target="_blank" rel="noopener noreferrer">매장·메뉴 정보 ↗</a>` : ''}
     ${p.reservationUrl ? `<a class="booking-link" href="${p.reservationUrl}" target="_blank" rel="noopener noreferrer">테이블링 줄서기 ↗</a>` : ''}
-    ${p.phone ? `<a class="source-link" href="tel:${p.phone.replaceAll('-','')}">전화 문의 ${p.phone}</a>` : ''}
+    ${p.phone ? `<a class="source-link phone-link" href="tel:${p.phone.replaceAll('-','')}">전화 문의 ${p.phone}</a>` : ''}
     <div class="place-map-links-row"><a class="btn-map btn-kakao" href="${p.kakaoUrl}" target="_blank" rel="noopener noreferrer">카카오맵</a><a class="btn-map btn-naver" href="${p.naverUrl}" target="_blank" rel="noopener noreferrer">네이버지도</a></div>
     ${Number.isFinite(p.lat) ? `<button class="place-locate" type="button" onclick="focusOnMapItem('${p.id}')">통합 지도에서 보기</button>` : ''}
     </div></article>`;
@@ -27,6 +27,11 @@ function initExplorer() {
     document.querySelectorAll(`#${section} .places-grid:not(#extra-${category === 'food' ? 'foods' : 'tours'}) .place-card`).forEach((card,i) => {
       card.dataset.placeId = originals[i]?.id;
       card.dataset.group = labels[i] || '기타';
+      const phone = originals[i]?.phone;
+      if (phone && !card.querySelector('a[href^="tel:"]')) {
+        card.querySelector('.place-map-links-row').insertAdjacentHTML('beforebegin',
+          `<a class="source-link phone-link" href="tel:${phone.replaceAll('-','')}">전화 문의 ${phone}</a>`);
+      }
     });
     const cards = [...document.querySelectorAll(`#${section} .place-card`)];
     cards.forEach(card => {

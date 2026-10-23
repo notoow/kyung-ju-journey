@@ -1,0 +1,57 @@
+{
+  "checkedAt": "2026-10-23",
+  "contacts": {
+    "surimoe": {
+      "phone": "054-748-2507",
+      "source": "https://spanish.visitkorea.or.kr/svc/whereToGo/locIntrdn/rgnContentsView.do?vcontsId=73068"
+    },
+    "frameri": {
+      "phone": "010-9597-6987",
+      "source": "existing project pickup information"
+    },
+    "bubususan": {
+      "phone": "0507-1301-7418",
+      "source": "https://www.diningcode.com/profile.php?rid=DJ2daZc02Mek"
+    },
+    "hyanghwajeong": {
+      "phone": "0507-1359-8765",
+      "source": "https://gyeongju.go.kr/tour/page.do?cmd=2&con_uid=7128&mnu_uid=2502"
+    },
+    "hamyangjip": {
+      "phone": "054-777-6947",
+      "source": "https://www.tabling.co.kr/restaurant/2483"
+    },
+    "kongguk": {
+      "phone": "054-743-9644",
+      "source": "https://www.gyeongju.go.kr/tour/page.do?cmd=2&con_uid=6733&mnu_uid=2502"
+    },
+    "yongsan": {
+      "phone": "054-748-2119",
+      "source": "https://www.tabling.co.kr/place/677ccb3566de5f06987cd5bc"
+    },
+    "gamasot": {
+      "phone": "054-771-4733",
+      "source": "https://www.koreatriptips.com/dining/2876078.html"
+    },
+    "leejaewon": {
+      "phone": "0507-1410-4124",
+      "source": "https://gyeongju.go.kr/tour/page.do?cmd=2&con_uid=55&mnu_uid=2501"
+    },
+    "choiyounghwa": {
+      "phone": "054-749-5599",
+      "source": "https://cyh0.com/store.php"
+    },
+    "ppaedollin": {
+      "phone": "054-775-9282",
+      "source": "https://gjfood.or.kr/board_oSHS24/216259"
+    },
+    "myeongdong": {
+      "phone": "054-743-5310",
+      "source": "https://visitgyeongju.or.kr/kr/cuisine/view/535f40400605094c0a4702424351404c4f"
+    },
+    "hongdu": {
+      "phone": "0507-1431-6712",
+      "source": "https://www.gyeongju.go.kr/tour/page.do?cmd=2&con_uid=7286&mnu_uid=4830"
+    }
+  }
+}

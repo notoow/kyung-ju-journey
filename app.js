@@ -22,6 +22,7 @@ const travelData = [
   // --- [식당 1: 첫날 점심 수리뫼] ---
   {
     id: "surimoe",
+    phone: "054-748-2507",
     name: "수리뫼",
     category: "food",
     day: [1],
@@ -38,6 +39,7 @@ const travelData = [
   // --- [스페셜: 1일차 15:00 픽업 프라메리] ---
   {
     id: "frameri",
+    phone: "010-9597-6987",
     name: "프라메리 (환갑 케이크 픽업)",
     category: "food",
     day: [1],
@@ -53,6 +55,7 @@ const travelData = [
   // --- [식당 2: 첫날 저녁 부부수산 대게·모듬회 포장] ---
   {
     id: "bubususan",
+    phone: "0507-1301-7418",
     name: "부부수산 (감포 회센터)",
     category: "food",
     day: [1],
@@ -189,6 +192,7 @@ const travelData = [
   // --- [식당 3: 향화정] ---
   {
     id: "hyanghwajeong",
+    phone: "0507-1359-8765",
     name: "향화정",
     category: "food",
     day: [2],
@@ -204,6 +208,7 @@ const travelData = [
   // --- [식당 4: 함양집] ---
   {
     id: "hamyangjip",
+    phone: "054-777-6947",
     name: "함양집 (보문점)",
     category: "food",
     day: [2],
@@ -219,6 +224,7 @@ const travelData = [
   // --- [식당 5: 경주원조콩국] ---
   {
     id: "kongguk",
+    phone: "054-743-9644",
     name: "경주원조콩국",
     category: "food",
     day: [3],
@@ -311,6 +317,7 @@ function createPopupContent(item) {
         <h4 class="map-popup-title">${item.name}</h4>
         <div class="map-popup-address">📍 ${item.address}</div>
         <p style="font-size: 0.82rem; color: #555; margin-bottom: 10px; line-height: 1.4;">${item.shortDesc}</p>
+        ${item.phone ? `<a class="source-link phone-link" href="tel:${item.phone.replaceAll('-','')}">전화 ${item.phone}</a>` : ""}
         <div class="map-popup-actions">
           <a href="${item.kakaoUrl}" target="_blank" rel="noopener noreferrer" class="btn-popup-link btn-kakao">
             카카오맵
