@@ -1520,45 +1520,6 @@ button:disabled { opacity: .55; cursor: wait; }
     padding: 0 10px;
   }
   
-  /* 모바일 네비게이션 드롭다운 */
-  .nav-menu {
-    display: none;
-    position: absolute;
-    top: 68px;
-    left: 0;
-    right: 0;
-    background: rgba(255, 255, 255, 0.98);
-    backdrop-filter: blur(16px);
-    flex-direction: column;
-    padding: 16px 20px;
-    gap: 0;
-    border-bottom: 1px solid var(--border-color);
-    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
-  }
-  
-  .nav-menu.open {
-    display: flex !important;
-  }
-  
-  .nav-menu li {
-    width: 100%;
-    border-bottom: 1px solid var(--border-light);
-  }
-  
-  .nav-menu li:last-child {
-    border-bottom: none;
-  }
-  
-  .nav-link {
-    display: block;
-    padding: 12px 4px;
-    font-size: 1rem;
-  }
-  
-  .mobile-nav-toggle {
-    display: flex;
-  }
-  
   .hero-cta-group {
     flex-direction: column;
     gap: 10px;
@@ -1886,3 +1847,74 @@ button:focus-visible,a:focus-visible { outline:3px solid #337b9a; outline-offset
 .timeline-tab-btn { min-width:0; white-space:normal; }
 .timeline-tab-btn small { font:inherit; }
 @media(max-width:700px){.timeline-nav{gap:8px;}.timeline-tab-btn{padding:12px 8px;min-height:48px;font-size:1rem;line-height:1.25;white-space:nowrap;}.timeline-tab-btn span{display:block;white-space:nowrap;}.timeline-tab-btn small{display:none;}}
+
+/* Keep action labels intact; wrap the controls themselves, not their text. */
+.btn-secondary, .nav-action-btn, .btn-copy-address, .btn-place-action,
+.btn-popup-link, .browse-chip, .booking-link, .source-link, .place-locate,
+.community-refresh, .message-delete, .footer-link, #weather-refresh {
+  white-space: nowrap;
+  word-break: keep-all;
+}
+.browse-chip { flex-shrink: 0; }
+.map-quick-name { overflow: visible; text-overflow: clip; }
+@media (max-width: 768px) {
+  .map-filter-bar { flex-direction: column; align-items: stretch; padding: 14px 12px; }
+  .filter-btn-group { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 8px; overflow: visible; }
+  .filter-btn { min-width: 0; min-height: 44px; padding: 9px 4px; }
+  .booking-link { display: flex; align-items: center; justify-content: center; width: 100%; min-height: 44px; padding: 10px 8px; }
+  .btn-secondary { padding-left: 10px; padding-right: 10px; }
+  .community-toolbar, .message-dialog-actions { flex-wrap: wrap; }
+  .community-refresh, .place-locate, .btn-copy-address, .btn-place-action { min-height: 44px; }
+  .map-quick-grid { grid-template-columns: minmax(0,1fr); padding: 12px; }
+  .map-quick-item { min-width: 0; gap: 8px; padding: 10px 8px; }
+  .map-quick-name { font-size: .85rem; }
+  .map-quick-sub { white-space: nowrap; font-size: .72rem; }
+}
+@media (max-width: 360px) {
+  .filter-btn-group { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .browse-chip { padding: 10px 12px; }
+}
+
+/* Collapse navigation before labels become squeezed on tablets. */
+.nav-logo, .nav-link { white-space: nowrap; }
+@media (max-width: 1100px) {
+  /* 모바일 네비게이션 드롭다운 */
+  .nav-menu {
+    display: none;
+    position: absolute;
+    top: 68px;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(16px);
+    flex-direction: column;
+    padding: 16px 20px;
+    gap: 0;
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
+  }
+  
+  .nav-menu.open {
+    display: flex !important;
+  }
+  
+  .nav-menu li {
+    width: 100%;
+    border-bottom: 1px solid var(--border-light);
+  }
+  
+  .nav-menu li:last-child {
+    border-bottom: none;
+  }
+  
+  .nav-link {
+    display: block;
+    padding: 12px 4px;
+    font-size: 1rem;
+  }
+  
+  .mobile-nav-toggle {
+    display: flex;
+  }
+  
+}

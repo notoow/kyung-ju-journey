@@ -386,7 +386,7 @@ function renderQuickList() {
       <button type="button" class="map-quick-item" onclick="focusOnMapItem('${item.id}')">
         <div class="map-quick-icon ${iconClass}">${iconChar}</div>
         <div class="map-quick-info">
-          <div class="map-quick-name">${item.name}</div>
+          <div class="map-quick-name">${({frameri: "프라메리", hwangnyongsa: "황룡사지·역사문화관"})[item.id] || item.name}</div>
           <div class="map-quick-sub">${item.badge}</div>
         </div>
       </button>

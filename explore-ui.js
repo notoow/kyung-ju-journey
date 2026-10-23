@@ -9,8 +9,8 @@ function extraCard(p) {
     <p class="place-desc">${p.shortDesc}</p>
     ${p.priceNote ? `<p class="photo-credit">${p.priceNote}</p>` : ''}
     ${credit ? `<p class="photo-credit">사진: <a href="${credit.sourcePage}" target="_blank" rel="noopener noreferrer">${credit.sourceLabel}</a></p>` : ''}
-    ${p.sourceUrl ? `<a class="source-link" href="${p.sourceUrl}" target="_blank" rel="noopener noreferrer">매장 정보·메뉴 확인 ↗</a>` : ''}
-    ${p.reservationUrl ? `<a class="booking-link" href="${p.reservationUrl}" target="_blank" rel="noopener noreferrer">테이블링 원격 줄서기 ↗</a>` : ''}
+    ${p.sourceUrl ? `<a class="source-link" href="${p.sourceUrl}" target="_blank" rel="noopener noreferrer">매장·메뉴 정보 ↗</a>` : ''}
+    ${p.reservationUrl ? `<a class="booking-link" href="${p.reservationUrl}" target="_blank" rel="noopener noreferrer">테이블링 줄서기 ↗</a>` : ''}
     ${p.phone ? `<a class="source-link" href="tel:${p.phone.replaceAll('-','')}">전화 문의 ${p.phone}</a>` : ''}
     <div class="place-map-links-row"><a class="btn-map btn-kakao" href="${p.kakaoUrl}" target="_blank" rel="noopener noreferrer">카카오맵</a><a class="btn-map btn-naver" href="${p.naverUrl}" target="_blank" rel="noopener noreferrer">네이버지도</a></div>
     ${Number.isFinite(p.lat) ? `<button class="place-locate" type="button" onclick="focusOnMapItem('${p.id}')">통합 지도에서 보기</button>` : ''}
@@ -45,8 +45,8 @@ function initExplorer() {
       count.textContent = `${cards.filter(c => !c.hidden).length}곳`;
     });
   }
-  document.querySelector('[data-filter="all"]').textContent = `전체 보기 (${travelData.length}곳)`;
-  document.querySelector('[data-filter="tour"]').textContent = `관광 명소 (${travelData.filter(p => p.category === 'tour').length}곳)`;
+  document.querySelector('[data-filter="all"]').textContent = `전체 ${travelData.length}곳`;
+  document.querySelector('[data-filter="tour"]').textContent = `관광 ${travelData.filter(p => p.category === 'tour').length}곳`;
 }
 
 let weatherData = weatherSnapshot;
