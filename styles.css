@@ -1301,7 +1301,7 @@ img {
 .message-form-grid .form-input { min-width: 0; }
 .message-help { font-size: .78rem; color: var(--text-secondary); line-height: 1.6; margin-top: 14px; }
 .message-help a { text-decoration: underline; }
-.community-toolbar { max-width: 960px; margin: 0 auto 12px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.community-toolbar { max-width: 960px; margin: 0 auto 12px; display: flex; align-items: center; justify-content: flex-end; gap: 12px; }
 .community-like, .community-refresh, .message-delete { border: 1px solid var(--border-color); border-radius: 10px; padding: 10px 16px; color: var(--primary-color); background: #fff; font: inherit; cursor: pointer; }
 .community-like { font-weight: 700; }
 .community-like[aria-pressed="true"] { color: #fff; background: var(--primary-color); }

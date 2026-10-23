@@ -18,7 +18,8 @@
 <!-- Leaflet CSS for Map -->
 <link crossorigin="" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" rel="stylesheet"/>
 <!-- Custom Stylesheet -->
-<link href="styles.css?v=20261023-community2" rel="stylesheet"/>
+<link href="styles.css?v=20261023-cheers1" rel="stylesheet"/>
+<link href="applause.css?v=20261023-cheers1" rel="stylesheet"/>
 <link href="favicon.svg" rel="icon" type="image/svg+xml"/></head>
 <body>
 <!-- Top Sticky Navigation -->
@@ -38,10 +39,10 @@
 <li><a class="nav-link" href="#messages">축하 롤링페이퍼</a></li>
 </ul>
 <div style="display: flex; align-items: center; gap: 10px;">
-<button class="nav-action-btn" onclick="triggerCelebration()">
+<a class="nav-action-btn" href="#messages">
 <svg aria-hidden="true" class="ui-icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="m12 3 3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1Z"></path></svg>
-<span>환갑 축하하기</span>
-</button>
+<span>축하글 남기기</span>
+</a>
 <button aria-label="메뉴 열기" class="mobile-nav-toggle" id="mobile-menu-toggle">
 <svg aria-hidden="true" class="ui-icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"></path></svg>
 </button>
@@ -64,10 +65,14 @@
         아버님의 빛나는 인생 2막을 뜨겁게 축복합니다.
       </p>
 <div class="hero-cta-group">
-<button class="btn-celebrate" onclick="triggerCelebration()">
-<svg aria-hidden="true" class="ui-icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="m12 3 3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1Z"></path></svg>
-<span>환갑 축하 폭죽 터뜨리기! 🎉</span>
+<div class="applause-wrap">
+<div class="applause-particles" id="applause-particles" aria-hidden="true"></div>
+<button class="applause-button" id="community-like" type="button" aria-describedby="applause-status" disabled>
+<span class="applause-emoji" aria-hidden="true">🎉</span><span>축하해요</span>
+<span class="applause-count" id="community-like-count">—</span>
 </button>
+<p class="applause-status" id="applause-status" role="status">축하를 모으고 있어요…</p>
+</div>
 <a class="btn-secondary" href="#map">
 <svg aria-hidden="true" class="ui-icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>
 <span>경주 한눈에 보기 (지도)</span>
@@ -957,7 +962,6 @@
 <p class="message-help" id="message-pin-help">삭제할 때 사용할 숫자 4~6자리를 정해 주세요. 6자리를 권장합니다. 잊으면 관리자에게 삭제를 요청해 주세요.</p>
 </div>
 <div class="community-toolbar">
-<button type="button" class="community-like" id="community-like" aria-pressed="false" disabled>♥ 함께 축하해요 <span id="community-like-count">—</span></button>
 <button type="button" class="community-refresh" id="messages-refresh">새로고침</button>
 </div>
 <p class="community-status" id="community-status" role="status">축하 메시지를 불러오고 있습니다…</p>
@@ -1004,10 +1008,11 @@
 <!-- Main Application Script -->
 <script src="places-extra.js?v=20261023-2"></script><script src="explore.js?v=20261023-2"></script><script src="app.js?v=20261023-community1"></script><script src="explore-ui.js?v=20261023-2"></script>
 <script type="module">
-import('./community.js?v=20261023-community3').catch(() => {
+import('./community.js?v=20261023-cheers1').catch(() => {
   const status = document.getElementById('community-status');
   status.textContent = '메시지 서비스에 연결하지 못했습니다. 페이지를 새로고침해 주세요.';
   status.classList.add('is-error');
+  document.getElementById('applause-status').textContent = '연결하지 못했어요. 페이지를 새로고침해 주세요.';
 });
 </script>
 </body>

@@ -1,0 +1,38 @@
+/* A single, playful reaction button in the first screen. */
+.hero-cta-group { align-items: flex-start; }
+.applause-wrap { position: relative; isolation: isolate; }
+.applause-button {
+  position: relative; z-index: 2; display: inline-flex; align-items: center;
+  justify-content: center; gap: 10px; min-height: 52px; padding: 11px 22px;
+  border: 2px solid #5b3d1c; border-radius: 15px; color: #513619;
+  background: #ffdc70; box-shadow: 0 4px 0 #664721, inset 0 2px 0 #fff2b5;
+  font: 800 1.1rem/1.3 'Pretendard',sans-serif; cursor: pointer;
+  transition: background .15s, box-shadow .15s; touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+.applause-button:hover { background: #ffe48c; }
+.applause-button:active { box-shadow: 0 1px 0 #664721; }
+.applause-button:focus-visible { outline: 3px solid #a0392d; outline-offset: 5px; }
+.applause-button:disabled { opacity: .7; }
+.applause-emoji { font-size: 1.3rem; }
+.applause-count { padding-left: 10px; border-left: 1px solid #79511d44; font-variant-numeric: tabular-nums; min-width: 2.2ch; }
+.applause-status { margin-top: 12px; max-width: 290px; font-size: .73rem; line-height: 1.5; color: #756450; text-align: center; }
+.applause-particles { position: absolute; inset: 0; pointer-events: none; z-index: 3; }
+.applause-particle { position: absolute; top: 12px; left: 50%; border: 2px solid #63461f;
+  border-radius: 9px; padding: 4px 8px; background: #ffdb6c; color: #513619;
+  box-shadow: 2px 3px 0 #63461f; font-size: 1.05rem; font-weight: 900; white-space: nowrap;
+  animation: applause-float 1.15s cubic-bezier(.2,.65,.35,1) both; }
+@keyframes applause-float {
+  0% { opacity: 0; transform: translate(-50%,0) scale(.4); }
+  18% { opacity: 1; }
+  65% { opacity: 1; }
+  100% { opacity: 0; transform: translate(calc(-50% + var(--drift)),var(--rise)) rotate(var(--turn)) scale(1.05); }
+}
+@media(max-width:768px) {
+  .applause-wrap, .applause-button { width: 100%; }
+  .applause-status { max-width: none; }
+}
+@media(prefers-reduced-motion:reduce) {
+  .applause-particle { display: none; }
+  .applause-button { transition: none; }
+}

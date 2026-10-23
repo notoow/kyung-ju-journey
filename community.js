@@ -2,8 +2,8 @@ import { communityConfig as config } from './community-config.js';
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/13.1.0/firebase-app.js';
 import { initializeAuth, browserLocalPersistence, inMemoryPersistence, signInAnonymously,
   createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, deleteUser } from 'https://www.gstatic.com/firebasejs/13.1.0/firebase-auth.js';
-import { getFirestore, doc, collection, getDoc, getDocs, getCountFromServer, query, orderBy,
-  limit, startAfter, runTransaction, serverTimestamp, setDoc, deleteDoc } from 'https://www.gstatic.com/firebasejs/13.1.0/firebase-firestore.js';
+import { getFirestore, doc, collection, getDoc, getDocs, getCountFromServer, getAggregateFromServer, sum, query, orderBy,
+  limit, startAfter, runTransaction, serverTimestamp, deleteDoc } from 'https://www.gstatic.com/firebasejs/13.1.0/firebase-firestore.js';
 import { initializeAppCheck, getToken, ReCaptchaEnterpriseProvider } from 'https://www.gstatic.com/firebasejs/13.1.0/firebase-app-check.js';
 
 const app = initializeApp(config.firebase);
@@ -24,7 +24,9 @@ const more = el('messages-more');
 const cheer = el('community-like');
 const dialog = el('delete-message-dialog');
 const deleteForm = el('delete-message-form');
-let cursor, records = [], busy = false, selected, liked = false, active = false;
+let cursor, records = [], busy = false, selected, active = false;
+let myCheers = 0, totalCheers = 0, cheering = false, lastCheer = 0;
+const cheerStatus = el('applause-status');
 const messageEmail = authKey => `${authKey}.${config.siteId}@guest.invalid`;
 
 // Unique public salt prevents credential reuse across messages. The digest is sent
@@ -73,11 +75,38 @@ async function load(append=false) {
   cursor=snap.docs.at(-1); more.hidden=snap.size<30; render();
 }
 async function refreshLike() {
-  const count=await getCountFromServer(collection(db,`${root}/reactions`));
+  const reactions=collection(db,`${root}/reactions`);
+  // Keep every original one-click reaction; missing "extra" fields contribute zero.
+  const [count, extra]=await Promise.all([getCountFromServer(reactions),getAggregateFromServer(reactions,{total:sum('extra')})]);
   await auth.authStateReady();
-  liked=auth.currentUser?(await getDoc(doc(db,`${root}/reactions/${auth.currentUser.uid}`))).exists():false;
-  el('community-like-count').textContent=count.data().count.toLocaleString('ko-KR');
-  cheer.setAttribute('aria-pressed',String(liked));
+  const mine=auth.currentUser?await getDoc(doc(db,`${root}/reactions/${auth.currentUser.uid}`)):null;
+  myCheers=mine?.exists()?1+(mine.data().extra||0):0;
+  totalCheers=count.data().count+(extra.data().total||0);
+  renderCheers();
+}
+function renderCheers() {
+  el('community-like-count').textContent=totalCheers.toLocaleString('ko-KR');
+  cheer.setAttribute('aria-label',`축하해요, 모두 ${totalCheers}번의 축하`);
+  cheer.classList.toggle('has-cheered',myCheers>0);
+  cheerStatus.textContent=myCheers>=10?'축하 10번을 전했어요! 계속 눌러 즐겨요 🎊':myCheers?`내가 보낸 축하 ${myCheers}/10 · 한 번 더 눌러보세요`:'눌러서 축하를 보내주세요 · 최대 10번';
+}
+function cheerBurst(added=false) {
+  const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduced)return;
+  const layer=el('applause-particles');
+  if(layer.childElementCount>20)return;
+  const labels=added?['+1']:['🎉','축하!','💛'];
+  labels.forEach((label,i)=>{
+    const particle=textNode('span','applause-particle',label);
+    particle.style.setProperty('--drift',`${(Math.random()-.5)*160}px`);
+    particle.style.setProperty('--rise',`${-100-Math.random()*90}px`);
+    particle.style.setProperty('--turn',`${(Math.random()-.5)*38}deg`);
+    particle.style.animationDelay=`${i*65}ms`;
+    layer.append(particle);
+    particle.addEventListener('animationend',()=>particle.remove(),{once:true});
+    setTimeout(()=>particle.remove(),2000);
+  });
+  cheer.animate([{transform:'translateY(3px) scale(.96)'},{transform:'translateY(-2px) scale(1.04)'},{transform:'none'}],{duration:280});
 }
 function lock(value) {
   busy=value;
@@ -128,14 +157,29 @@ deleteForm.addEventListener('submit',async event=>{
 el('delete-cancel').addEventListener('click',()=>{if(!busy){dialog.close();deleteForm.reset();}});
 dialog.addEventListener('cancel',e=>{if(busy)e.preventDefault();else deleteForm.reset();});
 cheer.addEventListener('click',async()=>{
-  if(cheer.disabled||!active)return; cheer.disabled=true;
+  if(cheer.disabled||!active)return;
+  cheerBurst();
+  if(cheering||myCheers>=10||Date.now()-lastCheer<650)return;
+  cheering=true;lastCheer=Date.now();
   try {
     await auth.authStateReady();
     const user=auth.currentUser||(await signInAnonymously(auth)).user;
     const ref=doc(db,`${root}/reactions/${user.uid}`);
-    if(liked)await deleteDoc(ref);else await setDoc(ref,{createdAt:serverTimestamp()});
-    await refreshLike();
-  } catch(e){say(readableError(e),true);} finally {cheer.disabled=!active;}
+    const result=await runTransaction(db,async tx=>{
+      const snap=await tx.get(ref);
+      if(!snap.exists()){
+        tx.set(ref,{createdAt:serverTimestamp(),extra:0,lastAt:serverTimestamp()});
+        return {count:1,added:true};
+      }
+      const extra=snap.data().extra||0;
+      if(extra>=9)return {count:10,added:false};
+      tx.update(ref,{extra:extra+1,lastAt:serverTimestamp()});
+      return {count:extra+2,added:true};
+    });
+    myCheers=result.count;
+    if(result.added){totalCheers++;cheerBurst(true);}
+    renderCheers();
+  } catch(e){cheerStatus.textContent=readableError(e);} finally {cheering=false;lastCheer=Date.now();}
 });
 more.addEventListener('click',async()=>{more.disabled=true;try{await load(true);}catch(e){say(readableError(e),true);}finally{more.disabled=false;}});
 el('messages-refresh').addEventListener('click',async event=>{
@@ -149,4 +193,4 @@ async function initialize() {
   active=true; await Promise.all([load(),refreshLike()]); lock(false); cheer.disabled=false;
   say('모든 방문자가 함께 보는 축하글입니다. 연락처 등 개인정보는 적지 말아 주세요.');
 }
-initialize().catch(e=>{console.warn('Community initialization failed:',e.code||e.message);say(readableError(e),true);});
+initialize().catch(e=>{console.warn('Community initialization failed:',e.code||e.message);say(readableError(e),true);cheerStatus.textContent='연결을 확인한 뒤 페이지를 새로고침해 주세요.';});
