@@ -4,7 +4,7 @@ import { initializeAuth, browserLocalPersistence, inMemoryPersistence, signInAno
   createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, deleteUser } from 'https://www.gstatic.com/firebasejs/13.1.0/firebase-auth.js';
 import { getFirestore, doc, collection, getDoc, getDocs, getCountFromServer, query, orderBy,
   limit, startAfter, runTransaction, serverTimestamp, setDoc, deleteDoc } from 'https://www.gstatic.com/firebasejs/13.1.0/firebase-firestore.js';
-import { initializeAppCheck, ReCaptchaEnterpriseProvider } from 'https://www.gstatic.com/firebasejs/13.1.0/firebase-app-check.js';
+import { initializeAppCheck, getAppCheck, getToken, ReCaptchaEnterpriseProvider } from 'https://www.gstatic.com/firebasejs/13.1.0/firebase-app-check.js';
 
 const app = initializeApp(config.firebase);
 const writerApp = initializeApp(config.firebase, 'message-writer');
@@ -144,9 +144,12 @@ el('messages-refresh').addEventListener('click',async event=>{
   try{await initialize();}catch(e){say(readableError(e),true);}finally{button.disabled=false;}
 });
 async function initialize() {
+  await getToken(getAppCheck(app));
+  console.info('Community verification ready');
   const site=await getDoc(doc(db,root));
+  console.info('Community site ready');
   if(!site.exists()||site.data().enabled!==true)throw new Error('메시지 기능을 준비하고 있습니다. 잠시 후 다시 방문해 주세요.');
   active=true; await Promise.all([load(),refreshLike()]); lock(false); cheer.disabled=false;
   say('모든 방문자가 함께 보는 축하글입니다. 연락처 등 개인정보는 적지 말아 주세요.');
 }
-initialize().catch(e=>say(readableError(e),true));
+initialize().catch(e=>{console.warn('Community initialization failed:',e.code||e.message);say(readableError(e),true);});
