@@ -144,9 +144,7 @@ el('messages-refresh').addEventListener('click',async event=>{
 });
 async function initialize() {
   await getToken(appChecks[0]);
-  console.info('Community verification ready');
   const site=await getDoc(doc(db,root));
-  console.info('Community site ready');
   if(!site.exists()||site.data().enabled!==true)throw new Error('메시지 기능을 준비하고 있습니다. 잠시 후 다시 방문해 주세요.');
   active=true; await Promise.all([load(),refreshLike()]); lock(false); cheer.disabled=false;
   say('모든 방문자가 함께 보는 축하글입니다. 연락처 등 개인정보는 적지 말아 주세요.');

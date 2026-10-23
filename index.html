@@ -1004,7 +1004,7 @@
 <!-- Main Application Script -->
 <script src="places-extra.js?v=20261023-2"></script><script src="explore.js?v=20261023-2"></script><script src="app.js?v=20261023-community1"></script><script src="explore-ui.js?v=20261023-2"></script>
 <script type="module">
-import('./community.js').catch(() => {
+import('./community.js?v=20261023-community3').catch(() => {
   const status = document.getElementById('community-status');
   status.textContent = '메시지 서비스에 연결하지 못했습니다. 페이지를 새로고침해 주세요.';
   status.classList.add('is-error');
