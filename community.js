@@ -1,4 +1,5 @@
 import { communityConfig as config } from './community-config.js';
+import { createApplauseQueue } from './applause-queue.mjs';
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/13.1.0/firebase-app.js';
 import { initializeAuth, browserLocalPersistence, inMemoryPersistence, signInAnonymously,
   createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, deleteUser } from 'https://www.gstatic.com/firebasejs/13.1.0/firebase-auth.js';
@@ -25,8 +26,18 @@ const cheer = el('community-like');
 const dialog = el('delete-message-dialog');
 const deleteForm = el('delete-message-form');
 let cursor, records = [], busy = false, selected, active = false;
-let myCheers = 0, totalCheers = 0, cheering = false, lastCheer = 0;
+let myCheers = 0, totalCheers = 0, cheerError = '', bounce;
 const cheerStatus = el('applause-status');
+const applauseQueue=createApplauseQueue({
+  send:saveCheers,
+  change:()=>renderCheers(),
+  saved:(count)=>{myCheers=count;cheerError='';},
+  failed:(error,rejected)=>{
+    totalCheers-=rejected;
+    cheerError='축하를 저장하지 못했어요. 연결을 확인하고 다시 눌러 주세요.';
+    console.warn('Applause save failed:',error.code||error.message);
+  }
+});
 const messageEmail = authKey => `${authKey}.${config.siteId}@guest.invalid`;
 
 // Unique public salt prevents credential reuse across messages. The digest is sent
@@ -75,38 +86,44 @@ async function load(append=false) {
   cursor=snap.docs.at(-1); more.hidden=snap.size<30; render();
 }
 async function refreshLike() {
+  const before=applauseQueue.snapshot();
+  if(before.pending)return;
   const reactions=collection(db,`${root}/reactions`);
   // Keep every original one-click reaction; missing "extra" fields contribute zero.
   const [count, extra]=await Promise.all([getCountFromServer(reactions),getAggregateFromServer(reactions,{total:sum('extra')})]);
   await auth.authStateReady();
   const mine=auth.currentUser?await getDoc(doc(db,`${root}/reactions/${auth.currentUser.uid}`)):null;
+  // A refresh started before a tap must not overwrite its optimistic count.
+  if(before.version!==applauseQueue.snapshot().version)return;
   myCheers=mine?.exists()?1+(mine.data().extra||0):0;
   totalCheers=count.data().count+(extra.data().total||0);
   renderCheers();
 }
 function renderCheers() {
+  const waiting=applauseQueue.snapshot().pending;
   el('community-like-count').textContent=totalCheers.toLocaleString('ko-KR');
   cheer.setAttribute('aria-label',`축하해요, 모두 ${totalCheers}번의 축하`);
-  cheer.classList.toggle('has-cheered',myCheers>0);
-  cheerStatus.textContent=myCheers>=10?'축하 10번을 전했어요! 계속 눌러 즐겨요 🎊':myCheers?`내가 보낸 축하 ${myCheers}/10 · 한 번 더 눌러보세요`:'눌러서 축하를 보내주세요 · 최대 10번';
+  cheer.classList.toggle('has-cheered',myCheers+waiting>0);
+  cheerStatus.textContent=cheerError||(waiting?'축하를 보내는 중… 계속 눌러도 좋아요!':myCheers?`내가 보낸 축하 ${myCheers.toLocaleString('ko-KR')}번 · 마음껏 눌러주세요!`:'축하하는 마음만큼 마음껏 눌러주세요!');
 }
-function cheerBurst(added=false) {
+function cheerBurst() {
   const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
   if(reduced)return;
   const layer=el('applause-particles');
-  if(layer.childElementCount>20)return;
-  const labels=added?['+1']:['🎉','축하!','💛'];
+  while(layer.childElementCount>24)layer.firstElementChild.remove();
+  const labels=['+1',['🎉','축하!','💛'][Math.floor(Math.random()*3)]];
   labels.forEach((label,i)=>{
     const particle=textNode('span','applause-particle',label);
     particle.style.setProperty('--drift',`${(Math.random()-.5)*160}px`);
     particle.style.setProperty('--rise',`${-100-Math.random()*90}px`);
     particle.style.setProperty('--turn',`${(Math.random()-.5)*38}deg`);
-    particle.style.animationDelay=`${i*65}ms`;
+    particle.style.animationDelay=`${i*25}ms`;
     layer.append(particle);
     particle.addEventListener('animationend',()=>particle.remove(),{once:true});
     setTimeout(()=>particle.remove(),2000);
   });
-  cheer.animate([{transform:'translateY(3px) scale(.96)'},{transform:'translateY(-2px) scale(1.04)'},{transform:'none'}],{duration:280});
+  bounce?.cancel();
+  bounce=cheer.animate([{transform:'translateY(3px) scale(.96)'},{transform:'translateY(-1px) scale(1.02)'},{transform:'none'}],{duration:140});
 }
 function lock(value) {
   busy=value;
@@ -156,30 +173,29 @@ deleteForm.addEventListener('submit',async event=>{
 });
 el('delete-cancel').addEventListener('click',()=>{if(!busy){dialog.close();deleteForm.reset();}});
 dialog.addEventListener('cancel',e=>{if(busy)e.preventDefault();else deleteForm.reset();});
-cheer.addEventListener('click',async()=>{
+cheer.addEventListener('click',()=>{
   if(cheer.disabled||!active)return;
+  cheerError=''; totalCheers++;
+  applauseQueue.add();
   cheerBurst();
-  if(cheering||myCheers>=10||Date.now()-lastCheer<650)return;
-  cheering=true;lastCheer=Date.now();
-  try {
+});
+async function saveCheers(amount) {
     await auth.authStateReady();
     const user=auth.currentUser||(await signInAnonymously(auth)).user;
     const ref=doc(db,`${root}/reactions/${user.uid}`);
-    const result=await runTransaction(db,async tx=>{
+    return runTransaction(db,async tx=>{
       const snap=await tx.get(ref);
       if(!snap.exists()){
-        tx.set(ref,{createdAt:serverTimestamp(),extra:0,lastAt:serverTimestamp()});
-        return {count:1,added:true};
+        tx.set(ref,{createdAt:serverTimestamp(),extra:amount-1,lastAt:serverTimestamp()});
+        return amount;
       }
       const extra=snap.data().extra||0;
-      if(extra>=9)return {count:10,added:false};
-      tx.update(ref,{extra:extra+1,lastAt:serverTimestamp()});
-      return {count:extra+2,added:true};
+      tx.update(ref,{extra:extra+amount,lastAt:serverTimestamp()});
+      return extra+amount+1;
     });
-    myCheers=result.count;
-    if(result.added){totalCheers++;cheerBurst(true);}
-    renderCheers();
-  } catch(e){cheerStatus.textContent=readableError(e);} finally {cheering=false;lastCheer=Date.now();}
+}
+document.addEventListener('visibilitychange',()=>{
+  if(document.visibilityState==='hidden')applauseQueue.flush();
 });
 more.addEventListener('click',async()=>{more.disabled=true;try{await load(true);}catch(e){say(readableError(e),true);}finally{more.disabled=false;}});
 el('messages-refresh').addEventListener('click',async event=>{

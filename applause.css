@@ -21,7 +21,7 @@
 .applause-particle { position: absolute; top: 12px; left: 50%; border: 2px solid #63461f;
   border-radius: 9px; padding: 4px 8px; background: #ffdb6c; color: #513619;
   box-shadow: 2px 3px 0 #63461f; font-size: 1.05rem; font-weight: 900; white-space: nowrap;
-  animation: applause-float 1.15s cubic-bezier(.2,.65,.35,1) both; }
+  animation: applause-float .65s cubic-bezier(.2,.65,.35,1) both; }
 @keyframes applause-float {
   0% { opacity: 0; transform: translate(-50%,0) scale(.4); }
   18% { opacity: 1; }
