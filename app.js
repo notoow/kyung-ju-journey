@@ -233,10 +233,6 @@ const travelData = [
   }
 ];
 
-// 사용자 작성 메시지만 저장합니다. 이전 버전의 예시 저장소는 사용하지 않습니다.
-const MESSAGE_KEY = "kyungju_journey_messages_v2";
-let sessionMessages = [];
-
 if (typeof extraPlaces !== "undefined") travelData.push(...extraPlaces);
 travelData.find(p => p.id === "hamyangjip").day = [];
 
@@ -493,75 +489,6 @@ window.triggerCelebration = function() {
   showToast("🎊 아버님의 60번째 환갑을 온 가족이 축하드립니다! 🎂");
 };
 
-function readMessages() {
-  try {
-    // 사용자가 실제 작성 메시지가 없음을 확인했으므로 이전 예시 저장소 전체 제거.
-    localStorage.removeItem("kyungju_journey_messages");
-    const stored = JSON.parse(localStorage.getItem(MESSAGE_KEY) || "[]");
-    sessionMessages = Array.isArray(stored) ? stored.filter(msg =>
-      msg && typeof msg.author === "string" && typeof msg.content === "string" && typeof msg.date === "string"
-    ) : [];
-  } catch { /* 저장소 차단 시 메모리 내 작성 메시지를 유지합니다. */ }
-  return [...sessionMessages];
-}
-
-function loadMessages() {
-  const container = document.getElementById("messages-grid");
-  if (!container) return;
-
-  const messages = readMessages();
-
-  container.innerHTML = messages.map(msg => `
-    <div class="rolling-card">
-      <div class="rolling-card-tape"></div>
-      <div class="rolling-card-text">${escapeHtml(msg.content)}</div>
-      <div class="rolling-card-footer">
-        <span class="rolling-card-author">${escapeHtml(msg.author)}</span>
-        <span>${escapeHtml(msg.date)}</span>
-      </div>
-    </div>
-  `).join("") || '<p class="messages-empty">아직 작성된 메시지가 없습니다. 첫 축하 메시지를 남겨주세요.</p>';
-}
-
-function handleAddMessage(e) {
-  e.preventDefault();
-  const authorInput = document.getElementById("msg-author");
-  const contentInput = document.getElementById("msg-content");
-
-  if (!authorInput || !contentInput) return;
-
-  const author = authorInput.value.trim();
-  const content = contentInput.value.trim();
-
-  if (!author || !content) {
-    showToast("작성자와 축하 메시지를 모두 입력해주세요!");
-    return;
-  }
-
-  const newMsg = {
-    id: "msg-" + Date.now(),
-    author: author,
-    content: content,
-    date: new Date().toLocaleDateString("ko-KR", { year: "numeric", month: "2-digit", day: "2-digit" }).replace(/\./g, ".").replace(/\s/g, "")
-  };
-
-  const messages = readMessages();
-  messages.unshift(newMsg);
-  sessionMessages = messages;
-  try {
-    localStorage.setItem(MESSAGE_KEY, JSON.stringify(messages));
-  } catch {
-    showToast("브라우저 저장이 차단되어 이번 화면에서만 메시지가 유지됩니다.");
-    loadMessages();
-    return;
-  }
-
-  loadMessages();
-  contentInput.value = "";
-  showToast("따뜻한 축하 메시지가 등록되었습니다! 💌");
-  triggerCelebration();
-}
-
 window.copyToClipboard = function(text, label = "주소") {
   if (navigator.clipboard && navigator.clipboard.writeText) {
     navigator.clipboard.writeText(text).then(() => {
@@ -649,12 +576,6 @@ document.addEventListener("DOMContentLoaded", () => {
       tabBtns.forEach(b => b.setAttribute("aria-selected", String(b === btn)));
     });
   });
-
-  const msgForm = document.getElementById("message-form");
-  if (msgForm) {
-    msgForm.addEventListener("submit", handleAddMessage);
-  }
-  loadMessages();
 
   const mobileToggle = document.getElementById("mobile-menu-toggle");
   const navMenu = document.getElementById("nav-menu");
