@@ -341,6 +341,13 @@ const imageCredits = {
     "sourcePage": "https://chojang2.tistory.com/entry/Bok-gil",
     "sourceLabel": "바둑이의 블로그 · 복길 방문기",
     "checkedAt": "2026-10-23"
+  },
+  "suhyang": {
+    "file": "assets/images/suhyang.webp",
+    "imageUrl": "https://d12zq4w4guyljn.cloudfront.net/750_750_20260506103125365_photo_bd424c7a0149.webp",
+    "checkedAt": "2026-10-23",
+    "sourceLabel": "다이닝코드 · 수향생아구 방문 사진",
+    "sourcePage": "https://www.diningcode.com/profile.php?rid=xgnsl7VV3ntL"
   }
 };
 const weatherSnapshot = {

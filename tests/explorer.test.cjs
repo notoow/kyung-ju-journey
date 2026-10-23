@@ -36,7 +36,7 @@ test('all added places have photos, navigation links and resolved map coordinate
   const places=vm.runInContext('extraPlaces',ctx);
   const credits=JSON.parse(read('assets/image-sources.json'));
   assert.equal(places.filter(p=>p.category==='tour').length,17);
-  assert.equal(places.filter(p=>p.category==='food').length,13);
+  assert.equal(places.filter(p=>p.category==='food').length,14);
   for(const p of places){
     assert.ok(Number.isFinite(p.lat)&&Number.isFinite(p.lng),p.name);
     assert.ok(p.lat>35.6&&p.lat<36.1&&p.lng>129&&p.lng<129.6,p.name);

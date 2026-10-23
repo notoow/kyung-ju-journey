@@ -134,5 +134,12 @@
     "type": "PointAddress",
     "source": "Esri World Geocoding Service",
     "checkedAt": "2026-10-23"
+  },
+  "suhyang": {
+    "lat": 35.8396654,
+    "lng": 129.2041625,
+    "matchedAddress": "경북 경주시 노서동 171-3",
+    "source": "https://www.diningcode.com/profile.php?rid=xgnsl7VV3ntL",
+    "checkedAt": "2026-10-23"
   }
 }

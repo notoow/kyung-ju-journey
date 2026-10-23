@@ -513,5 +513,25 @@ const extraPlaces = [
     "kakaoUrl": "https://map.kakao.com/link/search/경주 홍두깨국시",
     "naverUrl": "https://map.naver.com/v5/search/경주 홍두깨국시",
     "coordinateSource": "Esri World Geocoding Service · 경북 경주시 노서동 원효로 42"
+  },
+  {
+    "id": "suhyang",
+    "name": "수향생아구",
+    "category": "food",
+    "day": [],
+    "badge": "아구수육 · 노서동",
+    "foodType": "회·해산물",
+    "address": "경북 경주시 금성로247번길 25",
+    "shortDesc": "담백한 생아구수육과 아구찜을 고를 수 있는 노서동 식당. 수육 주문 가능 여부와 영업시간은 방문 전 전화로 확인하세요.",
+    "menu": "아구수육 소 60,000원 · 중 70,000원 · 대 80,000원",
+    "priceNote": "2026.10.23 온라인 메뉴 확인 기준 · 가격은 매장에서 재확인하세요.",
+    "sourceUrl": "https://www.diningcode.com/profile.php?rid=xgnsl7VV3ntL",
+    "phone": "054-748-1929",
+    "image": "assets/images/suhyang.webp",
+    "lat": 35.8396654,
+    "lng": 129.2041625,
+    "kakaoUrl": "https://map.kakao.com/link/search/경주 수향생아구",
+    "naverUrl": "https://map.naver.com/v5/search/경주 수향생아구",
+    "coordinateSource": "https://www.diningcode.com/profile.php?rid=xgnsl7VV3ntL"
   }
 ];

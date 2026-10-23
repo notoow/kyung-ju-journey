@@ -1854,4 +1854,4 @@ button:focus-visible,a:focus-visible { outline:3px solid #337b9a; outline-offset
 .timeline-nav { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); max-width:720px; margin-left:auto; margin-right:auto; overflow:visible; }
 .timeline-tab-btn { min-width:0; white-space:normal; }
 .timeline-tab-btn small { font:inherit; }
-@media(max-width:700px){.timeline-nav{gap:8px;}.timeline-tab-btn{padding:12px 4px;font-size:.88rem;}.timeline-tab-btn span,.timeline-tab-btn small{display:block;}.timeline-tab-btn small{font-size:.72rem;margin-top:4px;}}
+@media(max-width:700px){.timeline-nav{gap:8px;}.timeline-tab-btn{padding:12px 8px;min-height:48px;font-size:1rem;line-height:1.25;white-space:nowrap;}.timeline-tab-btn span{display:block;white-space:nowrap;}.timeline-tab-btn small{display:none;}}
