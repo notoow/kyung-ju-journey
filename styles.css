@@ -1893,28 +1893,28 @@ button:focus-visible,a:focus-visible { outline:3px solid #337b9a; outline-offset
     border-bottom: 1px solid var(--border-color);
     box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
   }
-  
+
   .nav-menu.open {
     display: flex !important;
   }
-  
+
   .nav-menu li {
     width: 100%;
     border-bottom: 1px solid var(--border-light);
   }
-  
+
   .nav-menu li:last-child {
     border-bottom: none;
   }
-  
+
   .nav-link {
     display: block;
     padding: 12px 4px;
     font-size: 1rem;
   }
-  
+
   .mobile-nav-toggle {
     display: flex;
   }
-  
+
 }
