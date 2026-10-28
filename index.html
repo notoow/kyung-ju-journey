@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>경주 여행 | 오픈소스 여행 템플릿</title>
+<meta content="경주 여행 템플릿" property="og:title"/>
+<meta content="관광지와 음식점 지도, 모바일 접기, 예시 일정으로 구성된 정적 여행 사이트." property="og:description"/>
+<meta content="website" property="og:type"/>
+<link as="style" crossorigin="" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" rel="stylesheet"/>
+<link crossorigin="" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" rel="stylesheet"/>
+<link href="styles.css?v=public-template1" rel="stylesheet"/>
+<link href="favicon.svg" rel="icon" type="image/svg+xml"/><script src="privacy-cleanup.js?v=1"></script></head>
+<body>
+<nav class="navbar" id="navbar">
+<div class="container nav-container">
+<a class="nav-logo" href="#">
+<span class="nav-logo-icon">🏯</span>
+<span>경주 여행</span>
+</a>
+<ul class="nav-menu" id="nav-menu">
+<li><a class="nav-link" href="#map">통합 지도</a></li>
+<li><a class="nav-link" href="#attractions">대표 관광지</a></li>
+<li><a class="nav-link" href="#dining">소문난 맛집</a></li>
+<li><a class="nav-link" href="#itinerary">예시 일정</a></li>
+</ul>
+<div style="display: flex; align-items: center; gap: 10px;">
+<button aria-label="메뉴 열기" class="mobile-nav-toggle" id="mobile-menu-toggle">
+<svg aria-hidden="true" class="ui-icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"></path></svg>
+</button>
+</div>
+</div>
+</nav>
+<header class="hero-section">
+<div class="container">
+<div class="hero-badge-wrap">
+<svg aria-hidden="true" class="ui-icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="m12 3 3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1Z"></path></svg>
+<span>누구나 수정해 사용하는 여행 템플릿</span>
+</div>
+<h1 class="hero-title">내 취향대로 둘러보는 경주</h1>
+<p class="hero-subtitle">관광지와 음식점을 지도에서 골라보세요. 아래 일정은 재사용을 위한 예시이며 실제 방문·예약 기록이 아닙니다.</p>
+<div class="hero-cta-group">
+<a class="btn-secondary" href="#map">
+<svg aria-hidden="true" class="ui-icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>
+<span>경주 한눈에 보기 (지도)</span>
+</a>
+<button class="btn-secondary" onclick="shareWebsite()">
+<svg aria-hidden="true" class="ui-icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="m12 3 3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1Z"></path></svg>
+<span>링크 공유</span>
+</button>
+</div>
+</div>
+</header>
+<section class="weather-section" id="weather"><div class="container"><div class="section-head"><span class="section-tag">Weather &amp; daylight</span><h2 class="section-title">해 뜰 때부터 야경까지</h2><p class="section-desc">현재부터 3일간 경주 날씨와 일출·일몰을 확인하세요.</p></div><div class="weather-layout"><div aria-label="예보 날짜 선택" class="weather-days" id="weather-days"></div><div class="sun-panel" id="sun-panel"></div></div><div class="weather-footer"><p id="weather-status" role="status"></p><button id="weather-refresh" type="button">날씨 불러오기</button><a href="https://open-meteo.com/" rel="noopener noreferrer" target="_blank">날씨·일출·일몰: Open-Meteo ↗</a></div></div></section><section class="map-section" id="map">
+<div class="container">
+<div class="section-head">
+<span class="section-tag">Interactive Map</span>
+<h2 class="section-title">경주 여행 한눈에 보는 통합 지도</h2>
+<p class="section-desc">관광지·음식점을 함께 보세요. 지도 핀은 일대 위치이며 정확한 입구와 길찾기는 카카오맵·네이버지도로 확인하세요. 점선은 방문 순서이며 실제 도로 경로가 아닙니다.</p>
+</div>
+<div class="map-wrapper-card">
+<div class="map-filter-bar">
+<div class="map-filter-title">
+<svg aria-hidden="true" class="ui-icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="m12 3 3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1Z"></path></svg>
+<span>카테고리 &amp; 동선 필터</span>
+</div>
+<div class="filter-btn-group">
+<button class="filter-btn active" data-filter="all">전체 46곳</button>
+<button class="filter-btn" data-filter="tour">관광 25곳</button>
+<button class="filter-btn" data-filter="food">맛집·포장</button>
+<button class="filter-btn" data-filter="day1">예시 코스 1</button>
+<button class="filter-btn" data-filter="day2">예시 코스 2</button>
+</div>
+</div>
+<div id="gyeongju-map"></div>
+<div class="map-quick-grid" id="map-quick-grid"></div>
+</div>
+</div>
+</section>
+<section class="places-section" id="attractions">
+<div class="container">
+<div class="section-head">
+<span class="section-tag">Historical &amp; Scenic Spots</span>
+<h2 class="section-title">경주 관광지</h2>
+<div aria-label="관광 권역 필터" class="browse-filters" id="tour-filters"></div><p id="tour-count" role="status"></p></div>
+<div class="places-grid" id="extra-tours"></div></div>
+</section>
+<section class="places-section" id="dining" style="background: var(--bg-cream);">
+<div class="container">
+<div class="section-head">
+<span class="section-tag">Taste of Kyungju</span>
+<h2 class="section-title">경주 음식점</h2>
+<div aria-label="음식 종류 필터" class="browse-filters" id="food-filters"></div><p id="food-count" role="status"></p></div>
+<div class="places-grid" id="extra-foods"></div></div>
+</section>
+<section class="itinerary-section" id="itinerary">
+<div class="container">
+<div class="section-head">
+<span class="section-tag">Travel Schedule</span>
+<h2 class="section-title">3일 예시 일정</h2>
+<p class="section-desc">개인 여행·예약 정보가 없는 예시입니다. 자유롭게 수정해 사용하세요.</p></div>
+<div class="timeline-nav" role="tablist">
+<button aria-controls="timeline-1" aria-selected="true" class="timeline-tab-btn active" data-day="1" role="tab" type="button">1일차</button>
+<button aria-controls="timeline-2" aria-selected="false" class="timeline-tab-btn" data-day="2" role="tab" type="button">2일차</button>
+<button aria-controls="timeline-3" aria-selected="false" class="timeline-tab-btn" data-day="3" role="tab" type="button">3일차</button>
+</div>
+<div class="timeline-content-pane active" id="timeline-1" role="tabpanel"><h3>Day 1 · 예시 코스</h3><p>방문 순서 예시입니다. 운영시간과 이동시간은 직접 확인하세요.</p><div class="timeline"><div class="timeline-item"><div class="timeline-content"><h4>국립경주박물관</h4><p>전시 관람</p></div></div><div class="timeline-item"><div class="timeline-content"><h4>첨성대</h4><p>동부사적지 산책</p></div></div><div class="timeline-item"><div class="timeline-content"><h4>월정교</h4><p>야경 감상</p></div></div></div></div>
+<div class="timeline-content-pane" id="timeline-2" role="tabpanel"><h3>Day 2 · 예시 코스</h3><p>방문 순서 예시입니다. 운영시간과 이동시간은 직접 확인하세요.</p><div class="timeline"><div class="timeline-item"><div class="timeline-content"><h4>석굴암</h4><p>문화유산 관람</p></div></div><div class="timeline-item"><div class="timeline-content"><h4>불국사</h4><p>사찰과 석탑 관람</p></div></div><div class="timeline-item"><div class="timeline-content"><h4>보문관광단지</h4><p>호수 산책</p></div></div></div></div>
+<div class="timeline-content-pane" id="timeline-3" role="tabpanel"><h3>Day 3 · 예시 코스</h3><p>방문 순서 예시입니다. 운영시간과 이동시간은 직접 확인하세요.</p><div class="timeline"><div class="timeline-item"><div class="timeline-content"><h4>분황사</h4><p>유적 관람</p></div></div><div class="timeline-item"><div class="timeline-content"><h4>황룡사지</h4><p>역사문화관 둘러보기</p></div></div></div></div>
+</div>
+</section>
+<footer class="footer"><div class="container"><p>경주 여행 · 오픈소스 템플릿</p><p>개인정보를 수집하거나 메시지를 저장하지 않습니다.</p><p>지도·폰트·날씨·외부 링크는 각 제공자의 서비스를 사용합니다.</p><a href="#map">지도 보기</a> · <a href="#itinerary">예시 일정</a> · <a href="https://github.com/notoow/kyung-ju-journey">소스 코드 · MIT License</a></div></footer>
+<script crossorigin="" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="places-extra.js?v=public-template1"></script><script src="app.js?v=public-template1"></script><script src="explore-ui.js?v=public-template1"></script>
+
+</body>
+</html>

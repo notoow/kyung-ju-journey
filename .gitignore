@@ -1,0 +1,5 @@
+.review/
+.public-review/
+image-candidates.json
+contact-sheet.jpg
+.env*
