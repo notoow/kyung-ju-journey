@@ -1,6 +1,6 @@
 // All cards share the same place data as the overview map.
 function extraCard(p) {
-  const credit = imageCredits[p.id];
+  const credit = p.photoSource ? {sourcePage:p.photoSource, sourceLabel:'사진 출처 ↗'} : null;
   return `<article class="place-card" data-place-id="${p.id}">
     ${p.image ? `<div class="place-img-wrap"><img class="place-img" src="${p.image}" alt="${p.name} 실제 사진" loading="lazy"></div>` : ''}
     <div class="place-body"><span class="explore-tag">${p.badge}</span><h3 class="place-title">${p.name}</h3>
@@ -89,10 +89,14 @@ function initMobileDisclosures() {
   disclosure(host, [quick], '장소 빠른 이동', 'map-quick-panel');
 }
 
-const imageCredits = {};
 let weatherData = null;
 let weatherDay = 0;
 let weatherLive = false;
+let weatherLoading = false;
+function forecastDates(now = new Date()) {
+  const today = new Intl.DateTimeFormat('en-CA', {timeZone:'Asia/Seoul',year:'numeric',month:'2-digit',day:'2-digit'}).format(now);
+  return [0,1,2].map(offset => new Date(Date.parse(today+'T00:00:00+09:00') + offset*86400000 + 9*3600000).toISOString().slice(0,10));
+}
 function describeWeather(code) {
   if (code === 0) return '☀️ 맑음';
   if ([1,2,3].includes(code)) return '⛅ 구름';
@@ -105,22 +109,31 @@ function describeWeather(code) {
 function minuteOfDay(iso) {
   const [h,m] = iso.slice(11,16).split(':').map(Number); return h * 60 + m;
 }
-function validForecast(data) {
+function validForecast(data, now = new Date()) {
+  const dates = forecastDates(now);
   return data?.daily && data.daily.time?.length === 3 && data.daily.time.every((day,i) =>
-    data.daily.time?.[i] === day && ['sunrise','sunset'].every(k => /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}$/.test(data.daily[k]?.[i])) &&
+    day === dates[i] && ['sunrise','sunset'].every(k => /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}$/.test(data.daily[k]?.[i]) && data.daily[k][i].startsWith(day)) &&
     ['temperature_2m_min','temperature_2m_max','precipitation_probability_max','weather_code'].every(k => Number.isFinite(data.daily[k]?.[i])));
 }
 function renderWeather() {
-  if (!weatherData) { document.getElementById('weather-status').textContent = '날씨 불러오기를 누르면 현재부터 3일 예보를 조회합니다.'; return; }
+  if (weatherData && !validForecast(weatherData)) weatherData = null;
+  if (!weatherData) {
+    document.getElementById('weather-days').innerHTML = forecastDates().map((date,j) => `<div class="weather-day"><strong>${['오늘','내일','모레'][j]} · ${date.slice(5).replace('-','/')}</strong><span>예보 확인 중</span></div>`).join('');
+    document.getElementById('sun-panel').innerHTML = '<p class="sun-tip">경주의 날씨와 일출·일몰을 자동으로 불러옵니다.</p>';
+    document.getElementById('weather-status').textContent = '최신 예보를 확인하고 있어요…'; return;
+  }
   const d = weatherData.daily, i = weatherDay;
   const rise = d.sunrise[i].slice(11,16), set = d.sunset[i].slice(11,16);
   const left = minuteOfDay(d.sunrise[i]) / 14.4, right = minuteOfDay(d.sunset[i]) / 14.4;
-  document.getElementById('weather-days').innerHTML = d.time.map((date,j) => `<button type="button" class="weather-day ${j === i ? 'active' : ''}" aria-pressed="${j === i}" data-day="${j}"><strong>${date.slice(5).replace('-','/')}</strong><span>${describeWeather(d.weather_code[j])}</span><span>${d.temperature_2m_min[j]}° / ${d.temperature_2m_max[j]}°</span></button>`).join('');
+  document.getElementById('weather-days').innerHTML = d.time.map((date,j) => `<button type="button" class="weather-day ${j === i ? 'active' : ''}" aria-pressed="${j === i}" data-day="${j}"><strong>${['오늘','내일','모레'][j]} · ${date.slice(5).replace('-','/')}</strong><span>${describeWeather(d.weather_code[j])}</span><span>${d.temperature_2m_min[j]}° / ${d.temperature_2m_max[j]}°</span></button>`).join('');
   document.getElementById('sun-panel').innerHTML = `<div class="sun-summary"><div>일출<strong>${rise}</strong></div><div class="sun-middle">경주 · 한국시간<span>강수 확률 ${d.precipitation_probability_max[i]}%</span></div><div>일몰<strong>${set}</strong></div></div><div class="sun-strip" role="img" aria-label="${d.time[i]} 일출 ${rise}, 일몰 ${set}. 밝은 구간은 낮, 어두운 구간은 밤입니다."><span class="sun-daylight" style="left:${left}%;width:${right-left}%"></span><span class="sun-marker" style="left:${left}%">☀</span><span class="sun-marker" style="left:${right}%">☾</span></div><div class="sun-hours"><span>00시</span><span>06시</span><span>12시</span><span>18시</span><span>24시</span></div><p class="sun-tip">밝은 구간은 낮, 어두운 구간은 밤입니다. 해가 지면 야경 코스로 전환하세요. 산과 구름에 따라 실제로 해가 보이는 시간은 달라집니다.</p>`;
   const fetched = new Date(weatherData.fetchedAt).toLocaleString('ko-KR',{timeZone:'Asia/Seoul',month:'numeric',day:'numeric',hour:'2-digit',minute:'2-digit'});
   document.getElementById('weather-status').textContent = `${weatherLive ? '최신 조회' : '저장된 예보'} · ${fetched} 기준 · 경주 시내 기준 예보`;
 }
 async function refreshWeather() {
+  if (weatherLoading) return;
+  weatherLoading = true;
+  renderWeather();
   const btn = document.getElementById('weather-refresh'); btn.disabled = true;
   const status = document.getElementById('weather-status'); status.textContent = '최신 예보를 확인하고 있어요…';
   const controller = new AbortController(), timeout = setTimeout(() => controller.abort(),8000);
@@ -129,8 +142,15 @@ async function refreshWeather() {
     if (!response.ok) throw new Error('forecast unavailable');
     const data = await response.json(); if (!validForecast(data)) throw new Error('invalid forecast');
     weatherData = {...data,fetchedAt:new Date().toISOString()}; weatherLive = true; renderWeather();
-  } catch { renderWeather(); status.textContent += ' · 새 예보를 가져오지 못했습니다'; }
-  finally { clearTimeout(timeout); btn.disabled = false; }
+  } catch {
+    weatherLive = false; renderWeather();
+    if (!weatherData) {
+      document.querySelectorAll('#weather-days .weather-day span').forEach(span => span.textContent = '예보 연결 안 됨');
+      document.getElementById('sun-panel').textContent = '인터넷 연결을 확인한 뒤 새로고침해 주세요.';
+      status.textContent = '예보를 가져오지 못했습니다. 잠시 후 자동으로 다시 확인합니다.';
+    } else status.textContent += ' · 새 예보를 가져오지 못했습니다';
+  }
+  finally { clearTimeout(timeout); btn.disabled = false; weatherLoading = false; }
 }
 document.addEventListener('DOMContentLoaded', () => {
   initExplorer();
@@ -141,4 +161,8 @@ document.addEventListener('DOMContentLoaded', () => {
     weatherDay = Number(b.dataset.day); renderWeather();
   });
   document.getElementById('weather-refresh').addEventListener('click',refreshWeather);
+  refreshWeather();
+  setInterval(() => { if (!document.hidden) refreshWeather(); }, 15 * 60 * 1000);
+  document.addEventListener('visibilitychange', () => { if (!document.hidden) refreshWeather(); });
+  window.addEventListener('online', refreshWeather);
 });

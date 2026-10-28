@@ -10,7 +10,7 @@
 <meta content="website" property="og:type"/>
 <link as="style" crossorigin="" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" rel="stylesheet"/>
 <link crossorigin="" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" rel="stylesheet"/>
-<link href="styles.css?v=public-template1" rel="stylesheet"/>
+<link href="styles.css?v=public-template2" rel="stylesheet"/>
 <link href="favicon.svg" rel="icon" type="image/svg+xml"/><script src="privacy-cleanup.js?v=1"></script></head>
 <body>
 <nav class="navbar" id="navbar">
@@ -52,7 +52,7 @@
 </div>
 </div>
 </header>
-<section class="weather-section" id="weather"><div class="container"><div class="section-head"><span class="section-tag">Weather &amp; daylight</span><h2 class="section-title">해 뜰 때부터 야경까지</h2><p class="section-desc">현재부터 3일간 경주 날씨와 일출·일몰을 확인하세요.</p></div><div class="weather-layout"><div aria-label="예보 날짜 선택" class="weather-days" id="weather-days"></div><div class="sun-panel" id="sun-panel"></div></div><div class="weather-footer"><p id="weather-status" role="status"></p><button id="weather-refresh" type="button">날씨 불러오기</button><a href="https://open-meteo.com/" rel="noopener noreferrer" target="_blank">날씨·일출·일몰: Open-Meteo ↗</a></div></div></section><section class="map-section" id="map">
+<section class="weather-section" id="weather"><div class="container"><div class="section-head"><span class="section-tag">Weather &amp; daylight</span><h2 class="section-title">해 뜰 때부터 야경까지</h2><p class="section-desc">오늘·내일·모레, 경주 날씨와 일출·일몰을 자동으로 확인하세요.</p></div><div class="weather-layout"><div aria-label="예보 날짜 선택" class="weather-days" id="weather-days"></div><div class="sun-panel" id="sun-panel"></div></div><div class="weather-footer"><p id="weather-status" role="status"></p><button id="weather-refresh" type="button">새로고침</button><a href="https://open-meteo.com/" rel="noopener noreferrer" target="_blank">날씨·일출·일몰: Open-Meteo ↗</a></div></div></section><section class="map-section" id="map">
 <div class="container">
 <div class="section-head">
 <span class="section-tag">Interactive Map</span>
@@ -71,7 +71,7 @@
 <button class="filter-btn" data-filter="food">맛집·포장</button>
 <button class="filter-btn" data-filter="day1">예시 코스 1</button>
 <button class="filter-btn" data-filter="day2">예시 코스 2</button>
-</div>
+<button class="filter-btn" data-filter="day3">예시 코스 3</button></div>
 </div>
 <div id="gyeongju-map"></div>
 <div class="map-quick-grid" id="map-quick-grid"></div>
@@ -99,20 +99,19 @@
 <div class="section-head">
 <span class="section-tag">Travel Schedule</span>
 <h2 class="section-title">3일 예시 일정</h2>
-<p class="section-desc">개인 여행·예약 정보가 없는 예시입니다. 자유롭게 수정해 사용하세요.</p></div>
+<p class="section-desc">식사와 산책, 야경을 엮은 2박 3일 예시입니다. 출발일을 정하지 않은 추천 동선으로, 계절과 취향에 맞게 바꿔보세요.</p></div>
 <div class="timeline-nav" role="tablist">
 <button aria-controls="timeline-1" aria-selected="true" class="timeline-tab-btn active" data-day="1" role="tab" type="button">1일차</button>
 <button aria-controls="timeline-2" aria-selected="false" class="timeline-tab-btn" data-day="2" role="tab" type="button">2일차</button>
 <button aria-controls="timeline-3" aria-selected="false" class="timeline-tab-btn" data-day="3" role="tab" type="button">3일차</button>
 </div>
-<div class="timeline-content-pane active" id="timeline-1" role="tabpanel"><h3>Day 1 · 예시 코스</h3><p>방문 순서 예시입니다. 운영시간과 이동시간은 직접 확인하세요.</p><div class="timeline"><div class="timeline-item"><div class="timeline-content"><h4>국립경주박물관</h4><p>전시 관람</p></div></div><div class="timeline-item"><div class="timeline-content"><h4>첨성대</h4><p>동부사적지 산책</p></div></div><div class="timeline-item"><div class="timeline-content"><h4>월정교</h4><p>야경 감상</p></div></div></div></div>
-<div class="timeline-content-pane" id="timeline-2" role="tabpanel"><h3>Day 2 · 예시 코스</h3><p>방문 순서 예시입니다. 운영시간과 이동시간은 직접 확인하세요.</p><div class="timeline"><div class="timeline-item"><div class="timeline-content"><h4>석굴암</h4><p>문화유산 관람</p></div></div><div class="timeline-item"><div class="timeline-content"><h4>불국사</h4><p>사찰과 석탑 관람</p></div></div><div class="timeline-item"><div class="timeline-content"><h4>보문관광단지</h4><p>호수 산책</p></div></div></div></div>
-<div class="timeline-content-pane" id="timeline-3" role="tabpanel"><h3>Day 3 · 예시 코스</h3><p>방문 순서 예시입니다. 운영시간과 이동시간은 직접 확인하세요.</p><div class="timeline"><div class="timeline-item"><div class="timeline-content"><h4>분황사</h4><p>유적 관람</p></div></div><div class="timeline-item"><div class="timeline-content"><h4>황룡사지</h4><p>역사문화관 둘러보기</p></div></div></div></div>
+<div class="timeline-content-pane active" id="timeline-1" role="tabpanel"><h3>1일차 · 시내 산책과 월정교 야경</h3><p>시간대는 예시입니다. 운영시간·이동수단·대기 상황에 맞게 조절하세요.</p><div class="timeline"><div class="timeline-item"><div class="timeline-content"><span class="explore-tag">오전</span><h4>대릉원</h4><p>고분 사이를 천천히 걷고 천마총을 둘러보세요.</p><button class="place-locate" onclick="focusOnMapItem('daereungwon')" type="button">지도에서 보기</button></div></div><div class="timeline-item"><div class="timeline-content"><span class="explore-tag">점심</span><h4>황리단길 · 복길</h4><p>왕릉 주변에서 점심을 먹고 황리단길 카페에서 쉬어가세요. 대기 시간은 매장 링크에서 확인하세요.</p><button class="place-locate" onclick="focusOnMapItem('bokgil')" type="button">지도에서 보기</button></div></div><div class="timeline-item"><div class="timeline-content"><span class="explore-tag">오후</span><h4>국립경주박물관</h4><p>신라 유물을 살펴보는 시간. 비가 오면 실내 관람 시간을 늘려도 좋아요.</p><button class="place-locate" onclick="focusOnMapItem('museum')" type="button">지도에서 보기</button></div></div><div class="timeline-item"><div class="timeline-content"><span class="explore-tag">늦은 오후</span><h4>첨성대</h4><p>동부사적지 산책 후 교촌마을 쪽으로 이동하세요.</p><button class="place-locate" onclick="focusOnMapItem('cheomseongdae')" type="button">지도에서 보기</button></div></div><div class="timeline-item"><div class="timeline-content"><span class="explore-tag">저녁</span><h4>교촌마을 · 월정교</h4><p>저녁 식사 후 월정교 야경을 감상하세요. 위 날씨 패널의 일몰 시각에 맞춰 여유 있게 이동하세요.</p><button class="place-locate" onclick="focusOnMapItem('woljeonggyo')" type="button">지도에서 보기</button></div></div></div></div>
+<div class="timeline-content-pane" id="timeline-2" role="tabpanel"><h3>2일차 · 토함산 문화유산과 보문호</h3><p>시간대는 예시입니다. 운영시간·이동수단·대기 상황에 맞게 조절하세요.</p><div class="timeline"><div class="timeline-item"><div class="timeline-content"><span class="explore-tag">오전</span><h4>석굴암</h4><p>산길 이동과 입구부터 걷는 시간을 넉넉히 잡으세요.</p><button class="place-locate" onclick="focusOnMapItem('seokguram')" type="button">지도에서 보기</button></div></div><div class="timeline-item"><div class="timeline-content"><span class="explore-tag">늦은 오전</span><h4>불국사 · 석가탑 · 다보탑</h4><p>두 석탑은 불국사 경내에서 함께 관람할 수 있어요.</p><button class="place-locate" onclick="focusOnMapItem('bulguksa')" type="button">지도에서 보기</button></div></div><div class="timeline-item"><div class="timeline-content"><span class="explore-tag">점심</span><h4>보불어탕명가</h4><p>불국사에서 보문으로 이동하며 따뜻한 식사. 휴무와 영업 여부는 출발 전에 확인하세요.</p><button class="place-locate" onclick="focusOnMapItem('bobul')" type="button">지도에서 보기</button></div></div><div class="timeline-item"><div class="timeline-content"><span class="explore-tag">오후</span><h4>보문호</h4><p>호숫가 산책과 카페 휴식. 체력과 날씨에 따라 동궁원으로 바꿔도 좋아요.</p><button class="place-locate" onclick="focusOnMapItem('bomun')" type="button">지도에서 보기</button></div></div><div class="timeline-item"><div class="timeline-content"><span class="explore-tag">저녁</span><h4>동궁과 월지</h4><p>시내에서 저녁을 먹고 물에 비치는 야경을 감상하세요.</p><button class="place-locate" onclick="focusOnMapItem('donggung')" type="button">지도에서 보기</button></div></div></div></div>
+<div class="timeline-content-pane" id="timeline-3" role="tabpanel"><h3>3일차 · 남산 숲길과 느긋한 마무리</h3><p>시간대는 예시입니다. 운영시간·이동수단·대기 상황에 맞게 조절하세요.</p><div class="timeline"><div class="timeline-item"><div class="timeline-content"><span class="explore-tag">오전</span><h4>경북천년숲정원</h4><p>숲길과 정원을 걸으며 여유 있게 하루를 시작하세요.</p><button class="place-locate" onclick="focusOnMapItem('forest')" type="button">지도에서 보기</button></div></div><div class="timeline-item"><div class="timeline-content"><span class="explore-tag">늦은 오전</span><h4>포석정지</h4><p>남산 서쪽의 유적을 둘러보세요. 돌아가는 교통편에 맞춰 생략해도 좋아요.</p><button class="place-locate" onclick="focusOnMapItem('poseokjeong')" type="button">지도에서 보기</button></div></div><div class="timeline-item"><div class="timeline-content"><span class="explore-tag">점심</span><h4>수리뫼 또는 용산회식당</h4><p>한정식이나 회덮밥 중 취향대로 골라보세요. 수리뫼는 전화로 예약 가능 여부를 먼저 확인하세요.</p><button class="place-locate" onclick="focusOnMapItem('surimoe')" type="button">지도에서 보기</button></div></div><div class="timeline-item"><div class="timeline-content"><span class="explore-tag">오후</span><h4>중앙시장 · 오복닭집</h4><p>간식과 포장 음식을 고른 뒤 귀가하세요. 조리 대기를 고려해 여유를 두세요.</p><button class="place-locate" onclick="focusOnMapItem('obok')" type="button">지도에서 보기</button></div></div></div></div>
 </div>
 </section>
 <footer class="footer"><div class="container"><p>경주 여행 · 오픈소스 템플릿</p><p>개인정보를 수집하거나 메시지를 저장하지 않습니다.</p><p>지도·폰트·날씨·외부 링크는 각 제공자의 서비스를 사용합니다.</p><a href="#map">지도 보기</a> · <a href="#itinerary">예시 일정</a> · <a href="https://github.com/notoow/kyung-ju-journey">소스 코드 · MIT License</a></div></footer>
 <script crossorigin="" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<script src="places-extra.js?v=public-template1"></script><script src="app.js?v=public-template1"></script><script src="explore-ui.js?v=public-template1"></script>
-
+<script src="places-extra.js?v=public-template2"></script><script src="app.js?v=public-template2"></script><script src="explore-ui.js?v=public-template2"></script>
 </body>
 </html>

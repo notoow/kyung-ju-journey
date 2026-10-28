@@ -31,6 +31,7 @@ jobs:
         run: |
           mkdir public
           cp index.html styles.css app.js places-extra.js explore-ui.js privacy-cleanup.js favicon.svg LICENSE public/
+          cp -r assets public/
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

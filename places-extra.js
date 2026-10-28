@@ -1,4 +1,4 @@
-// Public place information; no personal trip or booking data.
+// Public places and attributed third-party photos; no personal trip records.
 const extraPlaces = [
   {
     "id": "surimoe",
@@ -14,8 +14,9 @@ const extraPlaces = [
     "region": "경주",
     "badge": "음식점",
     "shortDesc": "방문 전 지도에서 영업시간과 이용 정보를 확인하세요.",
-    "image": null,
-    "day": []
+    "image": "assets/images/surimoe.webp",
+    "day": [],
+    "photoSource": "https://www.menupan.com/Restaurant/Onepage.asp?acode=H702337"
   },
   {
     "id": "bubususan",
@@ -31,8 +32,9 @@ const extraPlaces = [
     "region": "경주",
     "badge": "음식점",
     "shortDesc": "방문 전 지도에서 영업시간과 이용 정보를 확인하세요.",
-    "image": null,
-    "day": []
+    "image": "assets/images/bubususan.webp",
+    "day": [],
+    "photoSource": "https://blog.kakaocdn.net/dna/ryVVR/btszkmOKstK/AAAAAAAAAAAAAAAAAAAAAKeKMGrxjLZ9XGr1cLeyYvhbFQlTbmglTEC-Q59Hc65h/img.jpg"
   },
   {
     "id": "cheomseongdae",
@@ -46,8 +48,9 @@ const extraPlaces = [
     "region": "경주",
     "badge": "관광지",
     "shortDesc": "방문 전 지도에서 영업시간과 이용 정보를 확인하세요.",
-    "image": null,
-    "day": []
+    "image": "assets/images/cheomseongdae.webp",
+    "day": [],
+    "photoSource": "https://www.gyeongju.go.kr/design/tour2019/img/sub/course01_img3-1.jpg"
   },
   {
     "id": "bulguksa",
@@ -61,8 +64,9 @@ const extraPlaces = [
     "region": "경주",
     "badge": "관광지",
     "shortDesc": "방문 전 지도에서 영업시간과 이용 정보를 확인하세요.",
-    "image": null,
-    "day": []
+    "image": "assets/images/bulguksa.webp",
+    "day": [],
+    "photoSource": "https://www.khs.go.kr/unisearch/images/history_site/1628055.jpg"
   },
   {
     "id": "donggung",
@@ -76,8 +80,9 @@ const extraPlaces = [
     "region": "경주",
     "badge": "관광지",
     "shortDesc": "방문 전 지도에서 영업시간과 이용 정보를 확인하세요.",
-    "image": null,
-    "day": []
+    "image": "assets/images/donggung.webp",
+    "day": [],
+    "photoSource": "https://www.gyeongju.go.kr/design/tour2019/img/sub/course01_img5-1.jpg"
   },
   {
     "id": "daereungwon",
@@ -91,8 +96,9 @@ const extraPlaces = [
     "region": "경주",
     "badge": "관광지",
     "shortDesc": "방문 전 지도에서 영업시간과 이용 정보를 확인하세요.",
-    "image": null,
-    "day": []
+    "image": "assets/images/daereungwon.webp",
+    "day": [],
+    "photoSource": "https://www.gyeongju.go.kr/design/tour2019/img/sub/course01_img4-5.jpg"
   },
   {
     "id": "bomun",
@@ -106,8 +112,9 @@ const extraPlaces = [
     "region": "경주",
     "badge": "관광지",
     "shortDesc": "방문 전 지도에서 영업시간과 이용 정보를 확인하세요.",
-    "image": null,
-    "day": []
+    "image": "assets/images/bomun.webp",
+    "day": [],
+    "photoSource": "https://www.gyeongju.go.kr/design/tour2019/img/sub/bomunCourse23.jpg"
   },
   {
     "id": "gyeongjutower",
@@ -121,8 +128,9 @@ const extraPlaces = [
     "region": "경주",
     "badge": "관광지",
     "shortDesc": "방문 전 지도에서 영업시간과 이용 정보를 확인하세요.",
-    "image": null,
-    "day": []
+    "image": "assets/images/gyeongjutower.webp",
+    "day": [],
+    "photoSource": "https://www.gyeongju.go.kr/design/tour2019/img/sub/bomunCourse19.jpg"
   },
   {
     "id": "gyeongjuworld",
@@ -136,8 +144,9 @@ const extraPlaces = [
     "region": "경주",
     "badge": "관광지",
     "shortDesc": "방문 전 지도에서 영업시간과 이용 정보를 확인하세요.",
-    "image": null,
-    "day": []
+    "image": "assets/images/gyeongjuworld.webp",
+    "day": [],
+    "photoSource": "https://www.gyeongju.go.kr/design/tour2019/img/sub/bomunCourse26.jpg"
   },
   {
     "id": "hwangridan",
@@ -151,8 +160,9 @@ const extraPlaces = [
     "region": "경주",
     "badge": "관광지",
     "shortDesc": "방문 전 지도에서 영업시간과 이용 정보를 확인하세요.",
-    "image": null,
-    "day": []
+    "image": "assets/images/hwangridan.webp",
+    "day": [],
+    "photoSource": "https://www.gyeongju.go.kr/design/tour2019/img/sub/course01_img7-2.jpg"
   },
   {
     "id": "hyanghwajeong",
@@ -168,8 +178,9 @@ const extraPlaces = [
     "region": "경주",
     "badge": "음식점",
     "shortDesc": "방문 전 지도에서 영업시간과 이용 정보를 확인하세요.",
-    "image": null,
-    "day": []
+    "image": "assets/images/hyanghwajeong.webp",
+    "day": [],
+    "photoSource": "https://tong.visitkorea.or.kr/cms/resource/48/2736848_image2_1.jpg"
   },
   {
     "id": "hamyangjip",
@@ -185,8 +196,9 @@ const extraPlaces = [
     "region": "경주",
     "badge": "음식점",
     "shortDesc": "방문 전 지도에서 영업시간과 이용 정보를 확인하세요.",
-    "image": null,
-    "day": []
+    "image": "assets/images/hamyangjip.webp",
+    "day": [],
+    "photoSource": "https://blog.kakaocdn.net/dna/7JqD0/btsPC6KzQdD/AAAAAAAAAAAAAAAAAAAAAPcdS_N14ZL17hAjiCOO70vu-4cX5rPskKmv_pfvxv7C/img.jpg"
   },
   {
     "id": "kongguk",
@@ -202,8 +214,9 @@ const extraPlaces = [
     "region": "경주",
     "badge": "음식점",
     "shortDesc": "방문 전 지도에서 영업시간과 이용 정보를 확인하세요.",
-    "image": null,
-    "day": []
+    "image": "assets/images/kongguk.webp",
+    "day": [],
+    "photoSource": "https://blog.kakaocdn.net/dna/b2Y5u8/btsKqrdPI1a/AAAAAAAAAAAAAAAAAAAAAKBLaeugZ757-xZHy5fGiXp7Slyu1JE9QKKHbPJwWyLf/img.jpg"
   },
   {
     "id": "seokguram",
@@ -217,8 +230,9 @@ const extraPlaces = [
     "region": "불국사·토함산",
     "badge": "관광지",
     "shortDesc": "방문 전 지도에서 영업시간과 이용 정보를 확인하세요.",
-    "image": null,
-    "day": []
+    "image": "assets/images/seokguram.webp",
+    "day": [],
+    "photoSource": "https://www.khs.go.kr/unisearch/images/national_treasure/1612705.jpg"
   },
   {
     "id": "seokgatap",
@@ -232,8 +246,9 @@ const extraPlaces = [
     "region": "불국사·토함산",
     "badge": "관광지",
     "shortDesc": "방문 전 지도에서 영업시간과 이용 정보를 확인하세요.",
-    "image": null,
-    "day": []
+    "image": "assets/images/seokgatap.webp",
+    "day": [],
+    "photoSource": "https://www.gyeongju.go.kr/tour/page.do?mnu_uid=4781&code_uid=1044"
   },
   {
     "id": "dabotap",
@@ -247,8 +262,9 @@ const extraPlaces = [
     "region": "불국사·토함산",
     "badge": "관광지",
     "shortDesc": "방문 전 지도에서 영업시간과 이용 정보를 확인하세요.",
-    "image": null,
-    "day": []
+    "image": "assets/images/dabotap.webp",
+    "day": [],
+    "photoSource": "https://www.gyeongju.go.kr/tour/page.do?mnu_uid=4781&code_uid=1044"
   },
   {
     "id": "woljeonggyo",
@@ -262,8 +278,9 @@ const extraPlaces = [
     "region": "시내·야경",
     "badge": "관광지",
     "shortDesc": "방문 전 지도에서 영업시간과 이용 정보를 확인하세요.",
-    "image": null,
-    "day": []
+    "image": "assets/images/woljeonggyo.webp",
+    "day": [],
+    "photoSource": "https://www.gyeongju.go.kr/tour/page.do?mnu_uid=4859"
   },
   {
     "id": "geumjangdae",
@@ -277,8 +294,9 @@ const extraPlaces = [
     "region": "시내·야경",
     "badge": "관광지",
     "shortDesc": "방문 전 지도에서 영업시간과 이용 정보를 확인하세요.",
-    "image": null,
-    "day": []
+    "image": "assets/images/geumjangdae.webp",
+    "day": [],
+    "photoSource": "https://www.gyeongju.go.kr/tour/page.do?mnu_uid=4859"
   },
   {
     "id": "museum",
@@ -292,8 +310,9 @@ const extraPlaces = [
     "region": "시내·문화",
     "badge": "관광지",
     "shortDesc": "방문 전 지도에서 영업시간과 이용 정보를 확인하세요.",
-    "image": null,
-    "day": []
+    "image": "assets/images/museum.webp",
+    "day": [],
+    "photoSource": "https://www.gyeongju.go.kr/tour/page.do?mnu_uid=4722"
   },
   {
     "id": "gyochon",
@@ -307,8 +326,9 @@ const extraPlaces = [
     "region": "시내·문화",
     "badge": "관광지",
     "shortDesc": "방문 전 지도에서 영업시간과 이용 정보를 확인하세요.",
-    "image": null,
-    "day": []
+    "image": "assets/images/gyochon.webp",
+    "day": [],
+    "photoSource": "https://www.ktriptips.com/kor/tourspot/128676"
   },
   {
     "id": "bunhwangsa",
@@ -322,8 +342,9 @@ const extraPlaces = [
     "region": "시내·문화",
     "badge": "관광지",
     "shortDesc": "방문 전 지도에서 영업시간과 이용 정보를 확인하세요.",
-    "image": null,
-    "day": []
+    "image": "assets/images/bunhwangsa.webp",
+    "day": [],
+    "photoSource": "https://www.ktriptips.com/kor/tourspot/317503"
   },
   {
     "id": "hwangnyongsa",
@@ -337,8 +358,9 @@ const extraPlaces = [
     "region": "시내·문화",
     "badge": "관광지",
     "shortDesc": "방문 전 지도에서 영업시간과 이용 정보를 확인하세요.",
-    "image": null,
-    "day": []
+    "image": "assets/images/hwangnyongsa.webp",
+    "day": [],
+    "photoSource": "https://www.ktriptips.com/kor/tourspot/127985"
   },
   {
     "id": "songdaemal",
@@ -352,8 +374,9 @@ const extraPlaces = [
     "region": "감포·동해안",
     "badge": "관광지",
     "shortDesc": "방문 전 지도에서 영업시간과 이용 정보를 확인하세요.",
-    "image": null,
-    "day": []
+    "image": "assets/images/songdaemal.webp",
+    "day": [],
+    "photoSource": "https://www.ktriptips.com/kor/tourspot/129166"
   },
   {
     "id": "gameunsa",
@@ -367,8 +390,9 @@ const extraPlaces = [
     "region": "감포·동해안",
     "badge": "관광지",
     "shortDesc": "방문 전 지도에서 영업시간과 이용 정보를 확인하세요.",
-    "image": null,
-    "day": []
+    "image": "assets/images/gameunsa.webp",
+    "day": [],
+    "photoSource": "https://www.ktriptips.com/kor/tourspot/128637"
   },
   {
     "id": "munmu",
@@ -382,8 +406,9 @@ const extraPlaces = [
     "region": "감포·동해안",
     "badge": "관광지",
     "shortDesc": "방문 전 지도에서 영업시간과 이용 정보를 확인하세요.",
-    "image": null,
-    "day": []
+    "image": "assets/images/munmu.webp",
+    "day": [],
+    "photoSource": "https://www.ktriptips.com/kor/tourspot/126218"
   },
   {
     "id": "yangdong",
@@ -397,8 +422,9 @@ const extraPlaces = [
     "region": "북부·전통마을",
     "badge": "관광지",
     "shortDesc": "방문 전 지도에서 영업시간과 이용 정보를 확인하세요.",
-    "image": null,
-    "day": []
+    "image": "assets/images/yangdong.webp",
+    "day": [],
+    "photoSource": "https://www.ktriptips.com/kor/tourspot/127855"
   },
   {
     "id": "donggungwon",
@@ -412,8 +438,9 @@ const extraPlaces = [
     "region": "보문·휴식",
     "badge": "관광지",
     "shortDesc": "방문 전 지도에서 영업시간과 이용 정보를 확인하세요.",
-    "image": null,
-    "day": []
+    "image": "assets/images/donggungwon.webp",
+    "day": [],
+    "photoSource": "https://www.ktriptips.com/kor/tourspot/2603463"
   },
   {
     "id": "forest",
@@ -427,8 +454,9 @@ const extraPlaces = [
     "region": "남산·산책",
     "badge": "관광지",
     "shortDesc": "방문 전 지도에서 영업시간과 이용 정보를 확인하세요.",
-    "image": null,
-    "day": []
+    "image": "assets/images/forest.webp",
+    "day": [],
+    "photoSource": "https://www.gyeongju.go.kr/tour/page.do?mnu_uid=4739"
   },
   {
     "id": "poseokjeong",
@@ -442,8 +470,9 @@ const extraPlaces = [
     "region": "남산·산책",
     "badge": "관광지",
     "shortDesc": "방문 전 지도에서 영업시간과 이용 정보를 확인하세요.",
-    "image": null,
-    "day": []
+    "image": "assets/images/poseokjeong.webp",
+    "day": [],
+    "photoSource": "https://www.ktriptips.com/kor/tourspot/126208"
   },
   {
     "id": "yangnam",
@@ -457,8 +486,9 @@ const extraPlaces = [
     "region": "감포·동해안",
     "badge": "관광지",
     "shortDesc": "방문 전 지도에서 영업시간과 이용 정보를 확인하세요.",
-    "image": null,
-    "day": []
+    "image": "assets/images/yangnam.webp",
+    "day": [],
+    "photoSource": "https://www.ktriptips.com/kor/tourspot/2614515"
   },
   {
     "id": "yongsan",
@@ -475,8 +505,9 @@ const extraPlaces = [
     "region": "경주",
     "badge": "음식점",
     "shortDesc": "방문 전 지도에서 영업시간과 이용 정보를 확인하세요.",
-    "image": null,
-    "day": []
+    "image": "assets/images/yongsan.webp",
+    "day": [],
+    "photoSource": "https://green82.tistory.com/805"
   },
   {
     "id": "obok",
@@ -493,8 +524,9 @@ const extraPlaces = [
     "region": "경주",
     "badge": "음식점",
     "shortDesc": "방문 전 지도에서 영업시간과 이용 정보를 확인하세요.",
-    "image": null,
-    "day": []
+    "image": "assets/images/obok.webp",
+    "day": [],
+    "photoSource": "https://www.gyeongju.go.kr/tour/page.do?mnu_uid=4691"
   },
   {
     "id": "gamasot",
@@ -511,8 +543,9 @@ const extraPlaces = [
     "region": "경주",
     "badge": "음식점",
     "shortDesc": "방문 전 지도에서 영업시간과 이용 정보를 확인하세요.",
-    "image": null,
-    "day": []
+    "image": "assets/images/gamasot.webp",
+    "day": [],
+    "photoSource": "https://www.ktriptips.com/kor/food/2876078"
   },
   {
     "id": "bobul",
@@ -529,8 +562,9 @@ const extraPlaces = [
     "region": "경주",
     "badge": "음식점",
     "shortDesc": "방문 전 지도에서 영업시간과 이용 정보를 확인하세요.",
-    "image": null,
-    "day": []
+    "image": "assets/images/bobul.webp",
+    "day": [],
+    "photoSource": "https://www.ktriptips.com/kor/food/2876501"
   },
   {
     "id": "leejaewon",
@@ -547,8 +581,9 @@ const extraPlaces = [
     "region": "경주",
     "badge": "음식점",
     "shortDesc": "방문 전 지도에서 영업시간과 이용 정보를 확인하세요.",
-    "image": null,
-    "day": []
+    "image": "assets/images/leejaewon.webp",
+    "day": [],
+    "photoSource": "https://3jjo.tistory.com/398"
   },
   {
     "id": "sambu",
@@ -565,8 +600,9 @@ const extraPlaces = [
     "region": "경주",
     "badge": "음식점",
     "shortDesc": "방문 전 지도에서 영업시간과 이용 정보를 확인하세요.",
-    "image": null,
-    "day": []
+    "image": "assets/images/sambu.webp",
+    "day": [],
+    "photoSource": "https://www.gyeongju.go.kr/tour/page.do?mnu_uid=4696"
   },
   {
     "id": "choiyounghwa",
@@ -583,8 +619,9 @@ const extraPlaces = [
     "region": "경주",
     "badge": "음식점",
     "shortDesc": "방문 전 지도에서 영업시간과 이용 정보를 확인하세요.",
-    "image": null,
-    "day": []
+    "image": "assets/images/choiyounghwa.webp",
+    "day": [],
+    "photoSource": "https://uh43.tistory.com/73"
   },
   {
     "id": "ppaedollin",
@@ -601,8 +638,9 @@ const extraPlaces = [
     "region": "경주",
     "badge": "음식점",
     "shortDesc": "방문 전 지도에서 영업시간과 이용 정보를 확인하세요.",
-    "image": null,
-    "day": []
+    "image": "assets/images/ppaedollin.webp",
+    "day": [],
+    "photoSource": "https://gjfood.or.kr/board_oSHS24/216259"
   },
   {
     "id": "bokgil",
@@ -620,8 +658,9 @@ const extraPlaces = [
     "region": "경주",
     "badge": "음식점",
     "shortDesc": "방문 전 지도에서 영업시간과 이용 정보를 확인하세요.",
-    "image": null,
-    "day": []
+    "image": "assets/images/bokgil.webp",
+    "day": [],
+    "photoSource": "https://chojang2.tistory.com/entry/Bok-gil"
   },
   {
     "id": "yubin",
@@ -638,8 +677,9 @@ const extraPlaces = [
     "region": "경주",
     "badge": "음식점",
     "shortDesc": "방문 전 지도에서 영업시간과 이용 정보를 확인하세요.",
-    "image": null,
-    "day": []
+    "image": "assets/images/yubin.webp",
+    "day": [],
+    "photoSource": "https://triple.guide/restaurants/c9075245-7516-4a83-80a0-9c08131d56b3"
   },
   {
     "id": "gungsang",
@@ -656,8 +696,9 @@ const extraPlaces = [
     "region": "경주",
     "badge": "음식점",
     "shortDesc": "방문 전 지도에서 영업시간과 이용 정보를 확인하세요.",
-    "image": null,
-    "day": []
+    "image": "assets/images/gungsang.webp",
+    "day": [],
+    "photoSource": "https://www.ktriptips.com/kor/food/2838913"
   },
   {
     "id": "myeongdong",
@@ -674,8 +715,9 @@ const extraPlaces = [
     "region": "경주",
     "badge": "음식점",
     "shortDesc": "방문 전 지도에서 영업시간과 이용 정보를 확인하세요.",
-    "image": null,
-    "day": []
+    "image": "assets/images/myeongdong.webp",
+    "day": [],
+    "photoSource": "https://www.tel-co.net/food/spot/5292"
   },
   {
     "id": "hongdu",
@@ -692,8 +734,9 @@ const extraPlaces = [
     "region": "경주",
     "badge": "음식점",
     "shortDesc": "방문 전 지도에서 영업시간과 이용 정보를 확인하세요.",
-    "image": null,
-    "day": []
+    "image": "assets/images/hongdu.webp",
+    "day": [],
+    "photoSource": "https://www.gyeongju.go.kr/tour/page.do?cmd=2&con_uid=7286&mnu_uid=4830"
   },
   {
     "id": "suhyang",
@@ -710,7 +753,8 @@ const extraPlaces = [
     "region": "경주",
     "badge": "음식점",
     "shortDesc": "방문 전 지도에서 영업시간과 이용 정보를 확인하세요.",
-    "image": null,
-    "day": []
+    "image": "assets/images/suhyang.webp",
+    "day": [],
+    "photoSource": "https://www.diningcode.com/profile.php?rid=xgnsl7VV3ntL"
   }
 ];

@@ -30,10 +30,21 @@ test('all three itinerary tabs work when map library is unavailable', () => {
   }
 });
 
-test('public places retain coordinates and navigation but no bundled photos or personal days',()=>{
+test('public places retain attributed photos and navigation without personal days',()=>{
  const ctx=vm.createContext({});vm.runInContext(read('places-extra.js'),ctx);
  const places=vm.runInContext('extraPlaces',ctx); assert.equal(places.length,44);
- for(const p of places){ assert.ok(Number.isFinite(p.lat)&&Number.isFinite(p.lng));assert.equal(p.image,null);assert.equal(p.day.length,0);assert.ok(p.kakaoUrl.startsWith('https://'));assert.ok(p.naverUrl.startsWith('https://')); }
+ for(const p of places){ assert.ok(Number.isFinite(p.lat)&&Number.isFinite(p.lng));assert.ok(fs.existsSync(path.join(root,p.image)));assert.ok(p.photoSource.startsWith('https://'));assert.equal(p.day.length,0);assert.ok(p.kakaoUrl.startsWith('https://'));assert.ok(p.naverUrl.startsWith('https://')); }
+});
+
+test('forecast rolls over at Korean midnight and rejects yesterday data',()=>{
+ const ctx=vm.createContext({document:{addEventListener(){}}});vm.runInContext(read('explore-ui.js'),ctx);
+ assert.equal(vm.runInContext('forecastDates(new Date("2030-01-31T15:00:00Z")).join(",")',ctx),'2030-02-01,2030-02-02,2030-02-03');
+ const daily={time:['2030-01-31','2030-02-01','2030-02-02']};
+ for(const key of ['sunrise','sunset']) daily[key]=daily.time.map(d=>d+'T07:00');
+ for(const key of ['temperature_2m_min','temperature_2m_max','precipitation_probability_max','weather_code'])daily[key]=[0,1,2];
+ ctx.data={daily};
+ assert.equal(vm.runInContext('Boolean(validForecast(data,new Date("2030-01-31T14:59:00Z")))',ctx),true);
+ assert.equal(vm.runInContext('Boolean(validForecast(data,new Date("2030-01-31T15:00:00Z")))',ctx),false);
 });
 test('public page has no account or message integrations',()=>{
  const html=read('index.html');assert.doesNotMatch(html,/community\.js|firebase|message-form|family-name|countdown-box/);

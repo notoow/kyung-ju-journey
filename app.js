@@ -105,10 +105,13 @@ function updateMapMarkers(filterType) {
   } else if (filterType === "stay" || filterType === "tour" || filterType === "food") {
     filteredPlaces = travelData.filter(p => p.category === filterType);
   } else if (filterType === "day1") {
-    const order = ["museum", "cheomseongdae", "woljeonggyo"];
+    const order = ["daereungwon", "bokgil", "museum", "cheomseongdae", "woljeonggyo"];
+    filteredPlaces = order.map(id => travelData.find(p => p.id === id)).filter(Boolean);
+  } else if (filterType === "day3") {
+    const order = ["forest", "poseokjeong", "surimoe", "obok"];
     filteredPlaces = order.map(id => travelData.find(p => p.id === id)).filter(Boolean);
   } else if (filterType === "day2") {
-    const order = ["seokguram", "bulguksa", "bomun"];
+    const order = ["seokguram", "bulguksa", "bobul", "bomun", "donggung"];
     filteredPlaces = order.map(id => travelData.find(p => p.id === id)).filter(Boolean);
   }
 
@@ -123,7 +126,7 @@ function updateMapMarkers(filterType) {
     latLngs.push([item.lat, item.lng]);
   });
 
-  if ((filterType === "day1" || filterType === "day2") && latLngs.length > 1) {
+  if ((filterType === "day1" || filterType === "day2" || filterType === "day3") && latLngs.length > 1) {
     const polyline = L.polyline(latLngs, {
       color: filterType === "day1" ? "#dc2626" : "#0284c7",
       weight: 4,

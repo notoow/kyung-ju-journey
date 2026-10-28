@@ -1,0 +1,266 @@
+{
+  "cheomseongdae": {
+    "sourcePage": "https://www.gyeongju.go.kr/design/tour2019/img/sub/course01_img3-1.jpg",
+    "sourceLabel": "사진 원문 보기",
+    "imageUrl": "https://www.gyeongju.go.kr/design/tour2019/img/sub/course01_img3-1.jpg",
+    "file": "assets/images/cheomseongdae.webp"
+  },
+  "daereungwon": {
+    "sourcePage": "https://www.gyeongju.go.kr/design/tour2019/img/sub/course01_img4-5.jpg",
+    "sourceLabel": "사진 원문 보기",
+    "imageUrl": "https://www.gyeongju.go.kr/design/tour2019/img/sub/course01_img4-5.jpg",
+    "file": "assets/images/daereungwon.webp"
+  },
+  "donggung": {
+    "sourcePage": "https://www.gyeongju.go.kr/design/tour2019/img/sub/course01_img5-1.jpg",
+    "sourceLabel": "사진 원문 보기",
+    "imageUrl": "https://www.gyeongju.go.kr/design/tour2019/img/sub/course01_img5-1.jpg",
+    "file": "assets/images/donggung.webp"
+  },
+  "hwangridan": {
+    "sourcePage": "https://www.gyeongju.go.kr/design/tour2019/img/sub/course01_img7-2.jpg",
+    "sourceLabel": "사진 원문 보기",
+    "imageUrl": "https://www.gyeongju.go.kr/design/tour2019/img/sub/course01_img7-2.jpg",
+    "file": "assets/images/hwangridan.webp"
+  },
+  "bomun": {
+    "sourcePage": "https://www.gyeongju.go.kr/design/tour2019/img/sub/bomunCourse23.jpg",
+    "sourceLabel": "사진 원문 보기",
+    "imageUrl": "https://www.gyeongju.go.kr/design/tour2019/img/sub/bomunCourse23.jpg",
+    "file": "assets/images/bomun.webp"
+  },
+  "gyeongjutower": {
+    "sourcePage": "https://www.gyeongju.go.kr/design/tour2019/img/sub/bomunCourse19.jpg",
+    "sourceLabel": "사진 원문 보기",
+    "imageUrl": "https://www.gyeongju.go.kr/design/tour2019/img/sub/bomunCourse19.jpg",
+    "file": "assets/images/gyeongjutower.webp"
+  },
+  "gyeongjuworld": {
+    "sourcePage": "https://www.gyeongju.go.kr/design/tour2019/img/sub/bomunCourse26.jpg",
+    "sourceLabel": "사진 원문 보기",
+    "imageUrl": "https://www.gyeongju.go.kr/design/tour2019/img/sub/bomunCourse26.jpg",
+    "file": "assets/images/gyeongjuworld.webp"
+  },
+  "bulguksa": {
+    "sourcePage": "https://www.khs.go.kr/unisearch/images/history_site/1628055.jpg",
+    "sourceLabel": "사진 원문 보기",
+    "imageUrl": "https://www.khs.go.kr/unisearch/images/history_site/1628055.jpg",
+    "file": "assets/images/bulguksa.webp"
+  },
+  "seokguram": {
+    "sourcePage": "https://www.khs.go.kr/unisearch/images/national_treasure/1612705.jpg",
+    "sourceLabel": "사진 원문 보기",
+    "imageUrl": "https://www.khs.go.kr/unisearch/images/national_treasure/1612705.jpg",
+    "file": "assets/images/seokguram.webp"
+  },
+  "hyanghwajeong": {
+    "sourcePage": "https://tong.visitkorea.or.kr/cms/resource/48/2736848_image2_1.jpg",
+    "sourceLabel": "사진 원문 보기",
+    "imageUrl": "https://tong.visitkorea.or.kr/cms/resource/48/2736848_image2_1.jpg",
+    "file": "assets/images/hyanghwajeong.webp"
+  },
+  "bunhwangsa": {
+    "sourcePage": "https://www.ktriptips.com/kor/tourspot/317503",
+    "sourceLabel": "사진 원문 보기",
+    "imageUrl": "https://tong.visitkorea.or.kr/cms/resource/98/3506098_image2_1.jpg",
+    "file": "assets/images/bunhwangsa.webp"
+  },
+  "gameunsa": {
+    "sourcePage": "https://www.ktriptips.com/kor/tourspot/128637",
+    "sourceLabel": "사진 원문 보기",
+    "imageUrl": "https://tong.visitkorea.or.kr/cms/resource_photo/85/4106585_image2_1.JPG",
+    "file": "assets/images/gameunsa.webp"
+  },
+  "munmu": {
+    "sourcePage": "https://www.ktriptips.com/kor/tourspot/126218",
+    "sourceLabel": "사진 원문 보기",
+    "imageUrl": "https://tong.visitkorea.or.kr/cms/resource/41/4103841_image2_1.jpg",
+    "file": "assets/images/munmu.webp"
+  },
+  "yangdong": {
+    "sourcePage": "https://www.ktriptips.com/kor/tourspot/127855",
+    "sourceLabel": "사진 원문 보기",
+    "imageUrl": "https://tong.visitkorea.or.kr/cms/resource/67/4103867_image2_1.JPG",
+    "file": "assets/images/yangdong.webp"
+  },
+  "donggungwon": {
+    "sourcePage": "https://www.ktriptips.com/kor/tourspot/2603463",
+    "sourceLabel": "사진 원문 보기",
+    "imageUrl": "https://tong.visitkorea.or.kr/cms/resource/88/4071888_image2_1.jpg",
+    "file": "assets/images/donggungwon.webp"
+  },
+  "yangnam": {
+    "sourcePage": "https://www.ktriptips.com/kor/tourspot/2614515",
+    "sourceLabel": "사진 원문 보기",
+    "imageUrl": "https://tong.visitkorea.or.kr/cms/resource/78/4056678_image2_1.jpg",
+    "file": "assets/images/yangnam.webp"
+  },
+  "gyochon": {
+    "sourcePage": "https://www.ktriptips.com/kor/tourspot/128676",
+    "sourceLabel": "사진 원문 보기",
+    "imageUrl": "https://tong.visitkorea.or.kr/cms/resource/11/4097011_image2_1.jpg",
+    "file": "assets/images/gyochon.webp"
+  },
+  "hwangnyongsa": {
+    "sourcePage": "https://www.ktriptips.com/kor/tourspot/127985",
+    "sourceLabel": "사진 원문 보기",
+    "imageUrl": "https://tong.visitkorea.or.kr/cms/resource/86/3542386_image2_1.jpg",
+    "file": "assets/images/hwangnyongsa.webp"
+  },
+  "poseokjeong": {
+    "sourcePage": "https://www.ktriptips.com/kor/tourspot/126208",
+    "sourceLabel": "사진 원문 보기",
+    "imageUrl": "https://tong.visitkorea.or.kr/cms/resource/36/3575836_image2_1.jpg",
+    "file": "assets/images/poseokjeong.webp"
+  },
+  "songdaemal": {
+    "sourcePage": "https://www.ktriptips.com/kor/tourspot/129166",
+    "sourceLabel": "사진 원문 보기",
+    "imageUrl": "https://tong.visitkorea.or.kr/cms/resource/04/3544104_image2_1.jpg",
+    "file": "assets/images/songdaemal.webp"
+  },
+  "gamasot": {
+    "sourcePage": "https://www.ktriptips.com/kor/food/2876078",
+    "sourceLabel": "사진 원문 보기",
+    "imageUrl": "https://tong.visitkorea.or.kr/cms/resource/60/4123260_image2_1.jpg",
+    "file": "assets/images/gamasot.webp"
+  },
+  "ppaedollin": {
+    "sourcePage": "https://gjfood.or.kr/board_oSHS24/216259",
+    "sourceLabel": "사진 원문 보기",
+    "imageUrl": "https://gjfood.or.kr/files/attach/images/20140/259/216/9beebb9946fbddc6be79563def33b9eb.jpg",
+    "file": "assets/images/ppaedollin.webp"
+  },
+  "hongdu": {
+    "sourcePage": "https://www.gyeongju.go.kr/tour/page.do?cmd=2&con_uid=7286&mnu_uid=4830",
+    "sourceLabel": "사진 원문 보기",
+    "imageUrl": "https://www.gyeongju.go.kr/upload/content/thumb/20240102/147CED04863540509F48C70667E206B5.jpg",
+    "file": "assets/images/hongdu.webp"
+  },
+  "obok": {
+    "sourcePage": "https://www.gyeongju.go.kr/tour/page.do?mnu_uid=4691",
+    "sourceLabel": "사진 원문 보기",
+    "imageUrl": "https://www.gyeongju.go.kr/design/tour2019/img/sub/tMonth_2024/20240828-59.jpg",
+    "file": "assets/images/obok.webp"
+  },
+  "forest": {
+    "sourcePage": "https://www.gyeongju.go.kr/tour/page.do?mnu_uid=4739",
+    "sourceLabel": "사진 원문 보기",
+    "imageUrl": "https://www.gyeongju.go.kr/design/tour2019/img/sub/dongCourse19.jpg",
+    "file": "assets/images/forest.webp"
+  },
+  "sambu": {
+    "sourcePage": "https://www.gyeongju.go.kr/tour/page.do?mnu_uid=4696",
+    "sourceLabel": "사진 원문 보기",
+    "imageUrl": "https://www.gyeongju.go.kr/design/tour2019/img/sub/tMonth_2025/20250124-38.jpg",
+    "file": "assets/images/sambu.webp"
+  },
+  "yongsan": {
+    "sourcePage": "https://green82.tistory.com/805",
+    "sourceLabel": "사진 원문 보기",
+    "imageUrl": "https://blog.kakaocdn.net/dna/dKgj9i/dJMcaiB3vMG/AAAAAAAAAAAAAAAAAAAAAPe_XCtSq8wyLMzg5V4l9QHRuYy1hYw8wIoSOLf3f3z3/tfile.jpg",
+    "file": "assets/images/yongsan.webp"
+  },
+  "choiyounghwa": {
+    "sourcePage": "https://uh43.tistory.com/73",
+    "sourceLabel": "사진 원문 보기",
+    "imageUrl": "https://t1.daumcdn.net/cfile/blog/246CFE4155A30C9016",
+    "file": "assets/images/choiyounghwa.webp"
+  },
+  "leejaewon": {
+    "sourcePage": "https://3jjo.tistory.com/398",
+    "sourceLabel": "사진 원문 보기",
+    "imageUrl": "https://blog.kakaocdn.net/dna/ca39wD/btsD0HhWlMr/AAAAAAAAAAAAAAAAAAAAAJWV9PTXTeOLyaYrmjxrscImnqxn9n0cKVcxNghfnUIy/img.jpg",
+    "file": "assets/images/leejaewon.webp"
+  },
+  "bobul": {
+    "sourcePage": "https://www.ktriptips.com/kor/food/2876501",
+    "sourceLabel": "사진 원문 보기",
+    "imageUrl": "https://tong.visitkorea.or.kr/cms/resource/91/2876491_image2_1.jpg",
+    "file": "assets/images/bobul.webp"
+  },
+  "gungsang": {
+    "sourcePage": "https://www.ktriptips.com/kor/food/2838913",
+    "sourceLabel": "사진 원문 보기",
+    "imageUrl": "https://tong.visitkorea.or.kr/cms/resource/06/2838906_image2_1.jpg",
+    "file": "assets/images/gungsang.webp"
+  },
+  "yubin": {
+    "sourcePage": "https://triple.guide/restaurants/c9075245-7516-4a83-80a0-9c08131d56b3",
+    "sourceLabel": "사진 원문 보기",
+    "imageUrl": "https://blogthumb.pstatic.net/MjAyNDAxMTBfMTI0/MDAxNzA0ODQ2OTc3NjEy.JEfEBpviSIdHQu-KQhGZuONTpW5tzbFOvaJSMgfPuPwg.AaFs6jupomHWTZGvB5jbQVBk7Zo5EES1p1Qd9H7ArmIg.JPEG.lyj1000je/1704846975826.jpg?type=w2",
+    "file": "assets/images/yubin.webp"
+  },
+  "myeongdong": {
+    "sourcePage": "https://www.tel-co.net/food/spot/5292",
+    "sourceLabel": "사진 원문 보기",
+    "imageUrl": "https://media.tel-co.net/isr/uploads/9985682_E2_D80539_A_959f8da846.jpg?w=720",
+    "file": "assets/images/myeongdong.webp"
+  },
+  "bokgil": {
+    "sourcePage": "https://chojang2.tistory.com/entry/Bok-gil",
+    "sourceLabel": "사진 원문 보기",
+    "imageUrl": "https://blog.kakaocdn.net/dna/clwxXi/btsPkEnFgRq/AAAAAAAAAAAAAAAAAAAAAAOOymseV7yD4KXoHFwlD2Yqv6Zkc2w4iXa1a_OAc25T/img.jpg",
+    "file": "assets/images/bokgil.webp"
+  },
+  "surimoe": {
+    "sourcePage": "https://www.menupan.com/Restaurant/Onepage.asp?acode=H702337",
+    "sourceLabel": "사진 원문 보기",
+    "imageUrl": "https://www.menupan.com/restaurant/restimg/007/zzmenuimg/h7023378_z.jpg",
+    "file": "assets/images/surimoe.webp"
+  },
+  "bubususan": {
+    "sourcePage": "https://blog.kakaocdn.net/dna/ryVVR/btszkmOKstK/AAAAAAAAAAAAAAAAAAAAAKeKMGrxjLZ9XGr1cLeyYvhbFQlTbmglTEC-Q59Hc65h/img.jpg",
+    "sourceLabel": "사진 원문 보기",
+    "imageUrl": "https://blog.kakaocdn.net/dna/ryVVR/btszkmOKstK/AAAAAAAAAAAAAAAAAAAAAKeKMGrxjLZ9XGr1cLeyYvhbFQlTbmglTEC-Q59Hc65h/img.jpg",
+    "file": "assets/images/bubususan.webp"
+  },
+  "hamyangjip": {
+    "sourcePage": "https://blog.kakaocdn.net/dna/7JqD0/btsPC6KzQdD/AAAAAAAAAAAAAAAAAAAAAPcdS_N14ZL17hAjiCOO70vu-4cX5rPskKmv_pfvxv7C/img.jpg",
+    "sourceLabel": "사진 원문 보기",
+    "imageUrl": "https://blog.kakaocdn.net/dna/7JqD0/btsPC6KzQdD/AAAAAAAAAAAAAAAAAAAAAPcdS_N14ZL17hAjiCOO70vu-4cX5rPskKmv_pfvxv7C/img.jpg",
+    "file": "assets/images/hamyangjip.webp"
+  },
+  "kongguk": {
+    "sourcePage": "https://blog.kakaocdn.net/dna/b2Y5u8/btsKqrdPI1a/AAAAAAAAAAAAAAAAAAAAAKBLaeugZ757-xZHy5fGiXp7Slyu1JE9QKKHbPJwWyLf/img.jpg",
+    "sourceLabel": "사진 원문 보기",
+    "imageUrl": "https://blog.kakaocdn.net/dna/b2Y5u8/btsKqrdPI1a/AAAAAAAAAAAAAAAAAAAAAKBLaeugZ757-xZHy5fGiXp7Slyu1JE9QKKHbPJwWyLf/img.jpg",
+    "file": "assets/images/kongguk.webp"
+  },
+  "suhyang": {
+    "sourcePage": "https://www.diningcode.com/profile.php?rid=xgnsl7VV3ntL",
+    "sourceLabel": "사진 원문 보기",
+    "imageUrl": "https://d12zq4w4guyljn.cloudfront.net/300_300_20260506103125365_photo_bd424c7a0149.webp",
+    "file": "assets/images/suhyang.webp"
+  },
+  "woljeonggyo": {
+    "sourcePage": "https://www.gyeongju.go.kr/tour/page.do?mnu_uid=4859",
+    "sourceLabel": "사진 원문 보기",
+    "imageUrl": "https://www.gyeongju.go.kr/design/tour2019/img/sub/pick2_img4.jpg",
+    "file": "assets/images/woljeonggyo.webp"
+  },
+  "geumjangdae": {
+    "sourcePage": "https://www.gyeongju.go.kr/tour/page.do?mnu_uid=4859",
+    "sourceLabel": "사진 원문 보기",
+    "imageUrl": "https://www.gyeongju.go.kr/design/tour2019/img/sub/pick2_img13.jpg",
+    "file": "assets/images/geumjangdae.webp"
+  },
+  "seokgatap": {
+    "sourcePage": "https://www.gyeongju.go.kr/tour/page.do?mnu_uid=4781&code_uid=1044",
+    "sourceLabel": "사진 원문 보기",
+    "imageUrl": "https://www.khs.go.kr/unisearch/images/national_treasure/1612682.jpg",
+    "file": "assets/images/seokgatap.webp"
+  },
+  "dabotap": {
+    "sourcePage": "https://www.gyeongju.go.kr/tour/page.do?mnu_uid=4781&code_uid=1044",
+    "sourceLabel": "사진 원문 보기",
+    "imageUrl": "https://www.khs.go.kr/unisearch/images/national_treasure/1612673.jpg",
+    "file": "assets/images/dabotap.webp"
+  },
+  "museum": {
+    "sourcePage": "https://www.gyeongju.go.kr/tour/page.do?mnu_uid=4722",
+    "sourceLabel": "사진 원문 보기",
+    "imageUrl": "https://www.gyeongju.go.kr/design/tour2019/img/sub/course01_img1-1.jpg",
+    "file": "assets/images/museum.webp"
+  }
+}
